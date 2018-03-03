@@ -139,8 +139,25 @@
         
         $connection = dbConnection();
         
+        $query = "SELECT city FROM usadata WHERE state = '$state'";
+        $result = $connection->query($query);
         
+        if($result){
+            if($result->num_rows == 0){
+                return "False";
+            }else{
+                while ($row = $result->fetch_assoc()){
+                    $city = $row['city'];
+                    $citylist[] = array($city);
+                }
+            }
+        }
+        return json_encode($citylist);
+          
     }
+
+    // This function returns restaurant
+    function 
 
 
 

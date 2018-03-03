@@ -34,10 +34,17 @@
             case "CityByState":
                 echo "<br>In search type";
                 $response_msg = cityByState($request['state']);
+                break;
+                
+            //Search for restaurants
+            case "RestaurantInfo":
+                echo "<br>In Restaurant info";
+                $response_msg = restaurantInfo($request['state'], $request['city'], $request['cuisine_id']);
+                break;
         
         }
         
-        return array('response_msg'=> $response_msg, 'message'=>'Database request received and processed');
+        return $response_msg;
     }
 
     //creating a new server
