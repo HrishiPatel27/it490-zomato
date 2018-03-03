@@ -92,7 +92,7 @@ CREATE TABLE usadata(
     state CHAR(2),
     city VARCHAR(25),
     lat DOUBLE,
-    lon DOUBLE  
+    lon DOUBLE
 );
 
 
