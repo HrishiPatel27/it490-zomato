@@ -91,8 +91,9 @@ CREATE TABLE usadata(
     zip INT(5),
     state CHAR(2),
     city VARCHAR(25),
-    latitude 
-)
+    lat DOUBLE,
+    lon DOUBLE  
+);
 
 
 
