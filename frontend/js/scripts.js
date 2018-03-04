@@ -1,15 +1,13 @@
+//  This function is called when the state is changed and it populates the city column
 function stateSelected(){
-    var state = document.getElementById("state_selection_id").value;
-    var httpReq = createRequestObject();
+    var state = document.getElementById("state_id").value;
     
+    var httpReq = createRequestObject();
     httpReq.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
             
             var response = JSON.parse(this.responseText);
             
-            for(var i = 0; i < response.length; i++){
-                console.log(response[i]);
-            }
             var sel = document.getElementById('city_id');
 
             sel.options.length = 0;
@@ -24,11 +22,11 @@ function stateSelected(){
             }
         }
     }
-    
     httpReq.open("GET", "../php/getCitiesByName.php?state="+state, true);
     httpReq.send(null);
 }
 
+//  This function will create an object for http request
 function createRequestObject(){
     var ajaxSender;
     try {
@@ -46,3 +44,22 @@ function createRequestObject(){
     }
     return ajaxSender;
 }
+
+//  This function is called when the search button is clicked
+function searchRestaurants(){
+    alert("Entered function");
+    
+    var state = document.getElementById("state_id").value;
+    var city = document.getElementById("city_id").value;
+    var cuisine_id = document.getElementById("cuisine_id").value;
+    
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+        }
+    }
+    httpReq.open("GET", "../php/getAllRestaurants.php?state="+state+"&city="+city+"&cuisine_id="+cuisine_id, true);
+    httpReq.send(null);
+    
+}   

@@ -63,7 +63,7 @@
                                 
                                         <!-- State -->
                                         <div class = "col-sm-3">
-                                            <select class="custom-select mr-sm-2" name="state" onchange="stateSelected()" id = "state_selection_id">
+                                            <select class="custom-select mr-sm-2" name="state" onchange="stateSelected()" id = "state_id">
                                                 <option value="0" selected="1">State</option>
                                                 <option value="AL">Alabama</option>
                                                 <option value="AK">Alaska</option>
@@ -202,7 +202,7 @@
 
                                         <!-- Submit -->
                                         <div class = "col-sm-3">
-                                            <button type="submit" class="btn btn-primary">Search</button>
+                                            <button type="submit" class="btn btn-primary" onclick="searchRestaurants()">Search</button>
                                         </div>
                                     </div>
                         </div>

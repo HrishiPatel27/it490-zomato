@@ -7,12 +7,11 @@
 
     $request = array();
 
-    $request['type'] = "CityByState";
+    $request['type'] = "RestaurantInfo";
     $request['state'] = $_GET["state"];
+    $request['city'] = $_GET["city"];
+    $request['cuisine_id'] = $_GET["cuisine_id"];
  
-    //echo $_GET["state"];
-    
-
     $returnedValue = createClientForDb($request);
     
     echo $returnedValue;
