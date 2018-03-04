@@ -123,43 +123,45 @@
     function restaurantInfo($state, $city, $cuisine_id){
         
         $connection = dbConnection();
-        
+        echo "In restaurantInfo function";
         
         //Check for city_id using city and state name
         $cityid_query = "SELECT city_id FROM usadata WHERE city = '$city' AND state = '$state'";
-        $cityid_result = $connection->query($cityid_query);
+        $cityid_query_result = $connection->query($cityid_query);
+        //echo $cityid_query_result;
+        echo "City id searching done";
         
-        if($cityid_result){
-            if($cityid_result->num_rows == 0){
-                $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
-                
-                $rest_result = json_decode($restaurant_result_dmz, true);
-                
-                $city_id = $rest_result['city_id'];
-                $restaurants = $rest_result['restaurants'];
-                
-                $rest_added_db = addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants);
-                
-                
-            }elseif($cityid_result->num_rows == 1){
-                while ($row = $cityid_result->fetch_assoc()){
+            //if($cityid_result->num_rows == 1){
+                while ($row = $cityid_query_result->fetch_assoc()){
                     $city_id = $row['city_id'];
-                    $restaurant_result = getRestaurantDb($cuisine_id, $city_id, $city, $state);
+                    if($city_id == null){
+                        echo "request to dmz sent";
+                        $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
+                        echo "data came from dmz";
+                        //$rest_result = json_decode($restaurant_result_dmz, true);
+
+                        $city_id = $restaurant_result_dmz['city_id'];
+                        $restaurants = $restaurant_result_dmz['restaurants'];
+
+                        echo "Now entering addRestaurantDb function";
+                        $rest_added_db = addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants);
+
+                        echo "Left addRestaurantDb function";
+                        //echo $restaurant_result_dmz;
+                        print_r($restaurant_result_dmz);
+                        return json_encode($restaurant_result_dmz);
+                    }if($city_id != null){
+                        $restaurant_result = getRestaurantDb($cuisine_id, $city_id, $city, $state);
+                    }
                 }
-            }
-        }
+            //}
         
-        //---------------------------------------------------------------------------//
-        
-        
-        
-        //---------------------------------------------------------------------------//
-        
+               
         //If there is no city_id available then ask for restaurants with this city_id and cuisine_id from DMZ
-        $rest_info = getRestaurantDmz($state, $city, $cuisine_id);
-        $cities = $rest_info['city_name'];
-        echo $cities;
-        return json_encode($rest_info);
+//        $rest_info = getRestaurantDmz($state, $city, $cuisine_id);
+//        $cities = $rest_info['city_name'];
+//        echo $cities;
+//        return json_encode($rest_info);
         
         
     }
@@ -167,13 +169,15 @@
     //This functions fetched existing restaurants from database
     function getRestaurantDb($cuisine_id, $city_id, $city, $state){
         
+        $connection = dbConnection();
         //If city_id and restaurant with cuisine_id is available
         $restaurnt_query = "SELECT restaurant.restaurant_id FROM restaurant INNER JOIN (SELECT restaurant_cuisine.restaurant_id FROM restaurant_cuisine WHERE restaurant_cuisine.cuisine_id = '$cuisine_id') WHERE restaurant.city_id = '$city_id'";
-        $restaurant_result = $connection->query($query);
+        $restaurant_result = $connection->query($restaurnt_query);
         
         if($restaurant_result){
             if($restaurant_result->num_rows == 0){
                 $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
+                
                 
             }else{
                 while ($row = $restaurant_result->fetch_assoc()){
@@ -186,6 +190,7 @@
 
     function getRestaurantDmz($state, $city, $cuisine_id){
         
+        echo "In dmz function";
         $request = array();
         $request['type'] = "RestaurantInfo";
         $request['city_name'] = $city;
@@ -193,20 +198,26 @@
         $request['cuisine_id'] = $cuisine_id;
 
         $returnedValue = createClientForDmz($request);
-        
+        echo "Leaving dmz with data";
         return $returnedValue;
-
         
     }
 
     //This function adds restaurants in database
     function addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants){
         
+        $connection = dbConnection();
+        echo "In addRestaurantDb function";
+        
         //Insert city_id in usadata
         $city_id_query = "UPDATE TABLE usadata SET city_id = '$city_id' WHERE city = '$city' AND state = '$state'";
-        $connection->query($city_id_query);
+        $city_id_query_result = $connection->query($city_id_query);
         
+        echo $city_id_query_result;
+        echo "City_id added in usadata";
+            
         //Insert new restaurants into restaurant table
+        echo "Now adding new restaurants";
         for($i = 0; $i < count($restaurants); $i++){
             $rest_id = $restaurants[$i]['restaurant_id'];
             $rest_name = $restaurants[$i]['name'];
@@ -217,22 +228,21 @@
             $rest_rating = $restaurants[$i]['rating'];
             $rest_ratingtext = $restaurants[$i]['rating_text'];
             
+            //Inserts new restaurant in restaurant table
             $rest_insert_query = "INSERT INTO restaurant (restaurant_id, restaurant_name, restaurant_address, city_id, menu_url, thumbnail_url, aggregate_rating, rating_text) VALUES ('$rest_id', '$rest_name', '$rest_addr', '$rest_cityid', '$rest_menu', '$rest_thumb', '$rest_rating', '$rest_ratingtext')";
-            $connection->query($rest_insert_query);
+            $rest_insert_query_result = $connection->query($rest_insert_query);
+            //echo $rest_insert_query_result;
+            
+            //Inserts new rest_id and cuisine_id in restaurant_cuisine table
+            $rest_cuisine_query = "INSERT INTO restaurant_cuisine VALUES ('$rest_id', '$cuisine_id')";
+            $connection->query($rest_cuisine_query);
         }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
         //Insert rest_id and cuisine_id in rest_cuisine
-        //$rest_cuisine_query = "INSERT INTO restaurant_cuisine VALUES ('$rest')";
+        
+        return 'true';
+        
     }
 
 
