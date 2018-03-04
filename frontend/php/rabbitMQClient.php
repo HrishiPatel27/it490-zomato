@@ -25,10 +25,10 @@
         //$response = $client->publish($request);
         
         //  not needed but just incase
-        echo PHP_EOL."client received response".PHP_EOL;
-        print_r($response);
-        echo "\n\n";
-        echo $argv[0]." END".PHP_EOL;
+        //echo PHP_EOL."client received response".PHP_EOL;
+        //print_r($response);
+        //echo "\n\n";
+        //echo $argv[0]." END".PHP_EOL;
         
         return $response;
     }
