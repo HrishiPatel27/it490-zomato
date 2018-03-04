@@ -23,23 +23,17 @@ INSERT INTO user (
     email, h_password, salt, firstname, lastname
 ) VALUES('user1@njit.edu','3d589ce4187655bb60cfc97469440bda782856f8', 'wROfqKslpSy02RVfAhlc','test','user');
 
-//CITY_TABLE
-CREATE TABLE city(
-    city_id INT(10) PRIMARY KEY,
-    city_name VARCHAR(25)   
-);
 
 //RESTAURANT_TABLE 
 CREATE TABLE restaurant(
     restaurant_id INT(10) NOT NULL PRIMARY KEY,
-    city_id INT(10) NOT NULL,
-    restaurant_name VARCHAR(25) NOT NULL,
+    restaurant_name VARCHAR(25), 
     restaurant_address VARCHAR(100),
+    city_id INT(8),
     menu_url VARCHAR(2083),
     thumbnail_url VARCHAR(2083),
     aggregate_rating ENUM ('1','2','3','4','5'),
-    rating_text TEXT(15),
-    FOREIGN KEY (city_id) REFERENCES city(city_id)
+    rating_text TEXT(15)
 
 );
 
@@ -49,8 +43,8 @@ CREATE TABLE review(
     username VARCHAR(50) NOT NULL,
     review_text VARCHAR(1000),
     review_rating ENUM ('1','2','3','4','5'),
-    FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
-    FOREIGN KEY (username) REFERENCES user(username)
+    /**FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
+    FOREIGN KEY (username) REFERENCES user(username) **/
 );
 
 //SUGGESTION_TABLE
@@ -59,8 +53,8 @@ CREATE TABLE suggestion(
     restaurant_id INT(10) NOT NULL,
     suggestion VARCHAR(250),
     dish_name VARCHAR(50),
-    FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
-    FOREIGN KEY (username) REFERENCES user(username)
+    /**FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
+    FOREIGN KEY (username) REFERENCES user(username)**/
 
 );
 
@@ -68,8 +62,8 @@ CREATE TABLE suggestion(
 CREATE TABLE favorite(
     username VARCHAR(50) NOT NULL,
     restaurant_id INT(10) NOT NULL,
-    FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
-    FOREIGN KEY (username) REFERENCES user(username)
+    CONSTRAINT fk_restaurant_id FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
+    CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES user(username)
 );
 
 //CUISINE_TABLE
@@ -82,8 +76,8 @@ CREATE TABLE cuisine(
 CREATE TABLE restaurant_cuisine(
     restaurant_id INT(10) NOT NULL,
     cuisine_id INT(10) NOT NULL,
-    FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
-    FOREIGN KEY (cuisine_id) REFERENCES cuisine(cuisine_id)
+    CONSTRAINT fk_restaurant_id FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
+    CONSTRAINT fk_cuisine_id FOREIGN KEY (cuisine_id) REFERENCES cuisine(cuisine_id)
 );
 
 //USADATA_TABLE

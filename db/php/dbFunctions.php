@@ -10,6 +10,7 @@
     require_once('dbConnection.php');
 
     //Functions for different cases
+    $connection = dbConnection();
 
     //Function for loggin user in the system and authentication
     function doLogin($username, $password){
@@ -75,27 +76,6 @@
         echo "<br>Hsahed Pass: ";
         echo $h_password;
         
-        /*
-        //SQL Query for inserting data into user table
-        $newuser_query = "INSERT INTO user (email, h_password, salt, firstname, lastname, dob_month, dob_date, dob_year, sex, street_number, street_name, city, state, zip, country) VALUES ('$email', '$h_password', '$salt', '$firstname', '$lastname', '$dob_month', '$dob_date', '$dob_year', '$sex', '$street_number', '$street_name', '$city', '$state', '$zip', '$country')";
-        */
-        
-//        echo $username;
-//        echo $email;
-//        echo $password;
-//        echo $firstname;
-//        echo $lastname;
-//        echo $dob_month;
-//        echo $dob_date;
-//        echo $dob_year;
-//        echo $sex;
-//        echo $street_number;
-//        echo $street_name;
-//        echo $city;
-//        echo $state;
-//        echo $zip;
-//        echo $country;
-        
         //Query to check if the username is taken
         $check_username = "SELECT username FROM user WHERE username = '$username'";
         $check_result = $connection->query($check_username);
@@ -112,25 +92,7 @@
         $result = $connection->query($newuser_query);
         echo "<br>Query executed: ";
         echo $result;
-        
-        /*
-        //SQL query to check if the new user was successfully entered
-        $check_query = "SELECT * FROM user WHERE email = '$email'";
-        $result1 = $connection->query($check_query);
-        
-        if($result1){
-            if($result1->num_rows == 0){
-                return '<br>New user was not entered correctly';
-            }else{
-                while ($row = $result1->fetch_assoc()){
-                    if ($row['email'] == $email){
-                        return '<br>New user inserted';
-                    }
-                }
-            }
-        
-        }
-        */   
+         
         echo '<br><br>register function<br><br>';
         return "True";
     }
@@ -160,15 +122,66 @@
     // This function returns restaurant
     function restaurantInfo($state, $city, $cuisine_id){
         
-        //$connection = dbConnection();
+        $connection = dbConnection();
         
-//        $query = "SELECT city FROM usadata WHERE state = '$state'";
-//        $result = $connection->query($query);
         
+        //Check for city_id using city and state name
+        $cityid_query = "SELECT city_id FROM usadata WHERE city = '$city' AND state = '$state'";
+        $cityid_result = $connection->query($cityid_query);
+        
+        if($cityid_result){
+            if($cityid_result->num_rows == 0){
+                $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
+                
+                $rest_result = json_decode($restaurant_result_dmz, true);
+                
+                $city_id = $rest_result['city_id'];
+                $restaurants = $rest_result['restaurants'];
+                
+                $rest_added_db = addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants);
+                
+                
+            }elseif($cityid_result->num_rows == 1){
+                while ($row = $cityid_result->fetch_assoc()){
+                    $city_id = $row['city_id'];
+                    $restaurant_result = getRestaurantDb($cuisine_id, $city_id, $city, $state);
+                }
+            }
+        }
+        
+        //---------------------------------------------------------------------------//
+        
+        
+        
+        //---------------------------------------------------------------------------//
+        
+        //If there is no city_id available then ask for restaurants with this city_id and cuisine_id from DMZ
         $rest_info = getRestaurantDmz($state, $city, $cuisine_id);
         $cities = $rest_info['city_name'];
         echo $cities;
         return json_encode($rest_info);
+        
+        
+    }
+
+    //This functions fetched existing restaurants from database
+    function getRestaurantDb($cuisine_id, $city_id, $city, $state){
+        
+        //If city_id and restaurant with cuisine_id is available
+        $restaurnt_query = "SELECT restaurant.restaurant_id FROM restaurant INNER JOIN (SELECT restaurant_cuisine.restaurant_id FROM restaurant_cuisine WHERE restaurant_cuisine.cuisine_id = '$cuisine_id') WHERE restaurant.city_id = '$city_id'";
+        $restaurant_result = $connection->query($query);
+        
+        if($restaurant_result){
+            if($restaurant_result->num_rows == 0){
+                $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
+                
+            }else{
+                while ($row = $restaurant_result->fetch_assoc()){
+                    
+                }
+            }
+        }
+        
     }
 
     function getRestaurantDmz($state, $city, $cuisine_id){
@@ -186,7 +199,41 @@
         
     }
 
-
+    //This function adds restaurants in database
+    function addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants){
+        
+        //Insert city_id in usadata
+        $city_id_query = "UPDATE TABLE usadata SET city_id = '$city_id' WHERE city = '$city' AND state = '$state'";
+        $connection->query($city_id_query);
+        
+        //Insert new restaurants into restaurant table
+        for($i = 0; $i < count($restaurants); $i++){
+            $rest_id = $restaurants[$i]['restaurant_id'];
+            $rest_name = $restaurants[$i]['name'];
+            $rest_menu = $restaurants[$i]['menu_url'];
+            $rest_thumb = $restaurants[$i]['thumb'];
+            $rest_addr = $restaurants[$i]['address'];
+            $rest_cityid = $restaurants[$i]['city_id'];
+            $rest_rating = $restaurants[$i]['rating'];
+            $rest_ratingtext = $restaurants[$i]['rating_text'];
+            
+            $rest_insert_query = "INSERT INTO restaurant (restaurant_id, restaurant_name, restaurant_address, city_id, menu_url, thumbnail_url, aggregate_rating, rating_text) VALUES ('$rest_id', '$rest_name', '$rest_addr', '$rest_cityid', '$rest_menu', '$rest_thumb', '$rest_rating', '$rest_ratingtext')";
+            $connection->query($rest_insert_query);
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //Insert rest_id and cuisine_id in rest_cuisine
+        //$rest_cuisine_query = "INSERT INTO restaurant_cuisine VALUES ('$rest')";
+    }
 
 
 ?>
