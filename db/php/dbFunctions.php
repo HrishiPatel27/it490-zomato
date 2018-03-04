@@ -5,6 +5,7 @@
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
+    require_once('rabbitMQClient.php');
     require_once('dbFunctions.php');
     require_once('dbConnection.php');
 
@@ -139,7 +140,7 @@
         
         $connection = dbConnection();
         
-        $query = "SELECT city FROM usadata WHERE state = '$state'";
+        $query = "SELECT DISTINCT city FROM usadata WHERE state = '$state' ORDER BY city ASC";
         $result = $connection->query($query);
         
         if($result){
@@ -157,7 +158,33 @@
     }
 
     // This function returns restaurant
-    function 
+    function restaurantInfo($state, $city, $cuisine_id){
+        
+        //$connection = dbConnection();
+        
+//        $query = "SELECT city FROM usadata WHERE state = '$state'";
+//        $result = $connection->query($query);
+        
+        $rest_info = getRestaurantDmz($state, $city, $cuisine_id);
+        $cities = $rest_info['city_name'];
+        echo $cities;
+        return json_encode($rest_info);
+    }
+
+    function getRestaurantDmz($state, $city, $cuisine_id){
+        
+        $request = array();
+        $request['type'] = "RestaurantInfo";
+        $request['city_name'] = $city;
+        $request['state_name'] = $state;
+        $request['cuisine_id'] = $cuisine_id;
+
+        $returnedValue = createClientForDmz($request);
+        
+        return $returnedValue;
+
+        
+    }
 
 
 
