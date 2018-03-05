@@ -128,61 +128,108 @@
         //Check for city_id using city and state name
         $cityid_query = "SELECT city_id FROM usadata WHERE city = '$city' AND state = '$state'";
         $cityid_query_result = $connection->query($cityid_query);
-        //echo $cityid_query_result;
+        
         echo "City id searching done";
         
-            //if($cityid_result->num_rows == 1){
-                while ($row = $cityid_query_result->fetch_assoc()){
+        while ($row = $cityid_query_result->fetch_assoc()){
+            $city_id = $row['city_id'];
+            if($city_id == 0){
+                echo "request to dmz sent";
+                $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
+                echo "data came from dmz";
+            
+                $city_id = $restaurant_result_dmz['city_id'];
+                $restaurants = $restaurant_result_dmz['restaurants'];
+
+                echo "Now entering addRestaurantDb function";
+                $rest_added_db = addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants);
+
+                $restaurnt_query = "SELECT * FROM restaurant INNER JOIN (SELECT DISTINCT restaurant_cuisine.restaurant_id FROM restaurant_cuisine WHERE restaurant_cuisine.cuisine_id = '$cuisine_id') AS R1 ON restaurant.restaurant_id = R1.restaurant_id  WHERE restaurant.city_id = '$city_id'";
+                $restaurant_result = $connection->query($restaurnt_query);
+                $rest = [];
+                while ($row = $restaurant_result->fetch_assoc()){
+                    $id = $row['restaurant_id'];
+                    $name = $row['restaurant_name'];
+                    $url = $row['menu_url'];
+                    $thumb = $row['thumbnail_url'];
+                    $address = $row['restaurant_address'];
                     $city_id = $row['city_id'];
-                    if($city_id == null){
-                        echo "request to dmz sent";
-                        $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
-                        echo "data came from dmz";
-                        //$rest_result = json_decode($restaurant_result_dmz, true);
+                    $rating = $row['aggregate_rating'];
+                    $rating_text = $row['rating_text'];
 
-                        $city_id = $restaurant_result_dmz['city_id'];
-                        $restaurants = $restaurant_result_dmz['restaurants'];
-
-                        echo "Now entering addRestaurantDb function";
-                        $rest_added_db = addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants);
-
-                        echo "Left addRestaurantDb function";
-                        //echo $restaurant_result_dmz;
-                        print_r($restaurant_result_dmz);
-                        return json_encode($restaurant_result_dmz);
-                    }if($city_id != null){
-                        $restaurant_result = getRestaurantDb($cuisine_id, $city_id, $city, $state);
-                    }
+                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
                 }
-            //}
-        
-               
-        //If there is no city_id available then ask for restaurants with this city_id and cuisine_id from DMZ
-//        $rest_info = getRestaurantDmz($state, $city, $cuisine_id);
-//        $cities = $rest_info['city_name'];
-//        echo $cities;
-//        return json_encode($rest_info);
-        
-        
+                $all_info = array('city_name'=>$city, 'state_name'=>$state, 'city_id'=>$city_id, 'restaurants'=>$rest);
+                
+                echo "Left addRestaurantDb function";
+                
+                
+                return json_encode($all_info);
+                
+            }
+            if($city_id != 0){
+                $restaurant_result_db = getRestaurantDb($cuisine_id, $city_id, $city, $state);
+                echo "Data stored and sent to FE";
+                return json_encode($restaurant_result_db);
+            }
+        } 
     }
 
     //This functions fetched existing restaurants from database
     function getRestaurantDb($cuisine_id, $city_id, $city, $state){
         
         $connection = dbConnection();
+        
         //If city_id and restaurant with cuisine_id is available
-        $restaurnt_query = "SELECT restaurant.restaurant_id FROM restaurant INNER JOIN (SELECT restaurant_cuisine.restaurant_id FROM restaurant_cuisine WHERE restaurant_cuisine.cuisine_id = '$cuisine_id') WHERE restaurant.city_id = '$city_id'";
+        $restaurnt_query = "SELECT * FROM restaurant INNER JOIN (SELECT DISTINCT restaurant_cuisine.restaurant_id FROM restaurant_cuisine WHERE restaurant_cuisine.cuisine_id = '$cuisine_id') AS R1 ON restaurant.restaurant_id = R1.restaurant_id  WHERE restaurant.city_id = '$city_id'";
+                
         $restaurant_result = $connection->query($restaurnt_query);
         
         if($restaurant_result){
             if($restaurant_result->num_rows == 0){
+                
                 $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
                 
+                $city_id = $restaurant_result_dmz['city_id'];
+                $restaurants = $restaurant_result_dmz['restaurants'];
                 
-            }else{
-                while ($row = $restaurant_result->fetch_assoc()){
-                    
+                $rest_added_db = addRestaurantDb($city_id, $city, $state, $cuisine_id, $restaurants);
+                
+                $restaurnt_query1 = "SELECT * FROM restaurant INNER JOIN (SELECT DISTINCT restaurant_cuisine.restaurant_id FROM restaurant_cuisine WHERE restaurant_cuisine.cuisine_id = '$cuisine_id') AS R1 ON restaurant.restaurant_id = R1.restaurant_id  WHERE restaurant.city_id = '$city_id'";
+                $restaurant_result1 = $connection->query($restaurnt_query1);
+                $rest = [];
+                while ($row = $restaurant_result1->fetch_assoc()){
+                    $id = $row['restaurant_id'];
+                    $name = $row['restaurant_name'];
+                    $url = $row['menu_url'];
+                    $thumb = $row['thumbnail_url'];
+                    $address = $row['restaurant_address'];
+                    $city_id = $row['city_id'];
+                    $rating = $row['aggregate_rating'];
+                    $rating_text = $row['rating_text'];
+
+                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
                 }
+                $all_info = array('city_name'=>$city, 'state_name'=>$state, 'city_id'=>$city_id, 'restaurants'=>$rest);
+                return $all_info;
+                
+            }elseif($restaurant_result->num_rows > 0){
+                $rest = [];
+                while ($row = $restaurant_result->fetch_assoc()){
+                    $id = $row['restaurant_id'];
+                    $name = $row['restaurant_name'];
+                    $url = $row['menu_url'];
+                    $thumb = $row['thumbnail_url'];
+                    $address = $row['restaurant_address'];
+                    $city_id = $row['city_id'];
+                    $rating = $row['aggregate_rating'];
+                    $rating_text = $row['rating_text'];
+
+                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
+                }
+                $all_info = array('city_name'=>$city, 'state_name'=>$state, 'city_id'=>$city_id, 'restaurants'=>$rest);
+                return $all_info;
+                return "there are restaurants in database";
             }
         }
         
@@ -210,7 +257,7 @@
         echo "In addRestaurantDb function";
         
         //Insert city_id in usadata
-        $city_id_query = "UPDATE TABLE usadata SET city_id = '$city_id' WHERE city = '$city' AND state = '$state'";
+        $city_id_query = "UPDATE usadata SET city_id = '$city_id' WHERE city = '$city' AND state = '$state'";
         $city_id_query_result = $connection->query($city_id_query);
         
         echo $city_id_query_result;
