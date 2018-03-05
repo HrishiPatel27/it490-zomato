@@ -54,7 +54,22 @@
                 break;
                 
             //Get individual restaurant info
+            case "UniqueRestaurantInfo":
+                echo "going in function";
+                $response_msg = uniqueRestaurantInfo($request['restaurant_id']);
+                echo "out of function";
+                break;
+            
+            //Get user profile
+            case "UserProfile":
+                $response_msg = userProfile($request['username']);
+                break;
                 
+            //Add favorite
+            case "AddFavorite":
+                $response_msg = addFavorite($request['username'], $request['restaurant_id']);
+                break;
+        
         
         }
         

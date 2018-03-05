@@ -299,6 +299,8 @@
         
         $addsuggestion_query = "INSERT INTO suggestion VALUES ('$username', '$restaurant_id', '$suggestion', '$dish_name')";
         $result = $connection->query($addsuggestion_query);
+        
+        return "true";
     }
 
     //This function enters reviews for restaurant from user
@@ -307,11 +309,173 @@
         $connection = dbConnection();
         
         $addreview_query = "INSERT INTO review VALUES ('$username', '$restaurant_id', '$review_text', '$review_rating')";
-        $result = $connection->query($addsuggestion_query);
+        $result = $connection->query($addreview_query);
+        return "true";
     }
 
     //This function fetches individual restaurant info
-    
+    function uniqueRestaurantInfo($restaurant_id){
+        
+        $connection = dbConnection();
+        
+        //echo "in function";
+        //Getting suggestions in restaurant and storing in $suggestioninfo
+        
+        $getsuggestion_query = "SELECT * FROM suggestion WHERE restaurant_id = '$restaurant_id'";
+        $getsuggestion_query_result = $connection->query($getsuggestion_query);
+        //echo "Executed suggestions query         ";
+        if($getsuggestion_query_result){
+            if($getsuggestion_query_result->num_rows == 0){
+                $suggestioninfo = [];
+                $suggestionresult = "false";
+                $suggestioninfo = array('username'=>$suggestionresult, 'suggestion'=>$suggestionresult);
+            }else{
+                $suggestioninfo = [];
+                while($row = $getsuggestion_query_result->fetch_assoc()){
+                    $suggestion = $row['suggestion'];
+                    $dish_name = $row['dish_name'];
+                    $user = $row['username'];
+                    $suggestioninfo = array('username'=>$user, 'suggestion'=>$dish_name);
+                    //echo "suggestion fetched      ";
+                }
+            }
+        }
+        
+        //Getting reviews in restaurant and storing in $reviewsinfo
+        
+        $getreview_query = "SELECT * FROM review WHERE restaurant_id = '$restaurant_id'";
+        $getreview_query_result = $connection->query($getreview_query);
+        //echo "Executed reviews query        ";
+        if($getreview_query_result){
+            if($getreview_query_result->num_rows == 0){
+                $reviewsinfo = [];
+                $reviewresult = "false";
+                $reviewsinfo = array('username'=>$reviewresult, 'review_rating'=>$reviewresult, 'review_text'=>$reviewresult);
+            }else{
+                $reviewsinfo = [];
+                while($row = $getreview_query_result->fetch_assoc()){
+                    $review_rating = $row['review_rating'];
+                    $review_text = $row['review_text'];
+                    $user = $row['username'];
+                    $reviewsinfo = array('username'=>$user, 'review_rating'=>$review_rating, 'review_text'=>$review_text);
+                }   
+            }
+        }
+        
+        //Getting restaurant info and storing in $restinfo
+        
+        $getrestaurant_query = "SELECT * FROM restaurant WHERE restaurant_id = '$restaurant_id'";
+        $getrestaurant_query_result = $connection->query($getrestaurant_query);
+        //echo "Executed restruatn query       ";
+        if($getrestaurant_query_result){
+            if($getrestaurant_query_result->num_rows == 0){
+                return "False";
+            }else{
+                $restinfo = [];
+                while($row = $getrestaurant_query_result->fetch_assoc()){
+                    $name = $row['restaurant_name'];
+                    $thumbnail = $row['thumbnail_url'];
+                    $menu_url = $row['menu_url'];
+                    //echo "1   ";
+                }
+                $restinfo = array('name'=>$name, 'id'=>$restaurant_id, 'thumbnail'=>$thumbnail, 'menu'=>$menu_url, 'suggestions'=>$suggestioninfo, 'reviews'=>$reviewsinfo);
+                //echo "Final list prepared      ";
+            }
+        }
+        //Combine all infos together and return $allinfo 
+        //print_r("Result: ".$restinfo);
+        //echo "leaving function";
+        //echo count($restinfo);
+     return $restinfo;
+            
+    }
+
+    //This function fetched restaurnt, suggestions, reviews of user
+    function userProfile($username){
+        
+        $connection = dbConnection();
+        //Getting suggestions in restaurant and storing in $suggestioninfo
+        
+        $getsuggestion_query = "select * from (select * from suggestion natural join restaurant) as r1 where username = '$username'";
+        $getsuggestion_query_result = $connection->query($getsuggestion_query);
+        
+        if($getsuggestion_query_result){
+            if($getsuggestion_query_result->num_rows == 0){
+                $suggestioninfo = [];
+                $suggestionresult = 'false';
+                $suggestioninfo = array('restaurant_name'=>$suggestionresult, 'suggestion'=>$suggestionresult, 'dish_name'=>$suggestionresult);
+            }else{
+                $suggestioninfo = [];
+                while($row = $getsuggestion_query_result->fetch_assoc()){
+                    $suggestion = $row['suggestion'];
+                    $dish_name = $row['dish_name'];
+                    $restaurant_name = $row['restaurant_name'];
+                    $suggestioninfo = array('restaurant_name'=>$restaurant_name, 'suggestion'=>$suggestion, 'dish_name'=>$dish_name);
+                }
+            }
+        }
+        
+        //Getting reviews in restaurant and storing in $reviewsinfo
+        
+        $getreview_query = "select * from (select * from review natural join restaurant) as r1 where username = '$username'";
+        $getreview_query_result = $connection->query($getreview_query);
+        
+        if($getreview_query_result){
+            if($getreview_query_result->num_rows == 0){
+                $reviewsinfo = [];
+                $reviewsresult = "false";
+                $reviewsinfo = array('restaurant_name'=>$reviewsresult, 'review_rating'=>$reviewsresult, 'review_text'=>$reviewsresult);
+            }else{
+                $reviewsinfo = [];
+                while($row = $getreview_query_result->fetch_assoc()){
+                    $review_rating = $row['review_rating'];
+                    $review_text = $row['review_text'];
+                    $restaurant_name = $row['restaurant_name'];
+                    $reviewsinfo = array('restaurant_name'=>$restaurant_name, 'review_rating'=>$review_rating, 'review_text'=>$review_text);
+                }   
+            }
+        }
+        
+        //Getting favorite list of user and storing in $favoritelist
+        
+        $getfavorite_query = "select * from (select * from favorite natural join restaurant) as r1 where username = '$username'";
+        $getfavorite_query_result = $connection->query($getfavorite_query);
+        
+        if($getfavorite_query_result){
+            if($getfavorite_query_result->num_rows == 0){
+                $favoriteinfo = [];
+                $favoriteresult = "false";
+                 $favoriteinfo = array('restaurant_name'=>$favoriteresult, 'restaurant_id'=>$favoriteresult);
+            }else{
+                $favoriteinfo = [];
+                while($row = $getfavorite_query_result->fetch_assoc()){
+                    $restaurant_id = $row['restaurant_id'];
+                    $restaurant_name = $row['restaurant_name'];
+                    $favoriteinfo = array('restaurant_name'=>$restaurant_name, 'restaurant_id'=>$restaurant_id);
+                }   
+            }
+        }
+        
+        $allinfo = [];
+        
+        $allinfo = array('suggestions'=>$suggestioninfo, 'reviews'=>$reviewsinfo, 'favorites'=>$favoriteinfo);
+        
+        return $allinfo;
+        
+        
+        
+    }
+
+    //This function add favorite restaurant of user
+    function addFavorite($username, $restaurant_id){
+        
+        $connection = dbConnection();
+        
+        $addfavorite_query = "INSERT INTO favorite VALUES ('$username', '$restaurant_id')";
+        $result = $connection->query($addfavorite_query);
+        return "true";
+        
+    }
 
 
 
