@@ -32,19 +32,19 @@ CREATE TABLE restaurant(
     city_id INT(8),
     menu_url VARCHAR(2083),
     thumbnail_url VARCHAR(2083),
-    aggregate_rating ENUM ('1','2','3','4','5'),
-    rating_text TEXT(15)
+    aggregate_rating DECIMAL(2,1),
+    rating_text VARCHAR(15)
 
 );
 
 //REVIEW_TABLE
 CREATE TABLE review(
-    restaurant_id INT(10) NOT NULL,
     username VARCHAR(50) NOT NULL,
+    restaurant_id INT(10) NOT NULL,
     review_text VARCHAR(1000),
-    review_rating ENUM ('1','2','3','4','5'),
-    /**FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
-    FOREIGN KEY (username) REFERENCES user(username) **/
+    review_rating DECIMAL(2,1),
+    CONSTRAINT fk3_restaurant_id FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
+    CONSTRAINT fk2_username FOREIGN KEY (username) REFERENCES user(username)
 );
 
 //SUGGESTION_TABLE
@@ -53,8 +53,8 @@ CREATE TABLE suggestion(
     restaurant_id INT(10) NOT NULL,
     suggestion VARCHAR(250),
     dish_name VARCHAR(50),
-    /**FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
-    FOREIGN KEY (username) REFERENCES user(username)**/
+    CONSTRAINT fk2_restaurant_id FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id),
+    CONSTRAINT fk1_username FOREIGN KEY (username) REFERENCES user(username)
 
 );
 

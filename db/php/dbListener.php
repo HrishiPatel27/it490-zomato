@@ -41,6 +41,12 @@
                 echo "<br>In Restaurant info";
                 $response_msg = restaurantInfo($request['state'], $request['city'], $request['cuisine_id']);
                 break;
+                
+            //Enter suggestion for restaurant
+            case "WriteSuggestion":
+                echo "<br>In WriteSuggestion";
+                $response_msg = writeSuggestion($request['username'], $request['dish_name'], $request['suggestion'], $request['restaurant_id']);
+                break;
         
         }
         

@@ -292,5 +292,18 @@
         
     }
 
+    //This function enters suggestion for restaurant from user
+    function writeSuggestion($username, $dish_name, $suggestion, $restaurant_id){
+        
+        $connection = dbConnection();
+        
+        $addsuggestion_query = "INSERT INTO suggestion VALUES ('$username', '$restaurant_id', '$suggestion', '$dish_name')";
+        $result = $connection->query($addsuggestion_query);
+    }
+
+
+
+
+
 
 ?>
