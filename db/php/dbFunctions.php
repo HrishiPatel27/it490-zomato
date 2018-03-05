@@ -301,7 +301,17 @@
         $result = $connection->query($addsuggestion_query);
     }
 
+    //This function enters reviews for restaurant from user
+    function writeReview($username, $restaurant_id, $review_rating, $review_text){
+        
+        $connection = dbConnection();
+        
+        $addreview_query = "INSERT INTO review VALUES ('$username', '$restaurant_id', '$review_text', '$review_rating')";
+        $result = $connection->query($addsuggestion_query);
+    }
 
+    //This function fetches individual restaurant info
+    
 
 
 

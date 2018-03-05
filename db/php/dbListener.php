@@ -47,6 +47,14 @@
                 echo "<br>In WriteSuggestion";
                 $response_msg = writeSuggestion($request['username'], $request['dish_name'], $request['suggestion'], $request['restaurant_id']);
                 break;
+            
+            //Enter reviews for restaurant
+            case "WriteReview":
+                $response_msg = writeReview($request['username'], $request['restaurant_id'], $request['rating'], $request['review_text']);
+                break;
+                
+            //Get individual restaurant info
+                
         
         }
         
