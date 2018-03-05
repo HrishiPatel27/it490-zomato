@@ -12,7 +12,8 @@
 	
 	
 	$all_info = array('city_name'=>$city_name, 'state_name'=>$state_name, 'city_id'=>$city_id, 'restaurants'=>$rest_result);
-    echo count($rest_result);
+    //echo count($rest_result);
+	echo "Data sent to db";
 	return $all_info;
 	
 	
@@ -25,10 +26,10 @@
 	$city = str_replace(' ', '%20', $cityname);
     $city_state = $cityname . ", ". $state;
 	$q = $city;
-	  echo "This is combined state and city:";
+	  //echo "This is combined state and city:";
 	  
     $url = 'https://developers.zomato.com/api/v2.1/' . $page . '?q=' . $q;
-	  echo $url;
+	  //echo $url;
     $header = array(
         'Accept: application/json',
         'user-key: 9e44e998e757ae4c73b2fbd58580a1ad'
@@ -43,7 +44,7 @@
 
     $result = curl_exec($resource);
 
-    echo $result;
+    //echo $result;
 
     curl_close($resource);	
     $id_name = [];
@@ -94,7 +95,7 @@
 	foreach ($zomrest as $restaurants) {
 		
 		$rest_city = @$restaurants['restaurant']['location']['city'];
-		echo $rest_city;
+		//echo $rest_city;
 	
 		if($rest_city == $city_name){
             $id = @$restaurants['restaurant']['id'];
