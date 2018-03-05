@@ -271,227 +271,125 @@
                     <div class = "row">
                         <div class = "col-sm-12" id = "login-register-button-holder">
                             
-                            <!-- Create this using DOM-->
-                            <div class = "row margin-top-for-form-elements">
-                            
-                                <!-- Restaurant One -->
-                                <div class = "col-sm-3">
-                                    <div class = "row">
-                                        <div class = "col-sm-12 card">
-                                            <!-- Thumbnail & Name -->
-                                            <div class = "row card-items-row-padding-name">
-                                                <div class = "col-sm-12 input-group">
-                                                    <div class = "input-group-addon">
-                                                        <img src = "" alt = "IMG">
-                                                    </div>
-
-                                                    <div class = "input-group-addon">
-                                                        <h2>Restaurant Name</h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Empty & Address -->
-                                            <div class = "row card-items-row-padding-address">
-                                                <div class = "col-sm-2">
-
-                                                </div>
-
-                                                <div class = "col-sm-10">
-                                                    1100 Parsippany blvd
-                                                </div>
-                                            </div>
-
-                                            <!-- Rating & Rating Text -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-12">
-                                                        Rating: 4 | Excellent  
-                                                </div>
-                                            </div>
-
-                                            <!-- Menu & and Favourite -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-12">
-                                                    <div class = "btn-group" role = "group" aria-label = "Three Buttons">
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Menu</button>                                      
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Suggest Dish</button>
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Review</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <!-- Restaurant Two -->
-                                <div class = "col-sm-3 ">
-                                    <div class = "row">
-                                        <div class = "col-sm-12 card">
-                                            <!-- Thumbnail & Name -->
-                                            <div class = "row card-items-row-padding-name">
-                                                <div class = "col-sm-2">
-                                                    <img src = "" alt = "IMG">
-                                                </div>
-
-                                                <div class = "col-sm-10">
-                                                    <h2>Restaurant Name</h2>
-                                                </div>
-                                            </div>
-
-                                            <!-- Empty & Address -->
-                                            <div class = "row card-items-row-padding-address">
-                                                <div class = "col-sm-2">
-
-                                                </div>
-
-                                                <div class = "col-sm-10">
-                                                    1100 Parsippany blvd
-                                                </div>
-                                            </div>
-
-                                            <!-- Rating & Rating Text -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-6">
-                                                    Rating: 4
-                                                </div>
-
-                                                <div class = "col-sm-6">
-                                                    Excellent  
-                                                </div>
-                                            </div>
-
-                                            <!-- Menu & and Favourite -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-12">
-                                                    <div class = "btn-group" role = "group" aria-label = "Three Buttons">
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Menu</button>                                      
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Suggest Dish</button>
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Review</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Restaurant Three -->
-                               <div class = "col-sm-3 ">
-                                    <div class = "row">
-                                        <div class = "col-sm-12 card">
-                                            <!-- Thumbnail & Name -->
-                                            <div class = "row card-items-row-padding-name">
-                                                <div class = "col-sm-2">
-                                                    <img src = "" alt = "IMG">
-                                                </div>
-
-                                                <div class = "col-sm-10">
-                                                    <h2>Restaurant Name</h2>
-                                                </div>
-                                            </div>
-
-                                            <!-- Empty & Address -->
-                                            <div class = "row card-items-row-padding-address">
-                                                <div class = "col-sm-2">
-
-                                                </div>
-
-                                                <div class = "col-sm-10">
-                                                    1100 Parsippany blvd
-                                                </div>
-                                            </div>
-
-                                            <!-- Rating & Rating Text -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-6">
-                                                    Rating: 4
-                                                </div>
-
-                                                <div class = "col-sm-6">
-                                                    Excellent  
-                                                </div>
-                                            </div>
-
-                                            <!-- Menu & and Favourite -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-12">
-                                                    <div class = "btn-group" role = "group" aria-label = "Three Buttons">
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Menu</button>                                      
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Suggest Dish</button>
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Review</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Restaurant Four -->
-                                <div class = "col-sm-3 ">
-                                    <div class = "row">
-                                        <div class = "col-sm-12 card">
-                                            <!-- Thumbnail & Name -->
-                                            <div class = "row card-items-row-padding-name">
-                                                <div class = "col-sm-2">
-                                                    <img src = "" alt = "IMG">
-                                                </div>
-
-                                                <div class = "col-sm-10">
-                                                    <h2>Restaurant Name</h2>
-                                                </div>
-                                            </div>
-
-                                            <!-- Empty & Address -->
-                                            <div class = "row card-items-row-padding-address">
-                                                <div class = "col-sm-2">
-
-                                                </div>
-
-                                                <div class = "col-sm-10">
-                                                    1100 Parsippany blvd
-                                                </div>
-                                            </div>
-
-                                            <!-- Rating & Rating Text -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-6">
-                                                    Rating: 4
-                                                </div>
-
-                                                <div class = "col-sm-6">
-                                                    Excellent  
-                                                </div>
-                                            </div>
-
-                                            <!-- Menu & and Favourite -->
-                                            <div class = "row card-items-row-padding">
-                                                <div class = "col-sm-12">
-                                                    <div class = "btn-group" role = "group" aria-label = "Three Buttons">
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Menu</button>                                      
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Suggest Dish</button>
-
-                                                        <button type="button" class="btn btn-secondary" onclick = "#">Review</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
+                            <h1>Select State, City and Cuisines</h1>
                            
                         </div>
                     </div>
                 </div>
         </div>
     </div>
+      
+      
+      
+      
+      
+      
+        <!-- Test Modal for Suggestions -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><b>Suggestion</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "row">
+                            <div class = "col-sm-12" id = "login-form">
+                                <form action = "../php/login.php" method = "POST">
+                                    <div class = "row">
+                                        <div class = "col-sm-12">
+                                            <input type="text" class="form-control  margin-top-for-form-elements" id="suggestionName" placeholder="Dish Name" name = "username">
+                                        </div>
+                                    </div>
+                                    
+                                    <br>
+                                    
+                                    <div class = "row">
+                                        <div class = "col-sm-12">
+                                            <label for = "suggestionDescription_id">Suggestion Description</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class = "row">
+                                        <div class = "col-sm-12">
+                                            
+                                            <textarea class="form-control margin-top-for-form-elements" id="suggestionDescription_id" rows = "5">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class = "row margin-top-for-form-elements">
+                                        <div class = "col-sm-12">
+                                             <button type="submit" class="btn btn-primary" >Submit</button>
+                                        </div>
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <!-- Test Modal for Review -->
+        <!-- Register Modal -->
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><b>Write Review</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "row">
+                            <div class = "col-sm-12" id = "register-form">
+                                <form action = "../php/register.php" method = "POST">
+                            
+                                    <div class = "row">
+                                        <div class = "col-sm-12">
+                                            <label for = "suggestionDescription_id">Review</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class = "row">
+                                        <div class = "col-sm-12">                             
+                                            <textarea class="form-control margin-top-for-form-elements" id="suggestionDescription_id" rows = "5">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <br>
+                                    <div class = "row">
+                                        <div class = "col-sm-12">
+                                            <input type="text" class="form-control  margin-top-for-form-elements" id="example-number-input" placeholder="Eg: 4.7" name = "username">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class = "row margin-top-for-form-elements">
+                                        <div class = "col-sm-12">
+                                             <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer margin-top-for-form-elements">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+      
+      
 
 
     <!-- Optional JavaScript -->

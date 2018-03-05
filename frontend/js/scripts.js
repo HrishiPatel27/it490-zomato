@@ -45,6 +45,12 @@ function createRequestObject(){
     return ajaxSender;
 }
 
+//  This function will redirect to the menu page of a restaurant
+function redirectToMenuOfRest(){
+    alert("Redirect function called");
+    //window.location = menuLink;
+}
+
 //  This function is called when the search button is clicked
 function searchRestaurants(){
     
@@ -69,6 +75,8 @@ function searchRestaurants(){
             
             
             var appendChildToPage = document.getElementById("login-register-button-holder");
+            //appendChildToPage.innerHTML("");
+            
             var count = 0;
             
             for(var i in restaurants){
@@ -175,33 +183,38 @@ function searchRestaurants(){
                 thirteen.classList.add("btn-group");
                 thirteen.setAttribute("role", "group");
                 thirteen.setAttribute("aria-label", "ThreeButton");
-                twelve.appendChild(eight);
+                twelve.appendChild(thirteen);
                 
                 //  buttonOne
                 var buttonOne = document.createElement("button");
                 buttonOne.classList.add("btn");
                 buttonOne.classList.add("btn-secondary");
                 buttonOne.setAttribute("type", "button");
-                buttonOne.setAttribute("onclick", "window.location.href=" + restaurants[i].menu_url);
+                buttonOne.setAttribute("onclick", "redirectToMenuOfRest()");
                 var restaurantMenu = document.createTextNode("Menu");
                 buttonOne.appendChild(restaurantMenu);
                 thirteen.appendChild(buttonOne);
                 
                 //  buttonTwo
                 var buttonTwo = document.createElement("button");
+                buttonTwo.setAttribute("type", "button");
                 buttonTwo.classList.add("btn");
                 buttonTwo.classList.add("btn-secondary");
-                buttonTwo.setAttribute("type", "button");
-                buttonTwo.setAttribute("onclick", "alert('Clicked Suggestion')");
+                buttonTwo.setAttribute("data-toggle", "modal");
+                buttonTwo.setAttribute("data-target", "#exampleModalCenter");
+                //buttonTwo.setAttribute("id", "login-modal-opener");
+                //buttonTwo.setAttribute("onclick", "alert('Clicked Suggestion')");
                 var restaurantSuggestion = document.createTextNode("Suggestion");
                 buttonTwo.appendChild(restaurantSuggestion);
                 thirteen.appendChild(buttonTwo);
                 
                 //  buttonThree
                 var buttonThree = document.createElement("button");
+                buttonThree.setAttribute("type", "button");
                 buttonThree.classList.add("btn");
                 buttonThree.classList.add("btn-secondary");
-                buttonThree.setAttribute("type", "button");
+                buttonThree.setAttribute("data-toggle", "modal");
+                buttonThree.setAttribute("data-target", "#exampleModalCenter1");
                 buttonThree.setAttribute("onclick", "alert('Clicked Review')");
                 var restaurantReview = document.createTextNode("Review");
                 buttonThree.appendChild(restaurantReview);
