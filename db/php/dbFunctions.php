@@ -326,17 +326,14 @@
         //echo "Executed suggestions query         ";
         if($getsuggestion_query_result){
             if($getsuggestion_query_result->num_rows == 0){
-                $suggestioninfo = [];
                 $suggestionresult = "false";
-                $suggestioninfo = array('username'=>$suggestionresult, 'suggestion'=>$suggestionresult);
+                $suggestioninfo[] = array('username'=>$suggestionresult, 'suggestion'=>$suggestionresult);
             }else{
-                $suggestioninfo = [];
                 while($row = $getsuggestion_query_result->fetch_assoc()){
                     $suggestion = $row['suggestion'];
                     $dish_name = $row['dish_name'];
                     $user = $row['username'];
-                    $suggestioninfo = array('username'=>$user, 'suggestion'=>$dish_name);
-                    //echo "suggestion fetched      ";
+                    $suggestioninfo[] = array('username'=>$user, 'suggestion'=>$dish_name);
                 }
             }
         }
@@ -348,16 +345,14 @@
         //echo "Executed reviews query        ";
         if($getreview_query_result){
             if($getreview_query_result->num_rows == 0){
-                $reviewsinfo = [];
                 $reviewresult = "false";
-                $reviewsinfo = array('username'=>$reviewresult, 'review_rating'=>$reviewresult, 'review_text'=>$reviewresult);
+                $reviewsinfo[] = array('username'=>$reviewresult, 'review_rating'=>$reviewresult, 'review_text'=>$reviewresult);
             }else{
-                $reviewsinfo = [];
                 while($row = $getreview_query_result->fetch_assoc()){
                     $review_rating = $row['review_rating'];
                     $review_text = $row['review_text'];
                     $user = $row['username'];
-                    $reviewsinfo = array('username'=>$user, 'review_rating'=>$review_rating, 'review_text'=>$review_text);
+                    $reviewsinfo[] = array('username'=>$user, 'review_rating'=>$review_rating, 'review_text'=>$review_text);
                 }   
             }
         }
@@ -386,6 +381,7 @@
         //print_r("Result: ".$restinfo);
         //echo "leaving function";
         //echo count($restinfo);
+        print_r($restinfo);
      return $restinfo;
             
     }
@@ -401,16 +397,14 @@
         
         if($getsuggestion_query_result){
             if($getsuggestion_query_result->num_rows == 0){
-                $suggestioninfo = [];
                 $suggestionresult = 'false';
-                $suggestioninfo = array('restaurant_name'=>$suggestionresult, 'suggestion'=>$suggestionresult, 'dish_name'=>$suggestionresult);
+                $suggestioninfo[] = array('restaurant_name'=>$suggestionresult, 'suggestion'=>$suggestionresult, 'dish_name'=>$suggestionresult);
             }else{
-                $suggestioninfo = [];
                 while($row = $getsuggestion_query_result->fetch_assoc()){
                     $suggestion = $row['suggestion'];
                     $dish_name = $row['dish_name'];
                     $restaurant_name = $row['restaurant_name'];
-                    $suggestioninfo = array('restaurant_name'=>$restaurant_name, 'suggestion'=>$suggestion, 'dish_name'=>$dish_name);
+                    $suggestioninfo[] = array('restaurant_name'=>$restaurant_name, 'suggestion'=>$suggestion, 'dish_name'=>$dish_name);
                 }
             }
         }
@@ -422,16 +416,14 @@
         
         if($getreview_query_result){
             if($getreview_query_result->num_rows == 0){
-                $reviewsinfo = [];
                 $reviewsresult = "false";
-                $reviewsinfo = array('restaurant_name'=>$reviewsresult, 'review_rating'=>$reviewsresult, 'review_text'=>$reviewsresult);
+                $reviewsinfo[] = array('restaurant_name'=>$reviewsresult, 'review_rating'=>$reviewsresult, 'review_text'=>$reviewsresult);
             }else{
-                $reviewsinfo = [];
                 while($row = $getreview_query_result->fetch_assoc()){
                     $review_rating = $row['review_rating'];
                     $review_text = $row['review_text'];
                     $restaurant_name = $row['restaurant_name'];
-                    $reviewsinfo = array('restaurant_name'=>$restaurant_name, 'review_rating'=>$review_rating, 'review_text'=>$review_text);
+                    $reviewsinfo[] = array('restaurant_name'=>$restaurant_name, 'review_rating'=>$review_rating, 'review_text'=>$review_text);
                 }   
             }
         }
@@ -443,15 +435,13 @@
         
         if($getfavorite_query_result){
             if($getfavorite_query_result->num_rows == 0){
-                $favoriteinfo = [];
                 $favoriteresult = "false";
-                 $favoriteinfo = array('restaurant_name'=>$favoriteresult, 'restaurant_id'=>$favoriteresult);
+                 $favoriteinfo[] = array('restaurant_name'=>$favoriteresult, 'restaurant_id'=>$favoriteresult);
             }else{
-                $favoriteinfo = [];
                 while($row = $getfavorite_query_result->fetch_assoc()){
                     $restaurant_id = $row['restaurant_id'];
                     $restaurant_name = $row['restaurant_name'];
-                    $favoriteinfo = array('restaurant_name'=>$restaurant_name, 'restaurant_id'=>$restaurant_id);
+                    $favoriteinfo[] = array('restaurant_name'=>$restaurant_name, 'restaurant_id'=>$restaurant_id);
                 }   
             }
         }
