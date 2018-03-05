@@ -31,7 +31,7 @@
 
       <!-- Image and text -->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="searchRestaurant.php">
         <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
         Ciphers
       </a>
@@ -42,7 +42,9 @@
               <?php echo $_SESSION["username"] ?>
           </button>
           <div class="dropdown-menu dropdown-menu-left">
-              <button class="dropdown-item" type="button">My Profile</button>
+              <a href = "myProfile.php">
+                <button class="dropdown-item" type="button">My Profile</button>
+              </a>
               <button class="dropdown-item" type="button">About</button>
               <a href = "destroySessions.php?logout=true">
                   <button class="dropdown-item" type="button">Logout</button>
@@ -269,7 +271,7 @@
                 
                     <!-- Division to hold -->
                     <div class = "row">
-                        <div class = "col-sm-12" id = "login-register-button-holder">
+                        <div class = "col-sm-12" id = "divToHoldRest">
                             
                             <h1>Select State, City and Cuisines</h1>
                            

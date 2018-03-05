@@ -57,6 +57,14 @@ function searchRestaurants(){
     var city = document.getElementById("city_id").value;
     var cuisine_id = document.getElementById("cuisine_id").value;
     
+    var appendChildToPage = document.getElementById("divToHoldRest"); 
+    appendChildToPage.innerHTML = "";
+    //  Removing all the inner elements
+//    while(appendChildToPage.firstChild){
+//        appendChildToPage.removeChild(appendChildToPage.firstChild);
+//        //console.log(appendChildToPage.firstChild);
+//    }
+//    
     var httpReq = createRequestObject();
     httpReq.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
@@ -71,10 +79,6 @@ function searchRestaurants(){
             //console.log(this.responseText);
             //alert(JSON.stringify(restaurants));
             
-            
-            
-            var appendChildToPage = document.getElementById("login-register-button-holder");
-            //appendChildToPage.innerHTML("");
             
             var count = 0;
             
@@ -274,8 +278,22 @@ function reviewButtonCalled(restId, user){
     window.location.replace("../php/writeReview.php?restId="+restId+"&user="+user);
 }
 
-
 //  This function will add a restaurant as favorite
-function favoriteThisRestaurant(){
-    alert("Inside favorite function. Seperate file");
+function favoriteThisRestaurant(restId){
+    
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+            if(this.responseText == "true"){
+                //document.getElementById("favButton").innerHTML("Added to favorite");
+                alert("Added to fav");
+            }else{
+                alert("Already Favorite");
+            }
+    
+        }
+    }
+    httpReq.open("GET", "../php/addFavorite.php?restId="+restId, true);
+    httpReq.send(null);
 }
