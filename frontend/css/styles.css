@@ -1,3 +1,18 @@
+.background{
+    background-color: grey;
+}
+
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}
+
+
 #login-register-button-holder{
     text-align: center;
     margin-top: 30px;
