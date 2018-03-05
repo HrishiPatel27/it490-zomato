@@ -69,7 +69,7 @@ function searchRestaurants(){
             //console.log(restaurants.length);
             
             //console.log(this.responseText);
-            alert(JSON.stringify(restaurants));
+            //alert(JSON.stringify(restaurants));
             
             
             
@@ -272,4 +272,10 @@ function suggestionButtonCalled(restId, user){
 //  This function is called when review button is clicked
 function reviewButtonCalled(restId, user){
     window.location.replace("../php/writeReview.php?restId="+restId+"&user="+user);
+}
+
+
+//  This function will add a restaurant as favorite
+function favoriteThisRestaurant(){
+    alert("Inside favorite function. Seperate file");
 }
