@@ -46,9 +46,8 @@ function createRequestObject(){
 }
 
 //  This function will redirect to the menu page of a restaurant
-function redirectToMenuOfRest(){
-    alert("Redirect function called");
-    //window.location = menuLink;
+function redirectToMenuOfRest(url){
+    window.location.href = url;
 }
 
 //  This function is called when the search button is clicked
@@ -59,11 +58,11 @@ function searchRestaurants(){
     var cuisine_id = document.getElementById("cuisine_id").value;
     
     var httpReq = createRequestObject();
-    
     httpReq.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            alert("Got message");
             var response = JSON.parse(this.responseText);
+            
+            var user = getUserName();
             
             var restaurants = response['restaurants'];
             
@@ -137,8 +136,11 @@ function searchRestaurants(){
                 
                 //  h2
                 var h3 = document.createElement("h3");
+                var a = document.createElement("a");
+                a.setAttribute("href", "../php/restaurantHome.php?restId=" + restaurants[i].restaurant_id);
+                h3.appendChild(a);
                 var restaurantName = document.createTextNode(restaurants[i].name);
-                h3.appendChild(restaurantName);
+                a.appendChild(restaurantName);
                 six.appendChild(h3);
                 
                 //  seven
@@ -190,7 +192,7 @@ function searchRestaurants(){
                 buttonOne.classList.add("btn");
                 buttonOne.classList.add("btn-secondary");
                 buttonOne.setAttribute("type", "button");
-                buttonOne.setAttribute("onclick", "redirectToMenuOfRest()");
+                buttonOne.setAttribute("onclick", "redirectToMenuOfRest('" + restaurants[i].menu_url + "')");
                 var restaurantMenu = document.createTextNode("Menu");
                 buttonOne.appendChild(restaurantMenu);
                 thirteen.appendChild(buttonOne);
@@ -200,10 +202,12 @@ function searchRestaurants(){
                 buttonTwo.setAttribute("type", "button");
                 buttonTwo.classList.add("btn");
                 buttonTwo.classList.add("btn-secondary");
-                buttonTwo.setAttribute("data-toggle", "modal");
-                buttonTwo.setAttribute("data-target", "#exampleModalCenter");
-                //buttonTwo.setAttribute("id", "login-modal-opener");
-                //buttonTwo.setAttribute("onclick", "alert('Clicked Suggestion')");
+//                buttonTwo.setAttribute("data-toggle", "modal");
+//                buttonTwo.setAttribute("data-target", "#exampleModalCenter");
+                buttonTwo.setAttribute("id", "suggestionModalButton");
+                buttonTwo.setAttribute("data-username", user);
+                buttonTwo.setAttribute("data-restaurantId", restaurants[i].restaurant_id);
+                buttonTwo.setAttribute("onclick", "suggestionButtonCalled(" + restaurants[i].restaurant_id + ", '" + user + "')");
                 var restaurantSuggestion = document.createTextNode("Suggestion");
                 buttonTwo.appendChild(restaurantSuggestion);
                 thirteen.appendChild(buttonTwo);
@@ -213,37 +217,59 @@ function searchRestaurants(){
                 buttonThree.setAttribute("type", "button");
                 buttonThree.classList.add("btn");
                 buttonThree.classList.add("btn-secondary");
-                buttonThree.setAttribute("data-toggle", "modal");
-                buttonThree.setAttribute("data-target", "#exampleModalCenter1");
-                buttonThree.setAttribute("onclick", "alert('Clicked Review')");
+//                buttonThree.setAttribute("data-toggle", "modal");
+//                buttonThree.setAttribute("data-target", "#exampleModalCenter1");
+                buttonThree.setAttribute("onclick", "reviewButtonCalled(" + restaurants[i].restaurant_id + ", '" + user + "')");
                 var restaurantReview = document.createTextNode("Review");
                 buttonThree.appendChild(restaurantReview);
                 thirteen.appendChild(buttonThree);
-                
-                
-                
-                
+
                 appendChildToPage.appendChild(mainRowDiv);
-                
-                
-                
            
-                console.log(restaurants[i].restaurant_id);
-                console.log(restaurants[i].name);           //  Used
-                console.log(restaurants[i].menu_url);       //  Used
-                console.log(restaurants[i].thumb);          //  Used
-                console.log(restaurants[i].address);        //  Used
-                console.log(restaurants[i].city_id);        //  Not needed
-                console.log(restaurants[i].rating);         //  Used
-                console.log(restaurants[i].rating_text);    //  Used
-            
-                
-                
+//                console.log(restaurants[i].restaurant_id);
+//                console.log(restaurants[i].name);           //  Used
+//                console.log(restaurants[i].menu_url);       //  Used
+//                console.log(restaurants[i].thumb);          //  Used
+//                console.log(restaurants[i].address);        //  Used
+//                console.log(restaurants[i].city_id);        //  Not needed
+//                console.log(restaurants[i].rating);         //  Used
+//                console.log(restaurants[i].rating_text);    //  Used
+     
             }
             
         }
     }
-    httpReq.open("GET", "../php/getAllRestaurants.php?state="+state+"&city="+city+"&cuisine_id="+cuisine_id, true);
+    httpReq.open("GET", "../php/getAllRestaurants.php?state="+state+"&city="+city+"&cuisine_id="+cuisine_id, false);
     httpReq.send(null);
     
 }   
+
+//  This function will return the username from session ID
+function getUserName(){
+    console.log("Get User Name function called");
+    
+    var returnValue = "";
+    
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+            returnValue = this.responseText;
+        }
+    }
+    
+    httpReq.open("GET", "../php/getUserNameFromSession.php", false);
+    httpReq.send(null);
+    
+    return returnValue;
+}
+
+//  This function is called when submission button is clicked
+function suggestionButtonCalled(restId, user){
+    window.location.replace("../php/writeSuggestion.php?restId="+restId+"&user="+user);
+}
+
+//  This function is called when review button is clicked
+function reviewButtonCalled(restId, user){
+    window.location.replace("../php/writeReview.php?restId="+restId+"&user="+user);
+}
