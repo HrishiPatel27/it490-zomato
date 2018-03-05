@@ -1,6 +1,10 @@
 <?php
 
     session_start();
+    
+    if (!$_SESSION["logged"]){
+        header("Location: ../html/loginRegister.html");
+    }
 
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
@@ -36,7 +40,7 @@
 
     <title>Ciphers</title>
   </head>
-    <body>
+    <body onload = "checkForFavorite(<?php echo $data["favorite"]; ?>)">
         
         <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="searchRestaurant.php">
@@ -64,11 +68,9 @@
     
         <h1><?php echo $data["name"]; ?></h1>
         
-        <button onclick = "favoriteThisRestaurant(<?php echo $data["id"]; ?>)" id="favButton">Favorite</button>
+        <button onclick = "favoriteThisRestaurant(<?php echo $data["id"]; ?>)" id="favButton"></button>
         
         <br><br>
-        
-        <b>Favorite: </b><?php echo $data["favorite"]; ?>
     
         <br><br>
         

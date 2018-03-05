@@ -1,3 +1,14 @@
+<?php
+
+        session_start();
+    
+    if (!$_SESSION["logged"]){
+        header("Location: ../html/loginRegister.html");
+    }
+
+?>
+
+
 <html>
 
     <head>

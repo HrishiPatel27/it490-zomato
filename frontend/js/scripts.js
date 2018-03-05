@@ -281,19 +281,50 @@ function reviewButtonCalled(restId, user){
 //  This function will add a restaurant as favorite
 function favoriteThisRestaurant(restId){
     
-    var httpReq = createRequestObject();
-    httpReq.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            
-            if(this.responseText == "true"){
-                //document.getElementById("favButton").innerHTML("Added to favorite");
-                alert("Added to fav");
-            }else{
-                alert("Already Favorite");
-            }
+    var b = document.getElementById("favButton");
     
+    if(b.value == "false"){
+       var httpReq = createRequestObject();
+        httpReq.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+
+                if(this.responseText == true){
+                    var t = document.createTextNode("Added to Favorite");
+                    b.innerHTML = "";
+                    b.appendChild(t);
+                    b.value = "true";
+                    
+                }else{
+                     var t = document.createTextNode("Add to Favorite");
+                    b.innerHTML = "";
+                    b.appendChild(t);
+                    b.value = "false";
+                }
+
+            }
         }
+        httpReq.open("GET", "../php/addFavorite.php?restId="+restId, true);
+        httpReq.send(null);
+    }else{
+        alert("Will write function for unfavorite");
     }
-    httpReq.open("GET", "../php/addFavorite.php?restId="+restId, true);
-    httpReq.send(null);
+    
+    
+}
+
+//  This function will set the favorite button text onload of the page
+function checkForFavorite(favBool){
+    //alert(favBool);
+    
+    var btn = document.getElementById("favButton");
+    
+    if (favBool == true){
+        var t = document.createTextNode("Added to Favorite");
+        btn.appendChild(t);
+        btn.value = "true";
+    }else{
+        var t = document.createTextNode("Add to Favorite");
+        btn.appendChild(t);
+        btn.value = "false";
+    }
 }
