@@ -314,7 +314,7 @@
     }
 
     //This function fetches individual restaurant info
-    function uniqueRestaurantInfo($restaurant_id){
+    function uniqueRestaurantInfo($restaurant_id, $user){
         
         $connection = dbConnection();
         
@@ -357,6 +357,18 @@
             }
         }
         
+        //Getting favorite restaurant of user
+        $getfavorite_query = "SELECT * FROM favorite WHERE restaurant_id = '$restaurant_id' AND username = '$user'";
+        $getfavorite_query_result = $connection->query($getfavorite_query);
+        
+        if($getfavorite_query_result){
+            if($getfavorite_query_result->num_rows == 0){
+                $favoriteinfo = "false";
+            }elseif($getfavorite_query_result->num_rows > 0){
+                $favoriteinfo = "true";  
+            }
+        }
+        
         //Getting restaurant info and storing in $restinfo
         
         $getrestaurant_query = "SELECT * FROM restaurant WHERE restaurant_id = '$restaurant_id'";
@@ -373,10 +385,12 @@
                     $menu_url = $row['menu_url'];
                     //echo "1   ";
                 }
-                $restinfo = array('name'=>$name, 'id'=>$restaurant_id, 'thumbnail'=>$thumbnail, 'menu'=>$menu_url, 'suggestions'=>$suggestioninfo, 'reviews'=>$reviewsinfo);
+                $restinfo = array('name'=>$name, 'id'=>$restaurant_id, 'thumbnail'=>$thumbnail, 'menu'=>$menu_url, 'suggestions'=>$suggestioninfo, 'reviews'=>$reviewsinfo, 'favorite'=>$favoriteinfo);
                 //echo "Final list prepared      ";
             }
         }
+        
+        
         //Combine all infos together and return $allinfo 
         //print_r("Result: ".$restinfo);
         //echo "leaving function";

@@ -56,7 +56,7 @@
             //Get individual restaurant info
             case "UniqueRestaurantInfo":
                 echo "going in function";
-                $response_msg = uniqueRestaurantInfo($request['restaurant_id']);
+                $response_msg = uniqueRestaurantInfo($request['restaurant_id'], $request['username']);
                 echo "out of function";
                 break;
             
