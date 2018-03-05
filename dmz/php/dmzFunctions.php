@@ -8,22 +8,27 @@
     
     $city_id = fetchCityId($city_name, $state_name);
     
-    $rest_result = fetchRestaurantInfo($city_id, $cuisine_id);
-    
-    $all_info = array('city_name'=>$city_name, 'state_name'=>$state_name, 'city_id'=>$city_id, 'restaurants'=>$rest_result);
-    echo $all_info['city_name'];
-    return $all_info;
+    $rest_result = fetchRestaurantInfo($city_name, $city_id, $cuisine_id);
+	
+	
+	$all_info = array('city_name'=>$city_name, 'state_name'=>$state_name, 'city_id'=>$city_id, 'restaurants'=>$rest_result);
+    echo count($rest_result);
+	return $all_info;
+	
+	
   }
   
-  function fetchCityId($city, $state){
+  function fetchCityId($cityname, $state){
     
-    // find city id	
-    $q = $city;
-    
+    // find city id	   
     $page = "cities";
-    $city_state = $city . ", ". $state;
+	$city = str_replace(' ', '%20', $cityname);
+    $city_state = $cityname . ", ". $state;
+	$q = $city;
+	  echo "This is combined state and city:";
+	  
     $url = 'https://developers.zomato.com/api/v2.1/' . $page . '?q=' . $q;
-
+	  echo $url;
     $header = array(
         'Accept: application/json',
         'user-key: 9e44e998e757ae4c73b2fbd58580a1ad'
@@ -38,7 +43,7 @@
 
     $result = curl_exec($resource);
 
-    //echo $result;
+    echo $result;
 
     curl_close($resource);	
     $id_name = [];
@@ -54,14 +59,15 @@
     
   }
     
-  function fetchRestaurantInfo($city_id, $cuisine_id){
+  function fetchRestaurantInfo($city_name, $city_id, $cuisine_id){
     
     $entity_type ="city";
     
     $page = "search";
 
     $url = 'https://developers.zomato.com/api/v2.1/' . $page . '?entity_id=' . $city_id .'&entity_type=' . $entity_type .'&cuisines=' .$cuisine_id;
-
+	
+	  
     $header = array(
         'Accept: application/json',
         'user-key: 9e44e998e757ae4c73b2fbd58580a1ad'
@@ -83,8 +89,14 @@
     $zomdata = json_decode($result, true);
     
     $zomrest = $zomdata['restaurants'];
+	$rest = [];
    
 	foreach ($zomrest as $restaurants) {
+		
+		$rest_city = @$restaurants['restaurant']['location']['city'];
+		echo $rest_city;
+	
+		if($rest_city == $city_name){
             $id = @$restaurants['restaurant']['id'];
             $name = @$restaurants['restaurant']['name'];
             $url = @$restaurants['restaurant']['url'];
@@ -93,10 +105,11 @@
             $city_id = @$restaurants['restaurant']['location']['city_id'];
             $rating = @$restaurants['restaurant']['user_rating']['aggregate_rating'];
             $rating_text = @$restaurants['restaurant']['user_rating']['rating_text'];
-      
-        $rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
-		
+	
+        	$rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
+		}
 	}
+	 
   
 //	$rest_name = json_encode($rest);
 //   echo $rest_name;
