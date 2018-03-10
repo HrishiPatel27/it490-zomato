@@ -328,3 +328,54 @@ function checkForFavorite(favBool){
         btn.value = "false";
     }
 }
+
+//  Form validation for Login
+function checkLoginCredentials(){
+    
+    var loginUsername = document.getElementById('username_login');
+    var loginPassword = document.getElementById('password_login');
+
+    if (loginUsername.value != "" && loginPassword.value != ""){
+        alert("Information filled");
+    }else{
+        if(loginUsername.value == ""){
+            turnFieldToRedColorBorder(loginUsername);
+        }
+        if(loginPassword.value == ""){
+            turnFieldToRedColorBorder(loginPassword);
+        }
+        if (loginUsername.value == "" && loginPassword.value == ""){
+            turnFieldToRedColorBorder(loginUsername);
+            turnFieldToRedColorBorder(loginPassword);
+        }
+    }
+}
+
+//  Form validation for Register
+function checkRegisterCredential(){
+    
+}
+
+//  This function will add is-invalid to the division  
+function turnFieldToRedColorBorder(elementName){
+    elementName.classList.add("is-invalid");
+}
+
+function turnFieldToNormalColorBorder(elementName){
+    elementName.classList.remove("is-invalid");
+}
+
+//  This function is called when the login modal opener button is called
+function loginModalOpener(){
+    
+    var loginUsername = document.getElementById('username_login');
+    var loginPassword = document.getElementById('password_login');
+    
+    if(loginUsername.value == ""){
+       turnFieldToNormalColorBorder(loginUsername);
+    }
+    
+    if(loginPassword.value == ""){
+        turnFieldToNormalColorBorder(loginPassword);
+    }
+}
