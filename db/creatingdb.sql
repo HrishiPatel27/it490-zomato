@@ -5,17 +5,7 @@ CREATE TABLE user(
     h_password VARCHAR(40) NOT NULL,
     salt VARCHAR(30) NOT NULL,
     firstname VARCHAR(25) NOT NULL,
-    lastname VARCHAR(25) NOT NULL,
-    dob_month INT(2),
-    dob_date INT(2),
-    dob_year INT(4),
-    sex ENUM('M','F','O'),
-    street_number VARCHAR(10),
-    street_name VARCHAR(25),
-    city VARCHAR(25),
-    state VARCHAR(15),
-    zip INT(5),
-    country VARCHAR(15)
+    lastname VARCHAR(25) NOT NULL
 );
 
 

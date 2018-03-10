@@ -24,10 +24,26 @@
                 $response_msg = doLogin($request['username'],$request['password']);
                 break;
                 
+            //Check if username is already taken
+            case "CheckUsername":
+                echo "<br>in Checkusername";
+                $reponse_msg = checkUsername($request['username']);
+            
+            //Check if email is valid
+            case "CheckEmail":
+                echo "<br>in CheckEmail";
+                $response_msg = checkEmail($request['email']);
+                
+                
+            //Send email with username and password
+            case "SendEmail":
+                echo "<br>in CheckEmail";
+                $response_msg = sendEmail($request['email']);
+                
             //New User registration
             case "Register":
                 echo "<br>in register";
-                $response_msg = register($request['username'], $request['email'], $request['password'], $request['firstname'], $request['lastname'], $request['dob_month'], $request['dob_date'], $request['dob_year'], $request['sex'], $request['street_number'], $request['street_name'], $request['city'], $request['state'], $request['zip'], $request['country']);
+                $response_msg = register($request['username'], $request['email'], $request['password'], $request['firstname'], $request['lastname']);
                 break;
                 
             //Search cities of state
@@ -68,6 +84,11 @@
             //Add favorite
             case "AddFavorite":
                 $response_msg = addFavorite($request['username'], $request['restaurant_id']);
+                break;
+                
+            //Remove favorite
+            case "RemoveFavorite":
+                $response_msg = removeFavorite($request['username'], $request['restaurant_id']);
                 break;
         
         

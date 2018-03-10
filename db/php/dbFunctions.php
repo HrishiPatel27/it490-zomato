@@ -6,11 +6,8 @@
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
     require_once('rabbitMQClient.php');
-    require_once('dbFunctions.php');
     require_once('dbConnection.php');
 
-    //Functions for different cases
-    $connection = dbConnection();
 
     //Function for loggin user in the system and authentication
     function doLogin($username, $password){
@@ -24,23 +21,95 @@
                 return "False";
             }else{
                 while ($row = $result->fetch_assoc()){
-                    $salt = $row['salt'];
-                    $h_password = sha1($password.$salt);
+                    $salt = $row['salt']; 
+                    $h_password = hashPassword($password, $salt);
                     if ($row['h_password'] == $h_password){
-                        return "True";
+                        return true;
                     }else{
-                        return "False";
+                        return false;
                     }
                 }
             }
         }
     }
-    
-    //Generating random Alpha-Numeric string for unique salt for every new registration
-    function RandomString($length) {
-            $randstr = '';
+
+    // This function checks is username is already taken
+    function checkUsername($username){
+        
+        $connection = dbConnection();
+        
+        //Query to check if the username is taken
+        $check_username = "SELECT username FROM user WHERE username = '$username'";
+        $check_result = $connection->query($check_username);
+        
+        while ($row = $check_result->fetch_assoc()){
+            if ($row['username'] == $username){
+                return "False";
+            }else{
+                return "True";
+            }
+        }
+    }
+
+    // This function checks if email is valid
+    function checkEmail($email){
+        
+        $connection = dbConnection();
+        
+        //Query to check if the email is email
+        $check_email = "SELECT email FROM user WHERE email = '$email'";
+        $check_result = $connection->query($check_email);
+        
+        while ($row = $check_result->fetch_assoc()){
+            if ($row['email'] == $email){
+                return "True";
+            }else{
+                return "False";
+            }
+        }
+    }
+
+    // This function sends user email with username and password
+    function sendEmail($email){
+        
+        $subject = "Change password within 24 hours";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: <hp335@njit.edu>";
+        
+        $username = get_credentials($email);
+        
+        $uniquekey = generateUniqueKey(4);
+        
+        $storekey = storeUniqueKey($username, $uniquekey);
+        
+        $message = "<b>Username:</b> " . "$username" . "<br>" . "<b>Unique Key:</b> " . "$uniquekey" . "<br><br>" . "Please reset the password in 24 hours. Click on the link below and reset your password by providing your Email, Username and Unique Key.<br><br>" . "link";
+        
+        mail($email, $subject, $message, $headers);
+        
+        return true;
+    }
+
+    // This functions returns credentials of user with email provided
+    function get_credentials($email){
+        
+        $connection = dbConnection();
+        
+        //Query for fetching credentials
+        $credentials_query = "SELECT username FROM user WHERE email = '$email'";
+        $credentials_query_result = $connection->query($credentials_query);
+        
+        $row = $credentials_query_result->fetch_assoc();
+        $user = $row['username'];
+        return $user;
+    }
+
+    // This function generates unique for reset password
+    function generateUniqueKey($length){
+        
+        $randstr = '';
             srand((double) microtime(TRUE) * 1000000);
-            //our array add all letters and numbers if you wish
+           
             $chars = array(
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p',
                 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5',
@@ -52,49 +121,60 @@
                 $randstr .= $chars[$random];
             }
             return $randstr;
-        }
+    }
+
+    // This function stores Unique generated for user
+    function storeUniqueKey($username, $uniquekey){
+        
+        //Query to store unique key for username
+        $storekey_query = "INSERT INTO userkey VALUES ('$username', '$uniquekey', NOW())";
+        $storekey_query_result = $connection->query($storekey_query);
+        
+        return $storekey_query_result;
+    }
+    
+    //Generating random Alpha-Numeric string for unique salt for every new registration
+    function randomString($length) {
+            $randstr = '';
+            srand((double) microtime(TRUE) * 1000000);
+           
+            $chars = array(
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p',
+                'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5',
+                '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
+                'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+
+            for ($rand = 0; $rand <= $length; $rand++) {
+                $random = rand(0, count($chars) - 1);
+                $randstr .= $chars[$random];
+            }
+            return $randstr;
+    }
     
     //Hashes password for storing
-    function HashPassword($password, $salt){
+    function hashPassword($password, $salt){
             $new_pass = $password . $salt;
-             return sha1($new_pass);
+             return hash("sha256", $new_pass);
         }
     
     //  This function registers a new user 
-    function register($username, $email, $password, $firstname, $lastname, $dob_month, $dob_date, $dob_year, $sex, $street_number, $street_name, $city, $state, $zip, $country){
+    function register($username, $email, $password, $firstname, $lastname){
         
         //Makes connection to database
         $connection = dbConnection();
         
         //Generates a salt for the new user
-        $salt = RandomString(29);
-        echo "<br>Salt: ";
-        echo $salt;
+        $salt = randomString(29);
         
         //Hashes password
-        $h_password = HashPassword($password, $salt);
-        echo "<br>Hsahed Pass: ";
-        echo $h_password;
-        
-        //Query to check if the username is taken
-        $check_username = "SELECT username FROM user WHERE username = '$username'";
-        $check_result = $connection->query($check_username);
-        
-        while ($row = $check_result->fetch_assoc()){
-            if ($row['username'] == $username){
-                return "Username already taken";
-            }
-        }
+        $h_password = hashPassword($password, $salt);
         
         //Query for a new user
-        $newuser_query = "INSERT INTO user VALUES ('$username', '$email', '$h_password', '$salt', '$firstname', '$lastname', '$dob_month', '$dob_date', '$dob_year', '$sex', '$street_number', '$street_name', '$city', '$state', '$zip', '$country')";
+        $newuser_query = "INSERT INTO user VALUES ('$username', '$email', '$h_password', '$salt', '$firstname', '$lastname')";
         
         $result = $connection->query($newuser_query);
-        echo "<br>Query executed: ";
-        echo $result;
-         
-        echo '<br><br>register function<br><br>';
-        return "True";
+        
+        return true;
     }
 
     // This function returns cities by state
@@ -476,11 +556,21 @@
         $connection = dbConnection();
         
         $addfavorite_query = "INSERT INTO favorite VALUES ('$username', '$restaurant_id')";
-        $result = $connection->query($addfavorite_query);
+        $$addfavorite_query_result = $connection->query($addfavorite_query);
         return "true";
-        
     }
 
+    //This function removes favorite of a user
+    function  removeFavorite($usename, $password){
+        
+        $connection = dbConnection();
+        
+        $removefavorite_query = "DELETE FROM favorite WHERE username = '$username' AND restaurant_id = '$restaurant_id'";
+        
+        
+        
+    }
+    
 
 
 
