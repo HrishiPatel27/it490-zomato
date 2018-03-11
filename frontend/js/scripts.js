@@ -1,3 +1,158 @@
+///////////////////
+//  Login/Register page functions
+///////////////////
+
+//  Form validation for Login
+function checkLoginCredentials(){
+    
+    var loginUsernameNotClean = document.getElementById('username_login').value;
+    var loginPasswordNotClean = document.getElementById('password_login').value;
+    
+    var loginUsername = loginUsernameNotClean.trim();
+    var loginPassword = loginPasswordNotClean.trim();
+
+    if (loginUsername != "" && loginPassword != ""){
+        sendLoginCredentials(loginUsername, loginPassword);
+    }else{
+        if(loginUsername == ""){
+            turnFieldToRedColorBorder(loginUsername);
+        }
+        if(loginPassword == ""){
+            turnFieldToRedColorBorder(loginPassword);
+        }
+        if (loginUsername == "" && loginPassword == ""){
+            turnFieldToRedColorBorder(loginUsername);
+            turnFieldToRedColorBorder(loginPassword);
+        }
+    }
+}
+
+// This function sends a AJAX request for login 
+function sendLoginCredentials(username, password){
+    
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+            document.getElementById("loginButtonId").innerHTML = "Login";
+            
+            if(this.responseText == true){
+                alert("Valid Credential");
+            }else{
+                alert("Invalid credentials");
+            }
+            
+        }else{
+            document.getElementById("loginButtonId").innerHTML = "Loading...";
+        }
+    }
+    httpReq.open("GET", "../php/functionCases.php?type=Login&username=" + username + "&password=" + password);
+    httpReq.send(null);
+}
+
+//  Form validation for Register
+function checkRegisterCredentials(){
+    
+    //  Taking Form input
+    var firstnameNotClean = document.getElementById("id_firstname").value;
+    var lastnameNotClean = document.getElementById("id_lastname").value;
+    var usernameNotClean = document.getElementById("id_username").value;
+    var emailNotClean = document.getElementById("id_email").value;
+    var passwordNotClean = document.getElementById("id_password").value;
+    var confirmPasswordNotClean = document.getElementById("id_confirm_password").value;
+    
+    //  Cleaning form input
+    var firstname = firstnameNotClean.trim();
+    var lastname = lastnameNotClean.trim();
+    var username = usernameNotClean.trim();
+    var email = emailNotClean.trim();
+    var password = passwordNotClean.trim();
+    var confirmPassword = confirmPasswordNotClean.trim();
+    
+    
+    if (firstname != "" && lastname != "" && username != "" && email != "" && password != "" && confirmPassword != ""){
+        sendRegisterCredentials(firstname, lastname, username, email, password);
+    }else{
+        alert("INformation not good");
+    }
+
+}
+
+//  This function sends a AJAX request for Register new user
+function sendRegisterCredentials(firstname, lastname, username, email, password){
+    
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+            document.getElementById("registerButtonId").innerHTML = "Register";
+            //  var response = JSON.parse(this.responseText);
+            if(this.responseText == true){
+                alert("User Registered");
+            }else{
+                alert("Problems registering a new user");
+            }
+        }else{
+            document.getElementById("registerButtonId").innerHTML = "Loading...";
+        }
+    }
+    httpReq.open("GET", "../php/functionCases.php?type=RegisterNewUser&username=" + username + "&password=" + password + "&firstname=" + firstname + "&lastname=" + lastname + "&email=" + email);
+    httpReq.send(null);
+}
+
+//  This function is called on the onblur event of a username Textbox
+function checkForExistingUsername(){
+    
+    var usernameNotClean = document.getElementById("id_username").value;
+    var username = usernameNotClean.trim();
+    
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+            if(this.responseText == false){
+                alert("User exists");
+            }else{
+                alert("You can register");
+            }
+            
+        }
+    }
+    httpReq.open("GET", "../php/functionCases.php?type=UsernameVerification&username=" + username);
+    httpReq.send(null);
+}
+
+//  This function is called on the onblur event of a email textbox
+function checkForExistingEmail(){
+    
+    var emailNotClean = document.getElementById("id_email").value;
+    var email = emailNotClean.trim();
+    
+    alert(email);
+    
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+            if(this.responseText == false){
+                alert("Email exists");
+            }else{
+                alert("Email can be register");
+            }
+            
+        }
+    }
+    httpReq.open("GET", "../php/functionCases.php?type=EmailVerification&email=" + email);
+    httpReq.send(null);
+}
+
+
+
+
+
+
+
+
 //  This function is called when the state is changed and it populates the city column
 function stateSelected(){
     var state = document.getElementById("state_id").value;
@@ -329,40 +484,13 @@ function checkForFavorite(favBool){
     }
 }
 
-//  Form validation for Login
-function checkLoginCredentials(){
-    
-    var loginUsername = document.getElementById('username_login');
-    var loginPassword = document.getElementById('password_login');
 
-    if (loginUsername.value != "" && loginPassword.value != ""){
-        alert("Information filled");
-    }else{
-        if(loginUsername.value == ""){
-            turnFieldToRedColorBorder(loginUsername);
-        }
-        if(loginPassword.value == ""){
-            turnFieldToRedColorBorder(loginPassword);
-        }
-        if (loginUsername.value == "" && loginPassword.value == ""){
-            turnFieldToRedColorBorder(loginUsername);
-            turnFieldToRedColorBorder(loginPassword);
-        }
-    }
-}
 
-//  Form validation for Register
-function checkRegisterCredential(){
-    
-}
+
 
 //  This function will add is-invalid to the division  
 function turnFieldToRedColorBorder(elementName){
     elementName.classList.add("is-invalid");
-}
-
-function turnFieldToNormalColorBorder(elementName){
-    elementName.classList.remove("is-invalid");
 }
 
 //  This function is called when the login modal opener button is called
@@ -371,11 +499,11 @@ function loginModalOpener(){
     var loginUsername = document.getElementById('username_login');
     var loginPassword = document.getElementById('password_login');
     
-    if(loginUsername.value == ""){
-       turnFieldToNormalColorBorder(loginUsername);
-    }
-    
-    if(loginPassword.value == ""){
-        turnFieldToNormalColorBorder(loginPassword);
-    }
+//    if(loginUsername.value == ""){
+//       turnFieldToNormalColorBorder(loginUsername);
+//    }
+//    
+//    if(loginPassword.value == ""){
+//        turnFieldToNormalColorBorder(loginPassword);
+//    }
 }

@@ -100,7 +100,7 @@
                                     
                                     <div class = "row margin-top-for-form-elements">
                                         <div class = "col-sm-12">
-                                             <button type="button" class="btn btn-primary" onclick="checkLoginCredentials()">Login</button>
+                                             <button type="button" class="btn btn-primary" onclick="checkLoginCredentials()" id = "loginButtonId">Login</button>
                                         </div>
                                     </div>
                                    
@@ -126,35 +126,50 @@
                     <div class="modal-body">
                         <div class = "row">
                             <div class = "col-sm-12" id = "register-form">
-                                <form action = "../php/register.php" method = "POST">
-
-                                    <!-- Username and Email -->
+                                <form>
+                                    
+                                     <!-- Firstname and Lastname -->
                                     <div class = "row margin-top-for-form-elements">
-                                        <div class = "col-sm-6">
-                                            <input type="text" class="form-control " name = "firstname" id = "id_firstname" placeholder="Username" required>
+                                        <div class = "col-6 col-sm-6">
+                                            <input type="text" class="form-control " name = "firstname" id = "id_firstname" placeholder="Firstname" required>
                                         </div>
 
-                                        <div class = "col-sm-6">
-                                            <input type="text" class="form-control" name = "lastname" id = "id_lastname" placeholder="Last Name" required>
+                                        <div class = "col-6 col-sm-6">
+                                            <input type="text" class="form-control " name = "lastname" id = "id_lastname" placeholder="Lastname" required>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Username and Email -->
+                                    <div class = "row margin-top-for-form-elements">
+                                        <div class = "col-6 col-sm-6">
+                                            <input type="text" class="form-control " name = "username" id = "id_username" placeholder="Username" onblur="checkForExistingUsername()" required>
+                                            
+                                        </div>
+
+                                        <div class = "col-6 col-sm-6">
+                                            <input class="form-control" type = "text" name = "email" id = "id_email" placeholder="Email" required>
+                                        </div>
+                                    </div>
+                                   
 
                                     <!-- Password and reenter password -->
                                     <div class = "row margin-top-for-form-elements">
-                                        <div class = "col-sm-6">
-                                            <input class="form-control " type = "email" name = "email" id = "id_email" placeholder="Email" required>
+                                        <div class = "col-6 col-sm-6">
+                                            <input class="form-control " type = "password" name = "password" id = "id_password" placeholder="Password" required>
                                         </div>
 
-                                        <div class = "col-sm-6">
-                                            <input type="text" class="form-control " name = "username" id = "id_username" placeholder="Username" required>
+                                        <div class = "col-6 col-sm-6">
+                                            <input class="form-control " type = "password" name = "conform_password" id = "id_confirm_password" placeholder="Confirm Password" required>
                                         </div>
                                     </div>
                                     
                                     <!-- Submit Button -->
                                     <div class = "row margin-top-for-form-elements">
-                                        <div class = "col-sm-4">
-                                           <button type="submit" class="btn btn-primary">Register</button> 
-                                        </div>                                        
+                                        
+                                        <div class = "col-4 col-sm-4">
+                                           <button type="button" class="btn btn-primary" onclick = "checkRegisterCredentials()" id = "registerButtonId">Register</button> 
+                                        </div> 
+                                    
                                     </div>
 
                                 </form>
