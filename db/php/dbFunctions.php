@@ -39,15 +39,15 @@
         $connection = dbConnection();
         
         //Query to check if the username is taken
-        $check_username = "SELECT username FROM user WHERE username = '$username'";
+        $check_username = "SELECT * FROM user WHERE username = '$username'";
         $check_result = $connection->query($check_username);
         
-        while ($row = $check_result->fetch_assoc()){
-            if ($row['username'] == $username){
-                return "False";
-            }else{
-                return "True";
-            }
+        if($check_result){
+            if($check_result->num_rows == 0){
+                return true;
+            }elseif($check_result->num_rows == 1){
+                return false;
+                }
         }
     }
 
@@ -57,15 +57,15 @@
         $connection = dbConnection();
         
         //Query to check if the email is email
-        $check_email = "SELECT email FROM user WHERE email = '$email'";
+        $check_email = "SELECT * FROM user WHERE email = '$email'";
         $check_result = $connection->query($check_email);
         
-        while ($row = $check_result->fetch_assoc()){
-            if ($row['email'] == $email){
-                return "True";
-            }else{
-                return "False";
-            }
+        if($check_result){
+            if($check_result->num_rows == 0){
+                return true;
+            }elseif($check_result->num_rows == 1){
+                return false;
+                }
         }
     }
 
@@ -125,6 +125,8 @@
 
     // This function stores Unique generated for user
     function storeUniqueKey($username, $uniquekey){
+        
+        $connection = dbConnection();
         
         //Query to store unique key for username
         $storekey_query = "INSERT INTO userkey VALUES ('$username', '$uniquekey', NOW())";
@@ -561,14 +563,14 @@
     }
 
     //This function removes favorite of a user
-    function  removeFavorite($usename, $password){
+    function  removeFavorite($usename, $restaurant_id){
         
         $connection = dbConnection();
         
         $removefavorite_query = "DELETE FROM favorite WHERE username = '$username' AND restaurant_id = '$restaurant_id'";
+        $removefavorite_query_result = $connection->query($removefavorite_query);
         
-        
-        
+        return true;  
     }
     
 

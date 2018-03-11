@@ -27,18 +27,22 @@
             //Check if username is already taken
             case "CheckUsername":
                 echo "<br>in Checkusername";
-                $reponse_msg = checkUsername($request['username']);
+                $response_msg = checkUsername($request['username']);
+                echo "Result: " . $response_msg;
+                break;
             
             //Check if email is valid
             case "CheckEmail":
                 echo "<br>in CheckEmail";
                 $response_msg = checkEmail($request['email']);
+                break;
                 
                 
             //Send email with username and password
             case "SendEmail":
                 echo "<br>in CheckEmail";
                 $response_msg = sendEmail($request['email']);
+                break;
                 
             //New User registration
             case "Register":
@@ -93,7 +97,6 @@
         
         
         }
-        
         return $response_msg;
     }
 
