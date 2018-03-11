@@ -1,5 +1,5 @@
 ///////////////////
-//  Login/Register page functions
+//                          Login/Register page functions
 ///////////////////
 
 //  Form validation for Login
@@ -151,7 +151,9 @@ function checkForExistingEmail(){
 
 
 
-
+///////////////////
+//                          searchRestaurant page functions
+///////////////////
 
 //  This function is called when the state is changed and it populates the city column
 function stateSelected(){
@@ -181,30 +183,6 @@ function stateSelected(){
     httpReq.send(null);
 }
 
-//  This function will create an object for http request
-function createRequestObject(){
-    var ajaxSender;
-    try {
-      ajaxSender = new XMLHttpRequest();
-    }catch (e) {
-      try {
-         ajaxSender = new ActiveXObject("Msxml2.XMLHTTP");
-      }catch (e) {
-         try{
-            ajaxSender = new ActiveXObject("Microsoft.XMLHTTP");
-         }catch (e){
-            alert("Your browser broke!");
-         }
-      }
-    }
-    return ajaxSender;
-}
-
-//  This function will redirect to the menu page of a restaurant
-function redirectToMenuOfRest(url){
-    window.location.href = url;
-}
-
 //  This function is called when the search button is clicked
 function searchRestaurants(){
     
@@ -214,12 +192,66 @@ function searchRestaurants(){
     
     var appendChildToPage = document.getElementById("divToHoldRest"); 
     appendChildToPage.innerHTML = "";
-    //  Removing all the inner elements
-//    while(appendChildToPage.firstChild){
-//        appendChildToPage.removeChild(appendChildToPage.firstChild);
-//        //console.log(appendChildToPage.firstChild);
-//    }
-//    
+ 
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            var response = JSON.parse(this.responseText);
+            
+            var user = getUserName();
+            var restaurants = response['restaurants'];
+            var count = 0;
+            
+            for(var i in restaurants){
+                
+                if(count == 0 || count%3 == 0){
+                //  main row
+                    var mainRowDiv = document.createElement("div");
+                    mainRowDiv.classList.add("row");
+                }
+                
+                count = count + 1;
+                
+                
+                var card_holder_id = document.createElement("div");
+                
+                
+                
+                
+                
+                
+                
+                appendChildToPage.appendChild(mainRowDiv);
+           
+//                console.log(restaurants[i].restaurant_id);
+//                console.log(restaurants[i].name);           //  Used
+//                console.log(restaurants[i].menu_url);       //  Used
+//                console.log(restaurants[i].thumb);          //  Used
+//                console.log(restaurants[i].address);        //  Used
+//                console.log(restaurants[i].city_id);        //  Not needed
+//                console.log(restaurants[i].rating);         //  Used
+//                console.log(restaurants[i].rating_text);    //  Used
+     
+            }
+            
+        }
+    }
+    httpReq.open("GET", "../php/getAllRestaurants.php?state="+state+"&city="+city+"&cuisine_id="+cuisine_id, false);
+    httpReq.send(null);
+    
+} 
+
+
+//  This function is called when the search button is clicked
+function searchRestaurantsOld(){
+    
+    var state = document.getElementById("state_id").value;
+    var city = document.getElementById("city_id").value;
+    var cuisine_id = document.getElementById("cuisine_id").value;
+    
+    var appendChildToPage = document.getElementById("divToHoldRest"); 
+    appendChildToPage.innerHTML = "";
+ 
     var httpReq = createRequestObject();
     httpReq.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
@@ -401,7 +433,36 @@ function searchRestaurants(){
     httpReq.open("GET", "../php/getAllRestaurants.php?state="+state+"&city="+city+"&cuisine_id="+cuisine_id, false);
     httpReq.send(null);
     
-}   
+} 
+
+
+
+
+
+//  This function will create an object for http request
+function createRequestObject(){
+    var ajaxSender;
+    try {
+      ajaxSender = new XMLHttpRequest();
+    }catch (e) {
+      try {
+         ajaxSender = new ActiveXObject("Msxml2.XMLHTTP");
+      }catch (e) {
+         try{
+            ajaxSender = new ActiveXObject("Microsoft.XMLHTTP");
+         }catch (e){
+            alert("Your browser broke!");
+         }
+      }
+    }
+    return ajaxSender;
+}
+
+//  This function will redirect to the menu page of a restaurant
+function redirectToMenuOfRest(url){
+    window.location.href = url;
+}
+
 
 //  This function will return the username from session ID
 function getUserName(){
