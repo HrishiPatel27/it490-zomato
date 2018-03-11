@@ -214,207 +214,142 @@ function searchRestaurants(){
                 
                 
                 var card_holder_id = document.createElement("div");
+                card_holder_id.classList.add("col-lg-4");
+                mainRowDiv.appendChild(card_holder_id);
                 
+                var card_id = document.createElement("div");
+                card_id.classList.add("custom-card");
+                card_holder_id.appendChild(card_id);
                 
+                var row_one_in_card = document.createElement("div");
+                row_one_in_card.classList.add("row");
+                card_id.appendChild(row_one_in_card);
                 
+                var thumb_holder = document.createElement("div");
+                thumb_holder.classList.add("col-3", "col-lg-3");
+                row_one_in_card.appendChild(thumb_holder);
                 
-                
-                
-                
-                appendChildToPage.appendChild(mainRowDiv);
-           
-//                console.log(restaurants[i].restaurant_id);
-//                console.log(restaurants[i].name);           //  Used
-//                console.log(restaurants[i].menu_url);       //  Used
-//                console.log(restaurants[i].thumb);          //  Used
-//                console.log(restaurants[i].address);        //  Used
-//                console.log(restaurants[i].city_id);        //  Not needed
-//                console.log(restaurants[i].rating);         //  Used
-//                console.log(restaurants[i].rating_text);    //  Used
-     
-            }
-            
-        }
-    }
-    httpReq.open("GET", "../php/getAllRestaurants.php?state="+state+"&city="+city+"&cuisine_id="+cuisine_id, false);
-    httpReq.send(null);
-    
-} 
-
-
-//  This function is called when the search button is clicked
-function searchRestaurantsOld(){
-    
-    var state = document.getElementById("state_id").value;
-    var city = document.getElementById("city_id").value;
-    var cuisine_id = document.getElementById("cuisine_id").value;
-    
-    var appendChildToPage = document.getElementById("divToHoldRest"); 
-    appendChildToPage.innerHTML = "";
- 
-    var httpReq = createRequestObject();
-    httpReq.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            var response = JSON.parse(this.responseText);
-            
-            var user = getUserName();
-            
-            var restaurants = response['restaurants'];
-            
-            //console.log(restaurants.length);
-            
-            //console.log(this.responseText);
-            //alert(JSON.stringify(restaurants));
-            
-            
-            var count = 0;
-            
-            for(var i in restaurants){
-                
-                if(count == 0 || count%4 == 0){
-                //  main row
-                    var mainRowDiv = document.createElement("div");
-                    mainRowDiv.classList.add("row");
+                if (restaurants[i].thumb == ""){
+                    restaurants[i].thumb = "../asset/food-image.png";
                 }
                 
-                count = count + 1;
+                var thumb_id = document.createElement("img");
+                thumb_id.setAttribute("src", restaurants[i].thumb);
+                thumb_id.setAttribute("id", "thumb_id");
+                thumb_holder.appendChild(thumb_id);
                 
-                //restaurant
-                var restDiv = document.createElement("div");
-                restDiv.classList.add("col-sm-3");
-                mainRowDiv.appendChild(restDiv);
+                var name_address_holder = document.createElement("div");
+                name_address_holder.classList.add("col-9", "col-lg-9");
+                name_address_holder.setAttribute("id", "name_address_holder");
+                row_one_in_card.appendChild(name_address_holder);
                 
-                // one
-                var one = document.createElement("div");
-                one.classList.add("row");
-                restDiv.appendChild(one);
+                var name_add_holder_child = document.createElement("div");
+                name_add_holder_child.classList.add("row");
+                name_address_holder.setAttribute("id", "name_add_holder_child");
+                name_address_holder.appendChild(name_add_holder_child);
                 
-                //  two
-                var two = document.createElement("div");
-                two.classList.add("col-sm-12");
-                two.classList.add("card");
-                one.appendChild(two);
+                var rest_name_id = document.createElement("div");
+                rest_name_id.classList.add("col-lg-12");
+                rest_name_id.setAttribute("id", "rest_name_id");
+                var anchor_tag_for_name = document.createElement("a");
+                anchor_tag_for_name.setAttribute("href", "#");
+                var rest_name_test = document.createTextNode(restaurants[i].name);
+                anchor_tag_for_name.appendChild(rest_name_test);
+                name_add_holder_child.appendChild(anchor_tag_for_name);
                 
-                //  three
-                var three = document.createElement("div");
-                three.classList.add("row");
-                three.classList.add("card-items-row-padding-name");
-                two.appendChild(three);
                 
-                //  four
-                var four = document.createElement("div");
-                four.classList.add("col-sm-12");
-                four.classList.add("input-group");
-                three.appendChild(four);
+                var rest_address_id = document.createElement("div");
+                rest_address_id.classList.add("col-lg-12");
+                rest_address_id.setAttribute("id", "rest_address_id");
+                var rest_address_test = document.createTextNode(restaurants[i].address);
+                rest_address_id.appendChild(rest_address_test);
+                name_add_holder_child.appendChild(rest_address_id);
                 
-                //  five
-                var five = document.createElement("div");
-                five.classList.add("input-group-addon");
-                four.appendChild(five);
+                var name_address_holder = document.createElement("div");
+                name_address_holder.classList.add("col-9", "col-lg-9");
+                name_address_holder.setAttribute("id", "name_address_holder");
+                row_one_in_card.appendChild(name_address_holder);
                 
-                //  img
-                var img = document.createElement("img");
-                img.setAttribute("src", restaurants[i].thumb);
-                img.setAttribute("alt", "IMG");
-                img.setAttribute("height", "45");
-                img.setAttribute("width", "45");
-                five.appendChild(img);
+                var row_two_in_card = document.createElement("div");
+                row_two_in_card.classList.add("row");
+                row_two_in_card.setAttribute("id", "row_two_in_card");
+                card_id.appendChild(row_two_in_card);
                 
-                //  six
-                var six = document.createElement("div");
-                six.classList.add("input-group-addon");
-                four.appendChild(six);
+                var rating_and_text_holder = document.createElement("div");
+                rating_and_text_holder.classList.add("col-12", "col-lg-3");
+                rating_and_text_holder.setAttribute("id", "rating_and_text_holder");
+                row_two_in_card.appendChild(rating_and_text_holder);
                 
-                //  h2
-                var h3 = document.createElement("h3");
-                var a = document.createElement("a");
-                a.setAttribute("href", "../php/restaurantHome.php?restId=" + restaurants[i].restaurant_id);
-                h3.appendChild(a);
-                var restaurantName = document.createTextNode(restaurants[i].name);
-                a.appendChild(restaurantName);
-                six.appendChild(h3);
+                var rating_text_holder_row = document.createElement("div");
+                rating_text_holder_row.classList.add("row");
+                rating_text_holder_row.setAttribute("id", "rating_text_holder_row");
+                rating_and_text_holder.appendChild(rating_text_holder_row);
                 
-                //  seven
-                var seven = document.createElement("div");
-                seven.classList.add("row");
-                seven.classList.add("card-items-row-padding-address");
-                two.appendChild(seven);
+                var rating_holder = document.createElement("div");
+                rating_holder.classList.add("col-6", "col-lg-12");
+                rating_holder.setAttribute("id", "rating_holder");
+                rating_text_holder_row.appendChild(rating_holder);
                 
-                //  eight
-                var eight = document.createElement("div");
-                eight.classList.add("col-sm-2");
-                seven.appendChild(eight);
+                var rating_id = document.createElement("div");
+                rating_id.setAttribute("id", "rating_id");
+                var rating_text = document.createTextNode("Rating: " + restaurants[i].rating);
+                rating_id.appendChild(rating_text);
+                rating_holder.appendChild(rating_id);
                 
-                //  nine
-                var nine = document.createElement("div");
-                nine.classList.add("col-sm-10");
-                var restaurantAddress = document.createTextNode(restaurants[i].address);
-                nine.appendChild(restaurantAddress);
-                seven.appendChild(nine);
+                var rating_text_holder = document.createElement("div");
+                rating_text_holder.classList.add("col-6", "col-lg-12");
+                rating_text_holder.setAttribute("id", "rating_text_holder");
+                rating_text_holder_row.appendChild(rating_text_holder);
                 
-                //  ten
-                var ten = document.createElement("div");
-                ten.classList.add("row");
-                ten.classList.add("card-items-row-padding");
-                two.appendChild(ten);
+                var rating_text_id = document.createElement("div");
+                rating_text_id.setAttribute("id", "rating_text_id");
+                var rating_text_text = document.createTextNode(restaurants[i].rating_text);
+                rating_text_id.appendChild(rating_text_text);
+                rating_text_holder.appendChild(rating_text_id);
                 
-                //  eleven
-                var eleven = document.createElement("div");
-                eleven.classList.add("col-sm-12");
-                var restaurantRatingAndText = document.createTextNode("Rating: " + restaurants[i].rating + " | " + restaurants[i].rating_text);
-                eleven.appendChild(restaurantRatingAndText);
-                ten.appendChild(eleven);
+                var all_buttons_holder = document.createElement("div");
+                all_buttons_holder.classList.add("col-12", "col-lg-9");
+                rating_holder.setAttribute("id", "all_buttons_holder");
+                row_two_in_card.appendChild(all_buttons_holder);
                 
-                //  twelve
-                var twelve = document.createElement("div");
-                twelve.classList.add("row");
-                twelve.classList.add("card-items-row-padding");
-                two.appendChild(twelve);
+                var three_buttons = document.createElement("div");
+                three_buttons.setAttribute("id", "three_buttons");
+                all_buttons_holder.appendChild(three_buttons);
                 
-                //  thirteen
-                var thirteen = document.createElement("div");
-                thirteen.classList.add("btn-group");
-                thirteen.setAttribute("role", "group");
-                thirteen.setAttribute("aria-label", "ThreeButton");
-                twelve.appendChild(thirteen);
                 
-                //  buttonOne
-                var buttonOne = document.createElement("button");
-                buttonOne.classList.add("btn");
-                buttonOne.classList.add("btn-secondary");
-                buttonOne.setAttribute("type", "button");
-                buttonOne.setAttribute("onclick", "redirectToMenuOfRest('" + restaurants[i].menu_url + "')");
-                var restaurantMenu = document.createTextNode("Menu");
-                buttonOne.appendChild(restaurantMenu);
-                thirteen.appendChild(buttonOne);
+                var three_buttons_holder_group = document.createElement("div");
+                three_buttons_holder_group.classList.add("btn-group");
+                three_buttons_holder_group.setAttribute("id", "three_buttons_holder_group");
+                three_buttons_holder_group.setAttribute("role", "group");
+                three_buttons_holder_group.setAttribute("aria-label", "Basic Example");
+                three_buttons.appendChild(three_buttons_holder_group);
                 
-                //  buttonTwo
-                var buttonTwo = document.createElement("button");
-                buttonTwo.setAttribute("type", "button");
-                buttonTwo.classList.add("btn");
-                buttonTwo.classList.add("btn-secondary");
-//                buttonTwo.setAttribute("data-toggle", "modal");
-//                buttonTwo.setAttribute("data-target", "#exampleModalCenter");
-                buttonTwo.setAttribute("id", "suggestionModalButton");
-                buttonTwo.setAttribute("data-username", user);
-                buttonTwo.setAttribute("data-restaurantId", restaurants[i].restaurant_id);
-                buttonTwo.setAttribute("onclick", "suggestionButtonCalled(" + restaurants[i].restaurant_id + ", '" + user + "')");
-                var restaurantSuggestion = document.createTextNode("Suggestion");
-                buttonTwo.appendChild(restaurantSuggestion);
-                thirteen.appendChild(buttonTwo);
+                var menu_button_id = document.createElement("button");
+                menu_button_id.classList.add("btn", "btn-secondary");
+                menu_button_id.setAttribute("type", "button");
+                menu_button_id.setAttribute("id", "menu_button_id");
+                var menu_button_text = document.createTextNode("Menu");
+                menu_button_id.appendChild(menu_button_text);
+                three_buttons_holder_group.appendChild(menu_button_id);
                 
-                //  buttonThree
-                var buttonThree = document.createElement("button");
-                buttonThree.setAttribute("type", "button");
-                buttonThree.classList.add("btn");
-                buttonThree.classList.add("btn-secondary");
-//                buttonThree.setAttribute("data-toggle", "modal");
-//                buttonThree.setAttribute("data-target", "#exampleModalCenter1");
-                buttonThree.setAttribute("onclick", "reviewButtonCalled(" + restaurants[i].restaurant_id + ", '" + user + "')");
-                var restaurantReview = document.createTextNode("Review");
-                buttonThree.appendChild(restaurantReview);
-                thirteen.appendChild(buttonThree);
-
+                var suggestion_button_id = document.createElement("button");
+                suggestion_button_id.classList.add("btn", "btn-secondary");
+                suggestion_button_id.setAttribute("type", "button");
+                suggestion_button_id.setAttribute("id", "suggestion_button_id");
+                var suggestion_button_text = document.createTextNode("Suggestion");
+                suggestion_button_id.appendChild(suggestion_button_text);
+                three_buttons_holder_group.appendChild(suggestion_button_id);
+                
+                var review_button_id = document.createElement("button");
+                review_button_id.classList.add("btn", "btn-secondary");
+                review_button_id.setAttribute("type", "button");
+                review_button_id.setAttribute("id", "review_button_id");
+                var review_button_text = document.createTextNode("Review");
+                review_button_id.appendChild(review_button_text);
+                three_buttons_holder_group.appendChild(review_button_id);
+                
+                
+                
                 appendChildToPage.appendChild(mainRowDiv);
            
 //                console.log(restaurants[i].restaurant_id);
@@ -434,6 +369,7 @@ function searchRestaurantsOld(){
     httpReq.send(null);
     
 } 
+
 
 
 
