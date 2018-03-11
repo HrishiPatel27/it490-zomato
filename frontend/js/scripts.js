@@ -37,9 +37,9 @@ function sendLoginCredentials(username, password){
             document.getElementById("loginButtonId").innerHTML = "Login";
             
             if(this.responseText == true){
-                alert("Valid Credential");
+                window.location = "../php/searchRestaurant.php";
             }else{
-                alert("Invalid credentials");
+                window.location = "loginRegister.html";
             }
             
         }else{
@@ -73,7 +73,7 @@ function checkRegisterCredentials(){
     if (firstname != "" && lastname != "" && username != "" && email != "" && password != "" && confirmPassword != ""){
         sendRegisterCredentials(firstname, lastname, username, email, password);
     }else{
-        alert("INformation not good");
+        alert("Information not good");
     }
 
 }

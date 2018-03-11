@@ -1,11 +1,13 @@
 <?php
+    
+    //  Starting session
     session_start();
 
+    //  Including required files
+    include("functions.php");
     
-    if (!$_SESSION["logged"]){
-        header("Location: ../html/loginRegister.html");
-    }
-
+    //  Trowing out the user if the user is not looged in and trying to fetch this page
+    gateway();
 
 ?>
 

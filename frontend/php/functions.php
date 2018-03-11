@@ -1,9 +1,20 @@
 <?php
 
+    //  Starting sessions 
+    //  session_start();
+
+    //  Requireing required files
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
     require_once('rabbitMQClient.php');
+
+    //  This function will check if the user not logged in and trying to fetch innerwebpage
+    function gateway(){
+        if (!$_SESSION["logged"]){
+            header("Location: ../html/loginRegister.html");
+        }
+    }
 
     //  This function will send login request to RabbotMQ
     function login($username, $password){
@@ -15,16 +26,15 @@
         $request['password'] = $password;
 
         $returnedValue = createClientForDb($request);
-
+        
+        if($returnedValue == 1){
+            $_SESSION["username"] = $username;
+            $_SESSION["logged"] = true;
+        }else{
+            session_destroy();
+        }
+       
         return $returnedValue;
-//        if($returnedValue == "True"){
-//            $_SESSION["username"] = $_POST["username"];
-//            $_SESSION["logged"] = true;
-//
-//            header("Location: searchRestaurant.php");
-//        }else{
-//            header("Location: ../html/loginRegister.html");
-//        }
     }
 
     //  This function will send register request to RabbitMQ
