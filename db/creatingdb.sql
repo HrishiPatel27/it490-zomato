@@ -79,6 +79,12 @@ CREATE TABLE usadata(
     lon DOUBLE
 );
 
+CREATE TABLE dish_name(
+    restaurant_id INT(10) NOT NULL,
+    dish VARCHAR(100) NOT NULL,
+    CONSTRAINT fk4_restaurant_id FOREIGN KEY (restaurant_id) REFERENCES restaurant(restaurant_id) ON DELETE CASCADE
+);
+
 
 
     

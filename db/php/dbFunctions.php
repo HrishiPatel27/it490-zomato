@@ -257,7 +257,7 @@
         } 
     }
 
-    //This functions fetched existing restaurants from database
+    // This functions fetches existing restaurants from database
     function getRestaurantDb($cuisine_id, $city_id, $city, $state){
         
         $connection = dbConnection();
@@ -272,6 +272,9 @@
                 
                 $restaurant_result_dmz = getRestaurantDmz($state, $city, $cuisine_id);
                 
+                if ($restaurant_result_dmz == "False"){
+                    return false;
+                }
                 $city_id = $restaurant_result_dmz['city_id'];
                 $restaurants = $restaurant_result_dmz['restaurants'];
                 
@@ -370,7 +373,7 @@
         
         //Insert rest_id and cuisine_id in rest_cuisine
         
-        return 'true';
+        return 'True';
         
     }
 
@@ -382,7 +385,7 @@
         $addsuggestion_query = "INSERT INTO suggestion VALUES ('$username', '$restaurant_id', '$suggestion', '$dish_name')";
         $result = $connection->query($addsuggestion_query);
         
-        return "true";
+        return true;
     }
 
     //This function enters reviews for restaurant from user
@@ -392,7 +395,7 @@
         
         $addreview_query = "INSERT INTO review VALUES ('$username', '$restaurant_id', '$review_text', '$review_rating')";
         $result = $connection->query($addreview_query);
-        return "true";
+        return true;
     }
 
     //This function fetches individual restaurant info
@@ -408,7 +411,7 @@
         //echo "Executed suggestions query         ";
         if($getsuggestion_query_result){
             if($getsuggestion_query_result->num_rows == 0){
-                $suggestionresult = "false";
+                $suggestionresult = "False";
                 $suggestioninfo[] = array('username'=>$suggestionresult, 'suggestion'=>$suggestionresult);
             }else{
                 while($row = $getsuggestion_query_result->fetch_assoc()){
@@ -427,7 +430,7 @@
         //echo "Executed reviews query        ";
         if($getreview_query_result){
             if($getreview_query_result->num_rows == 0){
-                $reviewresult = "false";
+                $reviewresult = "False";
                 $reviewsinfo[] = array('username'=>$reviewresult, 'review_rating'=>$reviewresult, 'review_text'=>$reviewresult);
             }else{
                 while($row = $getreview_query_result->fetch_assoc()){
@@ -445,9 +448,9 @@
         
         if($getfavorite_query_result){
             if($getfavorite_query_result->num_rows == 0){
-                $favoriteinfo = "false";
+                $favoriteinfo = "False";
             }elseif($getfavorite_query_result->num_rows > 0){
-                $favoriteinfo = "true";  
+                $favoriteinfo = "True";  
             }
         }
         
@@ -573,8 +576,75 @@
         return true;  
     }
 
-    
+    //This function fetches menu for restaurant
+    function getMenu($restaurant_id, $menu_url){
+        
+        $connection = dbConnection();
+        
+        //Query to check if menu exits for restaurant in database
+        $getmenu_query = "SELECT * FROM dish_name WHERE restaurant_id = '$restaurant_id'";
+        $getmenu_query_result = $connection->query($getmenu_query);
+        
+        if($getmenu_query_result){
+            if($getmenu_query_result->num_rows == 0){
+                $menu_list = getMenuDmz($menu_url);
+                
+                if($menu_list != "False"){
+                    
+                    //Adds the received meny items in database
+                    $addMenuDb = addMenuDb($menu_list, $restaurant_id);
+                    
+                    //Query to fetch menu for restaurant from database
+                    $getmenu_query1 = "SELECT * FROM dish_name WHERE restaurant_id = '$restaurant_id'";
+                    $getmenu_query_result1 = $connection->query($getmenu_query1);
 
+                    while($row = $getmenu_query_result1->fetch_assoc()){
+                        $dish_name = $row['dish'];
+                        $menuinfo[] = array('dish_name'=>$restaurant_name);
+                    }
+                    echo var_dump($menuinfo);
+                    return $menuinfo;
+                }else{
+                    return false;
+                }
+                
+            }else{
+                while($row = $getmenu_query_result->fetch_assoc()){
+                    $dish_name = $row['dish'];
+                    $menuinfo[] = array('dish_name'=>$restaurant_name);
+                }
+                echo var_dump($menuinfo);
+                return $menuinfo;
+            }
+        }
+    }
+ 
+    //This function requests DMZ for menu items
+    function getMenuDmz($menu_url){
+        
+        echo "In dmz function";
+        $request = array();
+        $request['type'] = "GetMenu";
+        $request['menu_url'] = $menu_url;
+        
+        $returnedItems = createClientForDmz($request);
+        echo "Leaving dmz with data";
+        return $returnedItems;
+    }
+
+    //This function adds menu in database
+    function addMenuDb($menu_list, $restaurant_id){
+        
+        $connection = dbConnection();
+        
+        for($i = 0; $i < count($menu_list); $i++){
+            $dish = $menu_list[$i]['item'];
+            //Query to add menu items in database
+            $addmenu = "INSERT INTO dish_name VALUES ('$restaurant_id', '$dish')";
+            $addmenu_result = $connection->query($addmenu);
+        }
+        return "True";
+    }
 
 
 ?>

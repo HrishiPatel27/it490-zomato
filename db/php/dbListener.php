@@ -95,7 +95,10 @@
                 $response_msg = removeFavorite($request['username'], $request['restaurant_id']);
                 break;
         
-        
+            //Get menu for restaurant
+            case "GetMenu":
+                $response_msg = getMenu($request['restaurant_id'],  $request['menu_url']);
+                break;
         }
         return $response_msg;
     }
@@ -107,9 +110,5 @@
     $server->process_requests('requestProcessor');
     
     //exit();
-
-
-
-
 
 ?>

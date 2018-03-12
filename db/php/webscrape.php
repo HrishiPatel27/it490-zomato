@@ -8,24 +8,24 @@
 
     function curl_download($url){
 
-            if (!function_exists('curl_init')){
-                die('cURL is not installed. Install and try again.');
-            }
+        if (!function_exists('curl_init')){
+            die('cURL is not installed. Install and try again.');
+        }
 
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-            $output = curl_exec($ch);
-            curl_close($ch);
+        $output = curl_exec($ch);
+        curl_close($ch);
             
-            //Scrappes data between two divs
-            $start = strpos($output, '<div id="menu-container" class="relative">');
-            $end = strpos($output, '<div class="right-column-container col-l-4" style="min-height: 8274px;">', $start);
-            $length = $end-$start;
-            $output = substr($output, $start, $length);
+        //Scrappes data between two divs
+        $start = strpos($output, '<div id="menu-container" class="relative">');
+        $end = strpos($output, '<div class="right-column-container col-l-4" style="min-height: 8274px;">', $start);
+        $length = $end-$start;
+        $output = substr($output, $start, $length);
 
-            return $output;
+        return $output;
 
     }
 
