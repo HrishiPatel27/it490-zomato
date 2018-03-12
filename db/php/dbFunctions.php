@@ -18,7 +18,7 @@
         $result = $connection->query($query);
         if($result){
             if($result->num_rows == 0){
-                return "False";
+                return false;
             }else{
                 while ($row = $result->fetch_assoc()){
                     $salt = $row['salt']; 
@@ -572,6 +572,7 @@
         
         return true;  
     }
+
     
 
 
