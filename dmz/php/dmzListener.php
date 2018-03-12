@@ -23,7 +23,10 @@
                 $response_msg = restaurantInfo($request['city_name'],$request['state_name'],$request['cuisine_id']);
                 break;
             
-       
+			//Get menu for restaurant
+			case "GetMenu":
+				$response_msg = getMenu($request['menu_url']);
+				break;
         }
        
         return $response_msg;
