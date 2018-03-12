@@ -336,17 +336,178 @@ function searchRestaurants(){
                 suggestion_button_id.classList.add("btn", "btn-secondary");
                 suggestion_button_id.setAttribute("type", "button");
                 suggestion_button_id.setAttribute("id", "suggestion_button_id");
+                suggestion_button_id.setAttribute("onclick", "suggestionClicked('suggestion" + restaurants[i].restaurant_id + user + "')");
                 var suggestion_button_text = document.createTextNode("Suggestion");
                 suggestion_button_id.appendChild(suggestion_button_text);
                 three_buttons_holder_group.appendChild(suggestion_button_id);
+                
                 
                 var review_button_id = document.createElement("button");
                 review_button_id.classList.add("btn", "btn-secondary");
                 review_button_id.setAttribute("type", "button");
                 review_button_id.setAttribute("id", "review_button_id");
+                review_button_id.setAttribute("onclick", "reviewClicked('ratingReview" + restaurants[i].restaurant_id + user + "')");
                 var review_button_text = document.createTextNode("Review");
                 review_button_id.appendChild(review_button_text);
                 three_buttons_holder_group.appendChild(review_button_id);
+                
+                
+        //  Testing starts for Suggestion block
+                
+                var IdForSuggestionTitle = "suggestionDishTitle" + restaurants[i].restaurant_id + user;
+                
+                var IdForSuggestionSection = "suggestion" + restaurants[i].restaurant_id + user;
+                
+                var IdForSuggestionDescription = "suggestionDescriptionId" + restaurants[i].restaurant_id + user;
+                
+                
+                var row_three_in_card = document.createElement("div");
+                row_three_in_card.classList.add("row");
+                row_three_in_card.setAttribute("id", IdForSuggestionSection);
+                
+                card_id.appendChild(row_three_in_card);
+                
+                var suggestion_box_holder = document.createElement("div");
+                suggestion_box_holder.classList.add("col-12", "col-lg-12");
+                row_three_in_card.appendChild(suggestion_box_holder);
+                
+                var formRow = document.createElement("div");
+                formRow.classList.add("row");
+                formRow.setAttribute("id", "formRow");
+                suggestion_box_holder.appendChild(formRow);
+                
+                
+                //  Suggestion Title
+                var suggestionTextHolder = document.createElement("div");
+                suggestionTextHolder.classList.add("col-12", "col-lg-12", "writeSuggestionLabel");
+                var suggestionTexta = document.createTextNode("Write suggestion");
+                suggestionTextHolder.appendChild(suggestionTexta);
+                formRow.appendChild(suggestionTextHolder);
+                
+                
+                //  Suggestion Title
+                var suggestionTitle = document.createElement("div");
+                suggestionTitle.classList.add("col-12", "col-lg-12", "writeSuggestionTitle");
+                formRow.appendChild(suggestionTitle);
+                
+                var inputTitleBox = document.createElement("input");
+                inputTitleBox.setAttribute("type", "text");
+                inputTitleBox.classList.add("form-control");
+                inputTitleBox.setAttribute("name", "suggestionTitle");
+                inputTitleBox.setAttribute("id", IdForSuggestionTitle);
+                inputTitleBox.setAttribute("placeholder", "Dish Name");
+                suggestionTitle.appendChild(inputTitleBox);      
+                
+                //  Suggestion Description 
+                var writeSuggestionDescription = document.createElement("div");
+                writeSuggestionDescription.classList.add("col-12", "col-lg-12", "writeSuggestionDescription");
+                formRow.appendChild(writeSuggestionDescription);             
+                
+                var inputDescriptionBox = document.createElement("textarea");
+                inputDescriptionBox.classList.add("form-control");
+                inputDescriptionBox.setAttribute("name", "inputDescriptionBox");
+                inputDescriptionBox.setAttribute("id", IdForSuggestionDescription);
+                writeSuggestionDescription.appendChild(inputDescriptionBox);
+                
+                //  Suggestion button 
+                var writeSuggestionButton = document.createElement("div");
+                writeSuggestionButton.classList.add("col-12", "col-lg-12", "writeSuggestionButton");
+                formRow.appendChild(writeSuggestionButton);
+                
+                var suggestionSubmitButton = document.createElement("button");
+                suggestionSubmitButton.setAttribute("type", "button");
+                suggestionSubmitButton.setAttribute("onclick", "submitSuggestionButtonClicked('"  + IdForSuggestionTitle + "','" + IdForSuggestionDescription + "','" + user + "'," + restaurants[i].restaurant_id + ")");
+                
+                suggestionSubmitButton.setAttribute("type", "button");
+                suggestionSubmitButton.classList.add("btn", "btn-primary");
+                var submission_button_text = document.createTextNode("Suggest");
+                suggestionSubmitButton.appendChild(submission_button_text);
+                writeSuggestionButton.appendChild(suggestionSubmitButton);
+                
+                
+                
+                row_three_in_card.style.display = "none";
+        //  Testing ends
+                
+                
+                
+                
+                
+        //  Review section starts here
+                
+                var IdForReview = "review" + restaurants[i].restaurant_id + user;
+                
+                var IdForRatingReviewSection = "ratingReview" + restaurants[i].restaurant_id + user;
+                
+                var IdForRating = "rating" + restaurants[i].restaurant_id + user;
+                
+                
+                var row_four_in_card = document.createElement("div");
+                row_four_in_card.classList.add("row");
+                row_four_in_card.setAttribute("id", IdForRatingReviewSection);
+                card_id.appendChild(row_four_in_card);
+                
+                var ratingReview_box_holder = document.createElement("div");
+                ratingReview_box_holder.classList.add("col-12", "col-lg-12");
+                row_four_in_card.appendChild(ratingReview_box_holder);
+                
+                var formRow1 = document.createElement("div");
+                formRow1.classList.add("row");
+                formRow1.setAttribute("id", "formRow1");
+                ratingReview_box_holder.appendChild(formRow1);
+                
+                
+                //  Rating Review Label 
+                var ratingReviewTextHolder = document.createElement("div");
+                ratingReviewTextHolder.classList.add("col-12", "col-lg-12", "writeRatingReviewLabel");
+                var ratingReviewTexta = document.createTextNode("Write Review");
+                ratingReviewTextHolder.appendChild(ratingReviewTexta);
+                formRow1.appendChild(ratingReviewTextHolder);
+                
+                
+                //  rating 
+                var ratingHolder = document.createElement("div");
+                ratingHolder.classList.add("col-12", "col-lg-12", "ratingHolderTitle");
+                formRow1.appendChild(ratingHolder);
+                
+                var inputRatingBox = document.createElement("input");
+                inputRatingBox.setAttribute("type", "text");
+                inputRatingBox.classList.add("form-control");
+                inputRatingBox.setAttribute("name", "ratingName");
+                inputRatingBox.setAttribute("id", IdForRating);
+                inputRatingBox.setAttribute("placeholder", "Rating - eg: 4.6");
+                ratingHolder.appendChild(inputRatingBox);      
+                
+                //  Review 
+                var reviewHolder = document.createElement("div");
+                reviewHolder.classList.add("col-12", "col-lg-12", "reviewHolderTitle");
+                formRow1.appendChild(reviewHolder);             
+                
+                var inputReviewBox = document.createElement("textarea");
+                inputReviewBox.classList.add("form-control");
+                inputReviewBox.setAttribute("name", "inputDescriptionBox");
+                inputReviewBox.setAttribute("id", IdForReview);
+                reviewHolder.appendChild(inputReviewBox);
+                
+                //  Rating Review Submit button 
+                var ratingReviewButtonHolder = document.createElement("div");
+                ratingReviewButtonHolder.classList.add("col-12", "col-lg-12", "ratingReviewButtonHolder");
+                formRow1.appendChild(ratingReviewButtonHolder);
+                
+                var ratingReviewSubmitButton = document.createElement("button");
+                ratingReviewSubmitButton.setAttribute("type", "button");
+                ratingReviewSubmitButton.setAttribute("onclick", "submitRatingReviewButtonClicked('"  + IdForRating + "','" + IdForReview + "','" + user + "'," + restaurants[i].restaurant_id + ")");
+
+                ratingReviewSubmitButton.classList.add("btn", "btn-primary");
+                var review_rating_button_text = document.createTextNode("Review");
+                ratingReviewSubmitButton.appendChild(review_rating_button_text);
+                ratingReviewButtonHolder.appendChild(ratingReviewSubmitButton);
+                
+                
+                
+                row_four_in_card.style.display = "none";
+        
+        //  Review Section here ends        
                 
                 
                 
@@ -371,7 +532,65 @@ function searchRestaurants(){
 } 
 
 
+//  This function is called when suggestion button is clicked
+function suggestionClicked(id){
+    
+    var suggestionButton = document.getElementById(id);
+    
+    if(suggestionButton.style.display === "none"){
+        suggestionButton.style.display = "block";
+    }else if(suggestionButton.style.display === "block"){
+        suggestionButton.style.display = "none";
+    }
+    
+}
 
+//  This function is called when review button is clicked
+function reviewClicked(id){
+    
+    var reviewButton = document.getElementById(id);
+    
+    if(reviewButton.style.display === "none"){
+        reviewButton.style.display = "block";
+    }else if(reviewButton.style.display === "block"){
+        reviewButton.style.display = "none";
+    }
+    
+}
+
+//  This function is called when submit suggestion button is clicked Sends AJAX in order to send RabbitMQ request to back end 
+function submitSuggestionButtonClicked(title, description, username, restId){
+    
+    var dishTitle = document.getElementById(title).value;
+    var dishDescription = document.getElementById(description).value;
+
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+             alert(this.responseText);
+        }
+    }
+    httpReq.open("GET", "../php/functionCases.php?type=WriteSuggestion&username=" + username + "&title=" + dishTitle + "&desc=" + dishDescription + "&restId=" + restId);
+    httpReq.send(null);
+}
+
+//  This function is called when submit review and rating button is clicked and sends AJAX in order to send RabbitMQ request to bnack end
+function submitRatingReviewButtonClicked(ratingId, reviewId, username, restId){
+    
+    var rating = document.getElementById(ratingId).value;
+    var review = document.getElementById(reviewId).value;
+
+    var httpReq = createRequestObject();
+    httpReq.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+             alert(this.responseText);
+        }
+    }
+    httpReq.open("GET", "../php/functionCases.php?type=WriteReview&username=" + username + "&rating=" + rating + "&review=" + review + "&restId=" + restId);
+    httpReq.send(null);
+}
 
 
 
@@ -402,7 +621,7 @@ function redirectToMenuOfRest(url){
 
 //  This function will return the username from session ID
 function getUserName(){
-    console.log("Get User Name function called");
+    //console.log("Get User Name function called");
     
     var returnValue = "";
     

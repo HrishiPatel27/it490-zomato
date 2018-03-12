@@ -55,6 +55,28 @@
             echo $response;
             break;
             
+        case "WriteSuggestion":
+            
+            $username = $_GET["username"];
+            $restId = $_GET["restId"];
+            $desc = $_GET["desc"];
+            $title = $_GET["title"];
+            
+            $response = writeSuggestion($username, $restId, $desc, $title);
+            echo $response;
+            break;
+        
+        case "WriteReview":
+            
+            $username = $_GET["username"];
+            $restId = $_GET["restId"];
+            $rating = $_GET["rating"];
+            $review = $_GET["review"];
+            
+            $response = writeReview($username, $restId, $rating, $review);
+            echo $response;
+            break;
+            
         default:
             return "This is the Default case.";
     }

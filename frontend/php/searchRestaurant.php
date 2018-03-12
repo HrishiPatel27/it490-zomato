@@ -55,7 +55,7 @@
       </div>
     </nav>
 
-
+    
     <div class="container-fluid">
         <div class = "row">
             <div class = "col-sm-12" id = "main-holder">
@@ -289,14 +289,8 @@
         </div>
     </div>
       
-      
-      
-      
-      
-      
         <!-- Test Modal for Suggestions -->
-      <!-- 
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal" id="suggestionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -344,7 +338,7 @@
                 </div>
             </div>
         </div>
-        -->
+        
 
         <!-- Test Modal for Review -->
         <!-- Register Modal -->
@@ -420,25 +414,19 @@
 			  crossorigin="anonymous"></script>
 
       <script>
-      
-//          //  Feeding data to modal
-//            $('#exampleModalCenter').on('show.bs.modal', function (event) {
-//                var button = $(event.relatedTarget)  // Button that triggered the modal
-//                var userName = button.data('username')
-//                var restaurantId = button.data('restaurantId')// Extract info from data-* attributes
-//
-//                console.log("Modal :" + userName);
-//                console.log("Modal :" + restaurantId);
-//
-//                var modal = $(this)
-//                modal.find('.modal-title').text(restaurantId)
-//
-//            })
-//          
-//            $("#suggestionModalButton").click(function(){
-//                console.log("Submission button was clicked");
-//            });
-//      
+          
+                $(document).on('show.bs.modal', '#suggestionModal', function(){
+                    alert("Modal is going to be displayed");
+                });
+            
+                $(document).ready(function(){
+                   $('#suggestion_button_id').click(function(){
+                        alert("Button was clicked");
+                    }); 
+                });
+          
+          
+            
       </script>
       
       <script src = "../js/scripts.js">

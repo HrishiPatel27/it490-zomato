@@ -80,4 +80,34 @@
         return $returnedValue;
     } 
 
+    //  This function will send the request to write a suggestion
+    function writeSuggestion($username, $restId, $desc, $title){
+
+        $request = array();
+
+        $request['type'] = "WriteSuggestion";
+        $request['username'] = $username;
+        $request['dish_name'] = $title;
+        $request['suggestion'] = $desc;
+        $request['restaurant_id'] = $restId;
+
+        $returnedValue = createClientForDb($request);
+        return $returnedValue;
+    } 
+
+    //  This function will send th erequest to write a review 
+    function writeReview($username, $restId, $rating, $review){
+        
+        $request = array();
+
+        $request['type'] = "WriteReview";
+        $request['username'] = $username;
+        $request['rating'] = $rating;
+        $request['review_text'] = $review;
+        $request['restaurant_id'] = $restId;
+
+        $returnedValue = createClientForDb($request);
+        return $returnedValue;
+    y}
+
 ?>
