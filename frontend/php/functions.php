@@ -108,6 +108,6 @@
 
         $returnedValue = createClientForDb($request);
         return $returnedValue;
-    y}
+    }
 
 ?>

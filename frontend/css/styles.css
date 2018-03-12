@@ -1,3 +1,67 @@
+/*
+        CSS for Unique restaurant begins
+*/
+
+
+#row1Unique{
+/*    background-color: red;*/
+    margin-top: 25px;
+}
+
+#uniqueThumb{
+    height: 130px;
+    width: 130px;
+    margin-left: 20px;
+}
+
+#uniqueName{
+/*    font-weight: bold;*/
+    font-size: 50px;
+}
+
+#row2Unique{
+/*    background-color: red;*/
+    margin-top: 25px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#row3Unique{
+    background-color: #FAFAFA;
+    margin-top: 25px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#menuItemLabel{
+    font-size: 30px;
+    padding-left: 40px;
+}
+
+.uniqueMenuItemClass{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+.suggestionUserName{
+    text-align: right;
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+/*
+        CSS for Unique restaurant begins
+*/
+
+
+
+
+
+
+
 /*  
     Newly designed restaurant page
 */

@@ -248,11 +248,13 @@ function searchRestaurants(){
                 name_address_holder.setAttribute("id", "name_add_holder_child");
                 name_address_holder.appendChild(name_add_holder_child);
                 
+                var linkVar = "../php/restaurantHome.php?restId=" + restaurants[i].restaurant_id;
+                
                 var rest_name_id = document.createElement("div");
                 rest_name_id.classList.add("col-lg-12");
                 rest_name_id.setAttribute("id", "rest_name_id");
                 var anchor_tag_for_name = document.createElement("a");
-                anchor_tag_for_name.setAttribute("href", "#");
+                anchor_tag_for_name.setAttribute("href", linkVar);
                 var rest_name_test = document.createTextNode(restaurants[i].name);
                 anchor_tag_for_name.appendChild(rest_name_test);
                 name_add_holder_child.appendChild(anchor_tag_for_name);
@@ -508,8 +510,6 @@ function searchRestaurants(){
                 row_four_in_card.style.display = "none";
         
         //  Review Section here ends        
-                
-                
                 
                 appendChildToPage.appendChild(mainRowDiv);
            
