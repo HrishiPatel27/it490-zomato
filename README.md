@@ -3,74 +3,66 @@
 The repository contains all of the necessary code files to run this Dish Suggestion application. This was created as a project for IT490-104, Systems Integration at NJIT under Donald Kehoe. Users will be able to find restaurants around the world. Users can view list of restaurants, restaurant’s menu, add restaurants to favorite list and can suggest their new dishes to add to the restaurant's menu. Users are also able to rate and review the restaurant. You can see technologies used in the project below.
 
 * Front End: PHP, HTML, CSS, JavaScript and Bootstrap
-* Backend: PHP
+* Backend: PHP, Simple HTML DOM library
 * Technologies: RabbitMQ, MySQL, GIT
 * Restaurants Data Source: Zomato
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+The repository is divided into 4 folders i.e. Front end, Db, DMZ, RabittMQ
 
-### Prerequisites
+### Setting up
 
-Things that you need to install the software and how to install them
-* php 7.0
-* composor
+Following shows the instructions on how to set up the files and listener files to test the website:
 
-```
-Give examples
-```
+* RabbitMQ:
+  * Enable rabbitmq_management_plugin and start the rabbitMQ instance in web browser
+  * Make two exchanges for the communication between front-end to database and database to dmz
+    * First exchange: dbExchange and bind dbQueue to it
+    * Second exchange: dmzExchange and bing dmzQueue to it
+  * Make one exchange for error logging
+    * rmqExchange and bind rmqQueue to it
+  * In terminal start /rabbitmq/error_log/rmqListener.php (this will start listening to the errors sent from all servers)
+* DB:
+  * Change /db/rabbitmqphp_example/rabbitMQ_db.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+  * Change /db/rabbitmqphp_example/rabbitMQ_dmz.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+  * Change /db/rabbitmqphp_example/rabbitMQ_rmq.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+  * In terminal start /db/php/dbListener.php (this will start listening to the messages sent from RabbitMQ server)
+* DMZ:
+  * Change /dmz/rabbitmqphp_example/rabbitMQ_db.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+  * Change /dmz/rabbitmqphp_example/rabbitMQ_rmq.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+  * In terminal start /dmz/php/dmzListener.php (this will start listening to the messages sent from RabbitMQ server)
+* Front-end:
+  * Change /frontend/rabbitmqphp_example/rabbitMQ_db.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+  * Change /frontend/rabbitmqphp_example/rabbitMQ_rmq.ini file and assign BROKER_HOST the IP address of RabbitMQ server
+  * Open /fronend/html/loginRegister.html in browser to begin testing
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+* Open /fronend/html/loginRegister.html in browser to begin testing
+* Register:
+  * Enter fields as specified to register a new user and then after submit close the modal
+* Login:
+  * Login with the registered username and password
+* Search Restuarant page:
+  * Select state: This will dinamically populate the cities of that state
+  * Select city
+  * Select cuisine
+  * Hit search
+* After the restaurants gets populated: 
+  * Enter a suggestion for the restaurant by clicking on "Suggestion"
+  * Enter a review for the restaurant by clicking on "Review"
+  * To select the restaurant restaurant click on the name of the restaurant
+* After select the unique restaurant from the list, you will be redirected to selected restaurant page
+  * NOTE: webscrapping works but with hard-coded link, it shows some error when request sent from database.
+  * To test the menu please select this combination: State-New Jersey, City-Parsipanny, Cuisine-Indian, Restaurant-Chand Palace (This menu is already populated using the hard-coded menu link)
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Zomato
 
 * We would like to thank Zomato for providing us with API access free of use for this project. Feature requests for the Zomato Restaurants Data API, available [here](https://www.zomato.com).
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -83,13 +75,5 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **Ajay Patel** - *DMZ* - [ajayp98](https://github.com/ajayp98)
 * **Jay Suthar** - *RabbitMQ* - [js745](https://github.com/js745)
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
