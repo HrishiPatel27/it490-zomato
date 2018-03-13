@@ -1,7 +1,13 @@
 <?php 
+    //Error logging
+    error_reporting(E_ALL);
+
+    ini_set('display_errors', 'off');
+    ini_set('log_errors', 'On');
+    ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
+
 
     //Requried files
-
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
@@ -232,14 +238,13 @@
                 while ($row = $restaurant_result->fetch_assoc()){
                     $id = $row['restaurant_id'];
                     $name = $row['restaurant_name'];
-                    $url = $row['menu_url'];
                     $thumb = $row['thumbnail_url'];
                     $address = $row['restaurant_address'];
                     $city_id = $row['city_id'];
                     $rating = $row['aggregate_rating'];
                     $rating_text = $row['rating_text'];
 
-                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
+                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
                 }
                 $all_info = array('city_name'=>$city, 'state_name'=>$state, 'city_id'=>$city_id, 'restaurants'=>$rest);
                 
@@ -286,14 +291,13 @@
                 while ($row = $restaurant_result1->fetch_assoc()){
                     $id = $row['restaurant_id'];
                     $name = $row['restaurant_name'];
-                    $url = $row['menu_url'];
                     $thumb = $row['thumbnail_url'];
                     $address = $row['restaurant_address'];
                     $city_id = $row['city_id'];
                     $rating = $row['aggregate_rating'];
                     $rating_text = $row['rating_text'];
 
-                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
+                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
                 }
                 $all_info = array('city_name'=>$city, 'state_name'=>$state, 'city_id'=>$city_id, 'restaurants'=>$rest);
                 return $all_info;
@@ -303,14 +307,13 @@
                 while ($row = $restaurant_result->fetch_assoc()){
                     $id = $row['restaurant_id'];
                     $name = $row['restaurant_name'];
-                    $url = $row['menu_url'];
                     $thumb = $row['thumbnail_url'];
                     $address = $row['restaurant_address'];
                     $city_id = $row['city_id'];
                     $rating = $row['aggregate_rating'];
                     $rating_text = $row['rating_text'];
 
-                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "menu_url"=>$url , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
+                    $rest[] = array("restaurant_id"=>$id , "name"=>$name , "thumb"=>$thumb , "address"=>$address ,"city_id"=>$city_id , "rating"=>$rating , "rating_text"=>$rating_text);
                 }
                 $all_info = array('city_name'=>$city, 'state_name'=>$state, 'city_id'=>$city_id, 'restaurants'=>$rest);
                 return $all_info;
@@ -403,7 +406,43 @@
         
         $connection = dbConnection();
         
-        //echo "in function";
+        //Get menu url for restaurant
+        $menu_url = getMenuUrl($restaurant_id);
+        echo $menu_url;
+        
+        //Query to check if menu exits for restaurant in database
+        $getmenu_query = "SELECT * FROM dish_name WHERE restaurant_id = '$restaurant_id'";
+        $getmenu_query_result = $connection->query($getmenu_query);
+        
+        if($getmenu_query_result){
+            if($getmenu_query_result->num_rows == 0){
+                $menu_list = getMenuDmz($menu_url);
+                
+                if($menu_list != "False"){
+                    
+                    //Adds the received meny items in database
+                    $addMenuDb = addMenuDb($menu_list, $restaurant_id);
+                    
+                    //Query to fetch menu for restaurant from database
+                    $getmenu_query1 = "SELECT * FROM dish_name WHERE restaurant_id = '$restaurant_id'";
+                    $getmenu_query_result1 = $connection->query($getmenu_query1);
+
+                    while($row = $getmenu_query_result1->fetch_assoc()){
+                        $dish_name = $row['dish'];
+                        $menuinfo[] = array('dish_name'=>$dish_name);
+                    }
+                    echo var_dump($menuinfo);
+                }else{
+                    $menuinfo[] = array('dish_name'=>"False");
+                }   
+            }else{
+                while($row = $getmenu_query_result->fetch_assoc()){
+                    $dish_name = $row['dish'];
+                    $menuinfo[] = array('dish_name'=>$dish_name);
+                }
+                //echo var_dump($menuinfo);
+            }
+        }
         //Getting suggestions in restaurant and storing in $suggestioninfo
         
         $getsuggestion_query = "SELECT * FROM suggestion WHERE restaurant_id = '$restaurant_id'";
@@ -461,7 +500,7 @@
         //echo "Executed restruatn query       ";
         if($getrestaurant_query_result){
             if($getrestaurant_query_result->num_rows == 0){
-                return "False";
+                return false;
             }else{
                 $restinfo = [];
                 while($row = $getrestaurant_query_result->fetch_assoc()){
@@ -470,19 +509,30 @@
                     $menu_url = $row['menu_url'];
                     //echo "1   ";
                 }
-                $restinfo = array('name'=>$name, 'id'=>$restaurant_id, 'thumbnail'=>$thumbnail, 'menu'=>$menu_url, 'suggestions'=>$suggestioninfo, 'reviews'=>$reviewsinfo, 'favorite'=>$favoriteinfo);
+                $restinfo = array('name'=>$name, 'id'=>$restaurant_id, 'thumbnail'=>$thumbnail, 'menu'=>$menuinfo, 'suggestions'=>$suggestioninfo, 'reviews'=>$reviewsinfo, 'favorite'=>$favoriteinfo);
                 //echo "Final list prepared      ";
             }
         }
         
-        
         //Combine all infos together and return $allinfo 
-        //print_r("Result: ".$restinfo);
-        //echo "leaving function";
-        //echo count($restinfo);
         print_r($restinfo);
-     return $restinfo;
+        return $restinfo;
             
+    }
+
+    //This function fetches menu url for restaurant
+    function getMenuUrl($restaurant_id){
+        
+        $connection = dbConnection();
+        
+        //Query for menu url 
+        $menuurl_query = "SELECT menu_url FROM restaurant WHERE restaurant_id = '$restaurant_id'";
+        $menuurl_query_result = $connection->query($menuurl_query);
+        
+        $row = $menuurl_query_result->fetch_assoc();
+        $menu_url = $row['menu_url'];
+        
+        return $menu_url;
     }
 
     //This function fetched restaurnt, suggestions, reviews of user
@@ -561,62 +611,19 @@
         $connection = dbConnection();
         
         $addfavorite_query = "INSERT INTO favorite VALUES ('$username', '$restaurant_id')";
-        $$addfavorite_query_result = $connection->query($addfavorite_query);
-        return "true";
+        $addfavorite_query_result = $connection->query($addfavorite_query);
+        return $addfavorite_query_result;
     }
 
     //This function removes favorite of a user
-    function  removeFavorite($usename, $restaurant_id){
+    function  removeFavorite($username, $restaurant_id){
         
         $connection = dbConnection();
         
         $removefavorite_query = "DELETE FROM favorite WHERE username = '$username' AND restaurant_id = '$restaurant_id'";
         $removefavorite_query_result = $connection->query($removefavorite_query);
         
-        return true;  
-    }
-
-    //This function fetches menu for restaurant
-    function getMenu($restaurant_id, $menu_url){
-        
-        $connection = dbConnection();
-        
-        //Query to check if menu exits for restaurant in database
-        $getmenu_query = "SELECT * FROM dish_name WHERE restaurant_id = '$restaurant_id'";
-        $getmenu_query_result = $connection->query($getmenu_query);
-        
-        if($getmenu_query_result){
-            if($getmenu_query_result->num_rows == 0){
-                $menu_list = getMenuDmz($menu_url);
-                
-                if($menu_list != "False"){
-                    
-                    //Adds the received meny items in database
-                    $addMenuDb = addMenuDb($menu_list, $restaurant_id);
-                    
-                    //Query to fetch menu for restaurant from database
-                    $getmenu_query1 = "SELECT * FROM dish_name WHERE restaurant_id = '$restaurant_id'";
-                    $getmenu_query_result1 = $connection->query($getmenu_query1);
-
-                    while($row = $getmenu_query_result1->fetch_assoc()){
-                        $dish_name = $row['dish'];
-                        $menuinfo[] = array('dish_name'=>$restaurant_name);
-                    }
-                    echo var_dump($menuinfo);
-                    return $menuinfo;
-                }else{
-                    return false;
-                }
-                
-            }else{
-                while($row = $getmenu_query_result->fetch_assoc()){
-                    $dish_name = $row['dish'];
-                    $menuinfo[] = array('dish_name'=>$restaurant_name);
-                }
-                echo var_dump($menuinfo);
-                return $menuinfo;
-            }
-        }
+        return $removefavorite_query_result;  
     }
  
     //This function requests DMZ for menu items
@@ -626,9 +633,11 @@
         $request = array();
         $request['type'] = "GetMenu";
         $request['menu_url'] = $menu_url;
+        echo var_dump($request);
         
         $returnedItems = createClientForDmz($request);
         echo "Leaving dmz with data";
+        echo $returnedItems;
         return $returnedItems;
     }
 

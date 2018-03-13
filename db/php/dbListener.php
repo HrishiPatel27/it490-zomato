@@ -1,7 +1,11 @@
 <?php 
+    
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'on');
+    ini_set('log_errors', 'On');
+    ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
 
     //Requried files
-
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
@@ -30,7 +34,7 @@
                 $response_msg = checkUsername($request['username']);
                 echo "Result: " . $response_msg;
                 break;
-            
+          
             //Check if email is valid
             case "CheckEmail":
                 echo "<br>in CheckEmail";
@@ -95,11 +99,8 @@
                 $response_msg = removeFavorite($request['username'], $request['restaurant_id']);
                 break;
         
-            //Get menu for restaurant
-            case "GetMenu":
-                $response_msg = getMenu($request['restaurant_id'],  $request['menu_url']);
-                break;
         }
+        echo $response_msg;
         return $response_msg;
     }
 

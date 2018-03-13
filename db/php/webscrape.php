@@ -2,7 +2,7 @@
     
     require_once('simple_html_dom.php');
     
-    $list = getMenu("https://www.zomato.com/parsippany-nj/chand-palace-parsippany/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop");
+    $list = getMenu("https://www.zomato.com/las-vegas/burger-bar-the-strip/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop");
 
     echo var_dump($list);
 
@@ -35,7 +35,7 @@
         shell_exec("wget -U Mozilla/5.0 --output-document menu.html $url");
 
         //Returns the scrapped string of menu
-        $result = curl_download('file:///home/hrishi/Downloads/menu.html');
+        $result = curl_download('file:///home/hrishi/Documents/it490-zomato/db/php/menu.html');
 
         //echo gettype($result);
         $class_name = "tmi-name";
