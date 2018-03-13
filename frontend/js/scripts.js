@@ -763,17 +763,17 @@ function turnFieldToRedColorBorder(elementName){
     elementName.classList.add("is-invalid");
 }
 
-////  This function is called when the login modal opener button is called
-//function loginModalOpener(){
+//  This function is called when the login modal opener button is called
+function loginModalOpener(){
+    
+    var loginUsername = document.getElementById('username_login');
+    var loginPassword = document.getElementById('password_login');
+    
+//    if(loginUsername.value == ""){
+//       turnFieldToNormalColorBorder(loginUsername);
+//    }
 //    
-//    var loginUsername = document.getElementById('username_login');
-//    var loginPassword = document.getElementById('password_login');
-//    
-////    if(loginUsername.value == ""){
-////       turnFieldToNormalColorBorder(loginUsername);
-////    }
-////    
-////    if(loginPassword.value == ""){
-////        turnFieldToNormalColorBorder(loginPassword);
-////    }
-//}
+//    if(loginPassword.value == ""){
+//        turnFieldToNormalColorBorder(loginPassword);
+//    }
+}

@@ -1,5 +1,14 @@
 <?php
 
+    //  Error logging
+    error_reporting(E_ALL);
+    
+    ini_set('display_errors', 'Off');
+    ini_set('log_errors', 'On');
+    ini_set('error_log', dirname(__FILE__). '/../logging/log.txt');
+
+    logAndSendErrors();
+
     //  Starting sessions 
     //  session_start();
 
@@ -137,5 +146,37 @@
 
         return $returnedValue;
     }
+
+    //  This function will log errors
+    function logAndSendErrors(){
+        
+        $file = fopen("../logging/log.txt","r");
+        $errorArray = [];
+        while(! feof($file)){
+            array_push($errorArray, fgets($file));
+        }
+        for($i = 0; $i < count($errorArray); $i++){
+            echo $errorArray[$i];
+            echo "<br>";
+        }
+
+        fclose($file);
+
+
+        $request = array();
+        $request['type'] = "frontend";  
+        $request['error_string'] = $errorArray; 
+        $returnedValue = createClientForRmq($request);
+
+        $fp = fopen("../logging/logHistory.txt", "a");
+        for($i = 0; $i < count($errorArray); $i++){
+            fwrite($fp, $errorArray[$i]);
+        }
+
+        file_put_contents("../logging/log.txt", "");
+
+
+    }
+    
 
 ?>

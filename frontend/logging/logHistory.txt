@@ -1,0 +1,15 @@
+[12-Mar-2018 21:16:24 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/jeet-patel/Documents/it490-zomato/frontend/rabbitmqphp_example/rabbitMQLib.inc on line 215[12-Mar-2018 21:16:24 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/jeet-patel/Documents/it490-zomato/frontend/rabbitmqphp_example/rabbitMQLib.inc on line 215[12-Mar-2018 21:16:24 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/jeet-patel/Documents/it490-zomato/frontend/rabbitmqphp_example/rabbitMQLib.inc on line 215[12-Mar-2018 21:16:24 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/jeet-patel/Documents/it490-zomato/frontend/rabbitmqphp_example/rabbitMQLib.inc on line 215[12-Mar-2018 23:33:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function equire_once() in /home/jeet-patel/Documents/it490-zomato/frontend/php/functions.php:16
+Stack trace:
+#0 /home/jeet-patel/Documents/it490-zomato/frontend/php/functionCases.php(13): include()
+#1 {main}
+  thrown in /home/jeet-patel/Documents/it490-zomato/frontend/php/functions.php on line 16
+[12-Mar-2018 23:33:49 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function equire_once() in /home/jeet-patel/Documents/it490-zomato/frontend/php/functions.php:16
+Stack trace:
+#0 /home/jeet-patel/Documents/it490-zomato/frontend/php/functionCases.php(13): include()
+#1 {main}
+  thrown in /home/jeet-patel/Documents/it490-zomato/frontend/php/functions.php on line 16
+[12-Mar-2018 23:34:28 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function equire_once() in /home/jeet-patel/Documents/it490-zomato/frontend/php/functions.php:16
+Stack trace:
+#0 /home/jeet-patel/Documents/it490-zomato/frontend/php/functionCases.php(13): include()
+#1 {main}
+  thrown in /home/jeet-patel/Documents/it490-zomato/frontend/php/functions.php on line 16
