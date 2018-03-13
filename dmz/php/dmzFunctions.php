@@ -5,6 +5,39 @@
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 	require_once('testAPI.php');
 
+
+	//  This function will log errors
+    function logAndSendErrors(){
+        
+        $file = fopen("../logging/log.txt","r");
+        $errorArray = [];
+        while(! feof($file)){
+            array_push($errorArray, fgets($file));
+        }
+        for($i = 0; $i < count($errorArray); $i++){
+            echo $errorArray[$i];
+            echo "<br>";
+        }
+
+        fclose($file);
+
+
+        $request = array();
+        $request['type'] = "frontend";  
+        $request['error_string'] = $errorArray;
+        $returnedValue = createClientForRmq($request);
+
+        $fp = fopen("../logging/logHistory.txt", "a");
+        for($i = 0; $i < count($errorArray); $i++){
+            fwrite($fp, $errorArray[$i]);
+        }
+
+        file_put_contents("../logging/log.txt", "");
+
+
+    }
+
+
  	function restaurantInfo($city_name, $state_name, $cuisine_id){
     
 		//Request to zomato api for cityid for city, state
