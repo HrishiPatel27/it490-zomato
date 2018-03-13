@@ -6,6 +6,7 @@
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
     require_once('dmzFunctions.php');
+	require_once('testAPI.php');
 
     //This will route the request from server to function
     function requestProcessor($request){
@@ -25,10 +26,11 @@
             
 			//Get menu for restaurant
 			case "GetMenu":
+				echo "THE URL FROM DB: ".$request['menu_url'];
 				$response_msg = getMenu($request['menu_url']);
 				break;
         }
-       
+       	echo var_dump($response_msg);
         return $response_msg;
     
     }
@@ -40,9 +42,5 @@
     $server->process_requests('requestProcessor');
    
     //exit();
-
-
-
-
 
 ?>
