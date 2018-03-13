@@ -1,0 +1,314 @@
+/*
+        CSS for Unique restaurant begins
+*/
+
+
+#row1Unique{
+/*    background-color: red;*/
+    margin-top: 25px;
+}
+
+#uniqueThumb{
+    height: 130px;
+    width: 130px;
+    margin-left: 20px;
+}
+
+#uniqueName{
+/*    font-weight: bold;*/
+    font-size: 50px;
+}
+
+#row2Unique{
+/*    background-color: red;*/
+    margin-top: 25px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#row3Unique{
+    background-color: #FAFAFA;
+    margin-top: 25px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+#menuItemLabel{
+    font-size: 30px;
+    padding-left: 40px;
+}
+
+.uniqueMenuItemClass{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+.suggestionUserName{
+    text-align: right;
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+/*
+        CSS for Unique restaurant begins
+*/
+
+
+
+
+
+
+
+/*  
+    Newly designed restaurant page
+*/
+
+.custom-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+/*    height: 100px;*/
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#divToHoldRest{
+    background-color: #FAFAFA;
+}
+
+#thumb_id{
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 70x;
+    width: 70px;
+}
+
+#rest_name_id{
+    font-size: 20px;
+    padding-top 10px;
+    font-weight: 550;
+}
+
+#rest_address_id{
+    font-size: 13px;
+}
+
+#rating_id{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#rating_text_id{
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+#three_buttons{
+    margin-top: 10px;
+}
+
+#lookUpRest{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+    #rest_name_id{
+        font-size: 20px;
+        font-weight: 550;
+        padding-top: 10px;
+    }
+    
+    #rest_address_id{
+        font-size: 13px;
+    }
+
+    #rating_id{
+        text-align: center;
+    }
+
+    #rating_text_id{
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    #three_buttons{
+        margin-top: 10px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    #thumb_id{
+        padding-top: 10px;
+        padding-left: 10px;
+        height: 70x;
+        width: 70px;
+    }
+
+}
+
+
+/*
+    Newly designed restaurant page
+*/
+
+
+
+
+.background{
+    background-color: grey;
+}
+
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}
+
+
+#login-register-button-holder{
+    text-align: center;
+    margin-top: 30px;
+}
+
+body{
+    font-family: 'Barlow', sans-serif;
+}
+
+#welcome-heading{
+    text-align: center;
+    font-size: 75px;
+    font-weight: bold;
+}
+
+#welcome-message{
+    text-align: center;
+    font-weight: normal;
+    padding-right: 30%;
+    padding-left: 30%;
+}
+
+#main-holder{
+    margin-top: 15%;
+}
+
+.margin-top-for-form-elements{
+    margin-top: 20px;
+}
+
+#register-modal-opener{
+    margin-left: 5px;
+    height: 110%;
+    width: 100px;
+    font-size: 17px;
+}
+
+#login-modal-opener{
+    margin-right: 5px;
+    height: 110%;
+    width: 100px;
+    font-size: 17px;
+}
+
+
+.card{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding:20px;
+}
+
+.card-items-row-padding{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.card-items-row-padding-name{
+    padding-top:10px;
+}
+
+.card-items-row-padding-address{
+    padding-bottom:10px;
+}
+
+.textCenter{
+    text-align: right;
+}
+
+
+/*
+    Media query starts here
+*/
+
+@media only screen and (max-width: 500px) {
+    #welcome-message{
+        text-align: center;
+        font-weight: normal;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    #welcome-heading{
+        font-size: 40px;
+    }
+
+    #main-holder{
+        margin-top: 35%;
+    }
+}
+
+/*
+#temp-left{
+
+    margin-top: 27%;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+}
+
+#temp-right{
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+}
+
+#login-container{
+    padding:30px;
+
+    background-color: white;
+}
+#register-container{
+    padding:30px;
+    background-color: white;
+
+}
+
+#left-container{
+
+}
+
+#right-container{
+
+}
+
+.card-css{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.bgcolor{
+    background-color: #E2E1E0;
+}
+
+body{
+    background-color: #E2E1E0;
+}
+*/
