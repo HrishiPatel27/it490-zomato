@@ -1,0 +1,358 @@
+[12-Mar-2018 14:22:25 America/New_York] PHP Parse error:  syntax error, unexpected 'require_once' (T_REQUIRE_ONCE) in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 10
+[12-Mar-2018 14:40:24 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 14:47:38 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 14:51:14 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 14:51:54 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 14:54:33 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 14:55:50 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:03:16 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:03:34 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:07:44 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:13:35 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:15:29 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:16:18 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:18:17 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:22:18 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:23:07 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:25:03 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:33:31 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:34:36 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 15:37:20 America/New_York] PHP Warning:  require_once(simple_html_dom.php): failed to open stream: No such file or directory in /home/hrishi/Documents/it490-zomato/db/php/webscrape.php on line 3
+[12-Mar-2018 15:37:20 America/New_York] PHP Fatal error:  require_once(): Failed opening required 'simple_html_dom.php' (include_path='.:/usr/share/php') in /home/hrishi/Documents/it490-zomato/db/php/webscrape.php on line 3
+[12-Mar-2018 15:50:32 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(110): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 15:51:04 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(110): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 15:51:38 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(110): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 15:52:16 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(110): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 15:54:29 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(110): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 15:56:06 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(110): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 15:56:41 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(110): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 16:01:53 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 16:29:30 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:25:34 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:28:45 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:30:04 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:31:07 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:33:13 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:34:23 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:34:35 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:34:41 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:37:28 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:40:00 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:40:31 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:42:04 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:43:04 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:44:49 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:45:42 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:48:42 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:48:47 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:50:06 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:51:42 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:54:14 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:54:41 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 17:59:19 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:04:01 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:04:13 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:05:14 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:11:34 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:12:56 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:13:28 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:14:38 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:16:14 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:16:40 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:17:08 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:17:31 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:17:55 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:35:07 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:35:36 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:36:40 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:40:22 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:43:06 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:43:46 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:47:13 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:47:41 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:49:56 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:53:52 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:56:39 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:58:39 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:58:41 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 18:59:26 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:00:49 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:02:07 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:03:03 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:03:28 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:04:13 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:05:40 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:10:01 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:14:16 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:14:41 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:16:48 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:20:02 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 640
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:25:55 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:26:50 America/New_York] PHP Notice:  Undefined variable: addfavorite_query_result in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 614
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:28:43 America/New_York] PHP Notice:  Undefined variable: restaurant_name in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 441
+[12-Mar-2018 19:35:30 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 19:35:46 America/New_York] PHP Notice:  Undefined variable: username in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 623
+[12-Mar-2018 19:35:58 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 19:40:14 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 19:41:07 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 19:41:18 America/New_York] PHP Notice:  Undefined variable: username in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 623
+[12-Mar-2018 19:41:59 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 19:45:37 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 19:46:07 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 19:51:59 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 229
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'restaurants' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 230
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'restaurant_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 357
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'name' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 358
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'menu_url' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 359
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'thumb' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 360
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'address' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 361
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 362
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'rating' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 363
+[12-Mar-2018 19:52:00 America/New_York] PHP Warning:  Illegal string offset 'rating_text' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 364
+[12-Mar-2018 19:54:40 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 229
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'restaurants' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 230
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'restaurant_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 357
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'name' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 358
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'menu_url' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 359
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'thumb' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 360
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'address' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 361
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 362
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'rating' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 363
+[12-Mar-2018 19:54:43 America/New_York] PHP Warning:  Illegal string offset 'rating_text' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 364
+[12-Mar-2018 19:56:10 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 229
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'restaurants' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 230
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'restaurant_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 357
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'name' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 358
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'menu_url' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 359
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'thumb' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 360
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'address' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 361
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 362
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'rating' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 363
+[12-Mar-2018 19:56:11 America/New_York] PHP Warning:  Illegal string offset 'rating_text' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 364
+[12-Mar-2018 19:56:45 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:59:19 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 19:59:21 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 640
+[12-Mar-2018 19:59:21 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:00:10 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:00:25 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:01:28 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:01:29 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 640
+[12-Mar-2018 20:01:30 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:02:07 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:02:08 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 640
+[12-Mar-2018 20:02:09 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:09:41 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 229
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'restaurants' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 230
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'restaurant_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 357
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'name' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 358
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'menu_url' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 359
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'thumb' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 360
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'address' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 361
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 362
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'rating' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 363
+[12-Mar-2018 20:09:42 America/New_York] PHP Warning:  Illegal string offset 'rating_text' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 364
+[12-Mar-2018 20:10:48 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 229
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'restaurants' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 230
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'restaurant_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 357
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'name' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 358
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'menu_url' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 359
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'thumb' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 360
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'address' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 361
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 362
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'rating' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 363
+[12-Mar-2018 20:10:49 America/New_York] PHP Warning:  Illegal string offset 'rating_text' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 364
+[12-Mar-2018 20:10:58 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 229
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'restaurants' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 230
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'restaurant_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 357
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'name' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 358
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'menu_url' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 359
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'thumb' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 360
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'address' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 361
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 362
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'rating' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 363
+[12-Mar-2018 20:10:59 America/New_York] PHP Warning:  Illegal string offset 'rating_text' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 364
+[12-Mar-2018 20:14:53 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 229
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'restaurants' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 230
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'restaurant_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 357
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'name' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 358
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'menu_url' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 359
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'thumb' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 360
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'address' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 361
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'city_id' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 362
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'rating' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 363
+[12-Mar-2018 20:14:53 America/New_York] PHP Warning:  Illegal string offset 'rating_text' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 364
+[12-Mar-2018 20:15:57 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:15:58 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 640
+[12-Mar-2018 20:15:58 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:20:31 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:20:32 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:20:57 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:20:58 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:22:57 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:23:01 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:23:25 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:23:27 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:23:41 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:23:41 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:23:49 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:23:50 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:31:53 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:31:54 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 20:34:57 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 20:34:58 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 21:19:02 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 21:19:04 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 21:29:53 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 21:29:55 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 21:58:34 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 21:58:35 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 640
+[12-Mar-2018 21:58:36 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 21:59:02 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 21:59:03 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 640
+[12-Mar-2018 21:59:03 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:01:13 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:01:30 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:02:30 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:02:30 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 104
+[12-Mar-2018 22:02:50 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:02:50 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 104
+[12-Mar-2018 22:03:15 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:03:28 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:04:01 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:04:59 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 22:05:00 America/New_York] PHP Warning:  Illegal string offset 'item' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 650
+[12-Mar-2018 22:05:00 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:05:29 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 22:05:31 America/New_York] PHP Warning:  Illegal string offset 'item' in /home/hrishi/Documents/it490-zomato/db/php/dbFunctions.php on line 650
+[12-Mar-2018 22:05:31 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:05:50 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:05:59 America/New_York] PHP Notice:  Array to string conversion in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:07:42 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:07:42 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 104
+[12-Mar-2018 22:08:11 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:08:11 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 104
+[12-Mar-2018 22:08:23 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 103
+[12-Mar-2018 22:08:23 America/New_York] PHP Notice:  Undefined variable: response_msg in /home/hrishi/Documents/it490-zomato/db/php/dbListener.php on line 104
+[12-Mar-2018 22:09:27 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 22:09:56 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 22:10:03 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 22:16:35 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
+[12-Mar-2018 22:22:02 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/hrishi/Documents/it490-zomato/db/php/dbListener.php(111): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[12-Mar-2018 22:24:10 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/hrishi/Documents/it490-zomato/db/rabbitmqphp_example/rabbitMQLib.inc on line 215
