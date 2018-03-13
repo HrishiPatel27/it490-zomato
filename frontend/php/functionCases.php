@@ -77,6 +77,23 @@
             echo $response;
             break;
             
+        case "AddFavorite":
+            
+            $restId = $_GET["restId"];
+            
+            $response = addFavorite($restId);
+            echo $response;
+            break;
+        
+        case "RemoveFavorite":
+            
+            $restId = $_GET["restId"];
+            
+            $response = removeFavorite($restId);
+            echo $response;
+            break;
+            
+            
         default:
             return "This is the Default case.";
     }

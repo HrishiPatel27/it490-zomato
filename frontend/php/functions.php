@@ -110,4 +110,32 @@
         return $returnedValue;
     }
 
+    //  This function will be called when add favorite is called
+    function addFavorite($restId){
+        
+        $request = array();
+        
+        $request['type'] = "AddFavorite";
+        $request['username'] = $_SESSION["username"];
+        $request['restaurant_id'] = $restId;
+
+        $returnedValue = createClientForDb($request);
+
+        return $returnedValue;
+    }
+
+    //  This function will remove a restaurant from fav
+    function removeFavorite($restId){
+        
+        $request = array();
+        
+        $request['type'] = "RemoveFavorite";
+        $request['username'] = $_SESSION["username"];
+        $request['restaurant_id'] = $restId;
+
+        $returnedValue = createClientForDb($request);
+
+        return $returnedValue;
+    }
+
 ?>

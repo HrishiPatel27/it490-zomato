@@ -149,7 +149,7 @@
 
     <title>Ciphers</title>
   </head>
-    <body onload = "checkForFavorite(<?php echo $data["favorite"]; ?>)">
+    <body>
         
         <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="searchRestaurant.php">
@@ -184,7 +184,19 @@
                     <!-- Row for Thumbnail, name and Favorite button -->
                     <div class = "row" id = "row1Unique">                     <!-- Row 1 -->
                         <div class = "col-lg-2 col-2">    <!-- Thumbnail -->
-                            <img src = "<?php echo $data["thumbnail"]; ?>" id = "uniqueThumb">
+                            
+                            <?php
+                                
+                                $imgUrl = "";
+                                if ($data["thumbnail"] == ""){
+                                    $imgUrl = "../asset/food-image.png";
+                                }else{
+                                   $imgUrl =  $data["thumbnail"] == "";
+                                }
+    
+                            ?>
+                            
+                            <img src = "<?php echo $imgUrl; ?>" id = "uniqueThumb">
                         </div>
                         
                         <div class = "col-lg-10 col-10">    <!-- Name and addres -->
@@ -192,8 +204,39 @@
                                 <div class = "col-lg-12 col-12" id = "uniqueName">   
                                     <?php echo $data["name"]; ?>
                                 </div>
+                                
+                                <?php   
+                                    $valueOnButton = "";
+                                    if($data["favorite"] == "False"){
+                                        $valueOnButton = "False";
+                                    }else{
+                                        $valueOnButton = "True";
+                                    }
+                                
+                                ?>
+                                
+                                
+                                
+
+                                <?php
+                                    
+                                $idForFavButton = $data["id"] . $_SESSION["username"];
+                                
+                                ?>
+
+                                
                                 <div class = "col-lg-12 col-12">   
-                                    <button class = "btn btn-primary">Favorite</button>
+                                    <button class = "btn btn-primary" value = "<?php echo  $valueOnButton ?>" onclick = "onClickOfFavorite(<?php echo $data["id"]; ?> , '<?php echo $idForFavButton; ?>')" id = "<?php echo $data["id"] . $_SESSION["username"]; ?>">
+                                    
+                                        <?php 
+                                            if($data["favorite"] == "False"){
+                                                echo "Add to Favorite";
+                                            }else{
+                                                echo "Remove from Favorite";
+                                            }
+                                        ?>
+                                        
+                                    </button>
                                 </div>
                             </div>
                         </div>

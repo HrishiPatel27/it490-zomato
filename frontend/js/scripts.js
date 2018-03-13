@@ -202,6 +202,25 @@ function searchRestaurants(){
             var restaurants = response['restaurants'];
             var count = 0;
             
+            if(restaurants.length == 0){
+                var mainRowDiv = document.createElement("div");
+                mainRowDiv.classList.add("row");
+                
+                var card_holder_id = document.createElement("div");
+                card_holder_id.classList.add("col-lg-12");
+                mainRowDiv.appendChild(card_holder_id);
+                
+                var card_id = document.createElement("div");
+                card_id.classList.add("custom-card");
+                card_holder_id.appendChild(card_id);
+                
+                var noRestText = document.createTextNode("No restaurants found. Please try another combination!");
+                card_id.appendChild(noRestText);
+                
+                appendChildToPage.appendChild(mainRowDiv);
+            }else{
+            
+            
             for(var i in restaurants){
                 
                 if(count == 0 || count%3 == 0){
@@ -325,15 +344,7 @@ function searchRestaurants(){
                 three_buttons_holder_group.setAttribute("role", "group");
                 three_buttons_holder_group.setAttribute("aria-label", "Basic Example");
                 three_buttons.appendChild(three_buttons_holder_group);
-                
-                var menu_button_id = document.createElement("button");
-                menu_button_id.classList.add("btn", "btn-secondary");
-                menu_button_id.setAttribute("type", "button");
-                menu_button_id.setAttribute("id", "menu_button_id");
-                var menu_button_text = document.createTextNode("Menu");
-                menu_button_id.appendChild(menu_button_text);
-                three_buttons_holder_group.appendChild(menu_button_id);
-                
+               
                 var suggestion_button_id = document.createElement("button");
                 suggestion_button_id.classList.add("btn", "btn-secondary");
                 suggestion_button_id.setAttribute("type", "button");
@@ -523,6 +534,7 @@ function searchRestaurants(){
 //                console.log(restaurants[i].rating_text);    //  Used
      
             }
+        }
             
         }
     }
@@ -639,66 +651,108 @@ function getUserName(){
     return returnValue;
 }
 
-//  This function is called when submission button is clicked
-function suggestionButtonCalled(restId, user){
-    window.location.replace("../php/writeSuggestion.php?restId="+restId+"&user="+user);
-}
-
-//  This function is called when review button is clicked
-function reviewButtonCalled(restId, user){
-    window.location.replace("../php/writeReview.php?restId="+restId+"&user="+user);
-}
-
-//  This function will add a restaurant as favorite
-function favoriteThisRestaurant(restId){
+//  This function is called when favorite button is clicked 
+function onClickOfFavorite(restId, buttonId){
     
-    var b = document.getElementById("favButton");
     
-    if(b.value == "false"){
-       var httpReq = createRequestObject();
+    //  Code to make this restaurant favorite
+    if(document.getElementById(buttonId).value == "False"){
+        var httpReq = createRequestObject();
         httpReq.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
-                console.log(this.responseText);
+                
+                alert("Add to: " + this.responseText);
+                
                 if(this.responseText == true){
-                    var t = document.createTextNode("Added to Favorite");
-                    b.innerHTML = "";
-                    b.appendChild(t);
-                    b.value = "true";
-                    
-                }else{
-                     var t = document.createTextNode("Add to Favorite");
-                    b.innerHTML = "";
-                    b.appendChild(t);
-                    b.value = "false";
+                    document.getElementById(buttonId).value = "True";
+                    document.getElementById(buttonId).innerHTML = "Remove from Favorite";
                 }
 
+            }else{
+                document.getElementById(buttonId).innerHTML = "Loading...";
             }
         }
-        httpReq.open("GET", "../php/addFavorite.php?restId="+restId, true);
+        httpReq.open("GET", "../php/functionCases.php?type=AddFavorite&restId=" + restId);
         httpReq.send(null);
-    }else{
-        alert("Will write function for unfavorite");
+        
+    //  Code to remove this restaurant from favorite 
+    }else if(document.getElementById(buttonId).value == "True"){
+        var httpReq = createRequestObject();
+        httpReq.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+
+                alert("Remove from: " + this.responseText);
+                
+                if(this.responseText == true){
+                    document.getElementById(buttonId).value = "False";
+                    document.getElementById(buttonId).innerHTML = "Add to Favorite";
+                }else{
+                    alert("Added to fav");
+                }
+
+            }else{
+                document.getElementById(buttonId).innerHTML = "Loading...";
+            }
+        }
+        httpReq.open("GET", "../php/functionCases.php?type=RemoveFavorite&restId=" + restId);
+        httpReq.send(null);
     }
-    
     
 }
 
+
+
+
+//  This function will add a restaurant as favorite
+//function favoriteThisRestaurant(restId){
+//    
+//    var b = document.getElementById("favButton");
+//    
+//    if(b.value == "false"){
+//       var httpReq = createRequestObject();
+//        httpReq.onreadystatechange = function(){
+//            if(this.readyState == 4 && this.status == 200){
+//                console.log(this.responseText);
+//                if(this.responseText == true){
+//                    var t = document.createTextNode("Added to Favorite");
+//                    b.innerHTML = "";
+//                    b.appendChild(t);
+//                    b.value = "true";
+//                    
+//                }else{
+//                     var t = document.createTextNode("Add to Favorite");
+//                    b.innerHTML = "";
+//                    b.appendChild(t);
+//                    b.value = "false";
+//                }
+//
+//            }
+//        }
+//        httpReq.open("GET", "../php/addFavorite.php?restId="+restId, true);
+//        httpReq.send(null);
+//    }else{
+//        alert("Will write function for unfavorite");
+//    }
+//    
+//    
+//}
+
 //  This function will set the favorite button text onload of the page
-function checkForFavorite(favBool){
-    //alert(favBool);
-    
-    var btn = document.getElementById("favButton");
-    
-    if (favBool == true){
-        var t = document.createTextNode("Added to Favorite");
-        btn.appendChild(t);
-        btn.value = "true";
-    }else{
-        var t = document.createTextNode("Add to Favorite");
-        btn.appendChild(t);
-        btn.value = "false";
-    }
-}
+//function checkForFavorite(favBool){
+//    //alert(favBool);
+//    
+//    var btn = document.getElementById("favButton");
+//    
+//    if (favBool == true){
+//        var t = document.createTextNode("Added to Favorite");
+//        btn.appendChild(t);
+//        btn.value = "true";
+//    }else{
+//        var t = document.createTextNode("Add to Favorite");
+//        btn.appendChild(t);
+//        btn.value = "false";
+//    }
+//}
 
 
 
@@ -709,17 +763,17 @@ function turnFieldToRedColorBorder(elementName){
     elementName.classList.add("is-invalid");
 }
 
-//  This function is called when the login modal opener button is called
-function loginModalOpener(){
-    
-    var loginUsername = document.getElementById('username_login');
-    var loginPassword = document.getElementById('password_login');
-    
-//    if(loginUsername.value == ""){
-//       turnFieldToNormalColorBorder(loginUsername);
-//    }
+////  This function is called when the login modal opener button is called
+//function loginModalOpener(){
 //    
-//    if(loginPassword.value == ""){
-//        turnFieldToNormalColorBorder(loginPassword);
-//    }
-}
+//    var loginUsername = document.getElementById('username_login');
+//    var loginPassword = document.getElementById('password_login');
+//    
+////    if(loginUsername.value == ""){
+////       turnFieldToNormalColorBorder(loginUsername);
+////    }
+////    
+////    if(loginPassword.value == ""){
+////        turnFieldToNormalColorBorder(loginPassword);
+////    }
+//}
