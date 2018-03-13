@@ -1,8 +1,8 @@
-# Ciphers: A Restaurant Search Application
+# Ciphers: A Dish Suggestion App
 
-The repository contains all of the necessary code files to run this Restaurant Search application. This was created as a project for the IT490-104, Systems Integration at NJIT. Users will be able to find restaurants around the world. Users can view list of restaurants, restaurant’s menu, and can suggest their favorite dishes to add to the restaurant's menu. Users are also able to rate and review the restaurant. You can see technologies used in the project below.
+The repository contains all of the necessary code files to run this Dish Suggestion application. This was created as a project for IT490-104, Systems Integration at NJIT under Donald Kehoe. Users will be able to find restaurants around the world. Users can view list of restaurants, restaurant’s menu, add restaurants to favorite list and can suggest their new dishes to add to the restaurant's menu. Users are also able to rate and review the restaurant. You can see technologies used in the project below.
 
-* Front End: PHP, HTML, CSS (Bootstrap), JavaScript
+* Front End: PHP, HTML, CSS, JavaScript and Bootstrap
 * Backend: PHP
 * Technologies: RabbitMQ, MySQL, GIT
 * Restaurants Data Source: Zomato
