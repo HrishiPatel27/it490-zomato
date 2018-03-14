@@ -63,10 +63,7 @@ Following shows the instructions on how to set up the files and listener files t
 ## Zomato
 
 * We would like to thank Zomato for providing us with API access free of use for this project. Feature requests for the Zomato Restaurants Data API, available [here](https://www.zomato.com).
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+ 
 
 ## Authors
 
