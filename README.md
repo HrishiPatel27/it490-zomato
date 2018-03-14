@@ -25,6 +25,9 @@ Following shows the instructions on how to set up the files and listener files t
     * rmqExchange and bind rmqQueue to it
   * In terminal start /rabbitmq/error_log/rmqListener.php (this will start listening to the errors sent from all servers)
 * DB:
+  * Database backup is in db/db_backup.sql
+    * User: root
+    * Password: hrishi123
   * Change /db/rabbitmqphp_example/rabbitMQ_db.ini file and assign BROKER_HOST the IP address of RabbitMQ server
   * Change /db/rabbitmqphp_example/rabbitMQ_dmz.ini file and assign BROKER_HOST the IP address of RabbitMQ server
   * Change /db/rabbitmqphp_example/rabbitMQ_rmq.ini file and assign BROKER_HOST the IP address of RabbitMQ server
