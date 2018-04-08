@@ -1,49 +1,22 @@
 <?php 
-    //Error logging
-    error_reporting(E_ALL);
 
-    ini_set('display_errors', 'off');
-    ini_set('log_errors', 'On');
-    ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
-
-    logAndSendErrors();
     //Requried files
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
     require_once('rabbitMQClient.php');
     require_once('dbConnection.php');
+    //Error logging
+    error_reporting(E_ALL);
+
+    ini_set('display_errors', 'off');
+    ini_set('log_errors', 'On');
+    ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
+//
+    //logAndSendErrors();
 
     //Error loggon
-    function logAndSendErrors(){
-        
-        $file = fopen("../logging/log.txt","r");
-        $errorArray = [];
-        while(! feof($file)){
-            array_push($errorArray, fgets($file));
-        }
-        for($i = 0; $i < count($errorArray); $i++){
-            echo $errorArray[$i];
-            echo "<br>";
-        }
-
-        fclose($file);
-
-
-        $request = array();
-        $request['type'] = "frontend";  
-        $request['error_string'] = $errorArray;
-        $returnedValue = createClientForRmq($request);
-
-        $fp = fopen("../logging/logHistory.txt", "a");
-        for($i = 0; $i < count($errorArray); $i++){
-            fwrite($fp, $errorArray[$i]);
-        }
-
-        file_put_contents("../logging/log.txt", "");
-
-
-    }
+    
     //Function for loggin user in the system and authentication
     function doLogin($username, $password){
         
@@ -363,6 +336,7 @@
 
         $returnedValue = createClientForDmz($request);
         echo "Leaving dmz with data";
+        echo var_dump($returnedValue);
         return $returnedValue;
         
     }
@@ -427,7 +401,12 @@
         
         $addreview_query = "INSERT INTO review VALUES ('$username', '$restaurant_id', '$review_text', '$review_rating')";
         $result = $connection->query($addreview_query);
-        return true;
+        if($result == true){
+           return true; 
+        }else{
+            return false;
+        }
+        
     }
 
     //This function fetches individual restaurant info
