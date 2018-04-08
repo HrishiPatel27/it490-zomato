@@ -1,21 +1,25 @@
 <?php
     
-    
-    //  Error logging
+
+//  Error logging
     error_reporting(E_ALL);
     
     ini_set('display_errors', 'Off');
     ini_set('log_errors', 'On');
     ini_set('error_log', dirname(__FILE__). '/../logging/log.txt');
 
-    logAndSendErrors();
+    //  Including required files
+    include("functions.php");
+
+    
+
+    //logAndSendErrors();
     
 
     //  Starting session
     session_start();
 
-    //  Including required files
-    include("functions.php");
+    
     
     //  Trowing out the user if the user is not looged in and trying to fetch this page
     gateway();
@@ -30,10 +34,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+      
+      <!-- Bootstrap local -->
+          <link rel = "stylesheet" href = "../bootstrap/css/bootstrap.min.css">
 
     <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Barlow:400,700" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Barlow:400,700" rel="stylesheet">-->
 
     <!-- Custom CSS  -->
     <link rel="stylesheet" href="../css/styles.css">
@@ -416,7 +423,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+      
+      <!--Local Bootstrap JS -->
+          <script src = "../bootstrap/js/bootstrap.min.js">
+              
+          </script>
   
       
       <script
