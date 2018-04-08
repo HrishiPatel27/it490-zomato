@@ -6,36 +6,36 @@
 	require_once('testAPI.php');
 
 
-	//  This function will log errors
-    function logAndSendErrors(){
-        
-        $file = fopen("../logging/log.txt","r");
-        $errorArray = [];
-        while(! feof($file)){
-            array_push($errorArray, fgets($file));
-        }
-        for($i = 0; $i < count($errorArray); $i++){
-            echo $errorArray[$i];
-            echo "<br>";
-        }
-
-        fclose($file);
-
-
-        $request = array();
-        $request['type'] = "frontend";  
-        $request['error_string'] = $errorArray;
-        $returnedValue = createClientForRmq($request);
-
-        $fp = fopen("../logging/logHistory.txt", "a");
-        for($i = 0; $i < count($errorArray); $i++){
-            fwrite($fp, $errorArray[$i]);
-        }
-
-        file_put_contents("../logging/log.txt", "");
-
-
-    }
+//	//  This function will log errors
+//    function logAndSendErrors(){
+//        
+//        $file = fopen("../logging/log.txt","r");
+//        $errorArray = [];
+//        while(! feof($file)){
+//            array_push($errorArray, fgets($file));
+//        }
+//        for($i = 0; $i < count($errorArray); $i++){
+//            echo $errorArray[$i];
+//            echo "<br>";
+//        }
+//
+//        fclose($file);
+//
+//
+//        $request = array();
+//        $request['type'] = "frontend";  
+//        $request['error_string'] = $errorArray;
+//        $returnedValue = createClientForRmq($request);
+//
+//        $fp = fopen("../logging/logHistory.txt", "a");
+//        for($i = 0; $i < count($errorArray); $i++){
+//            fwrite($fp, $errorArray[$i]);
+//        }
+//
+//        file_put_contents("../logging/log.txt", "");
+//
+//
+//    }
 
 
  	function restaurantInfo($city_name, $state_name, $cuisine_id){
@@ -139,7 +139,7 @@
 			if($rest_city == $city_name){
 				$id = @$restaurants['restaurant']['id'];
 				$name = @$restaurants['restaurant']['name'];
-				$url = @$restaurants['restaurant']['url'];
+				$url = @$restaurants['restaurant']['menu_url'];
 				$thumb =@$restaurants['restaurant']['thumb'];
 				$address = @$restaurants['restaurant']['location']['address'];
 				$city_id = @$restaurants['restaurant']['location']['city_id'];
@@ -150,6 +150,7 @@
 			}
 		}
 		//echo $rest_name;
+		echo var_dump($rest);
 		return $rest;
   }
 
