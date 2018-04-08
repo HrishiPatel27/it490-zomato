@@ -1,0 +1,20 @@
+[25-Mar-2018 20:24:27 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/dmzListener.php(42): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[25-Mar-2018 21:05:08 America/New_York] PHP Notice:  Undefined variable: names in /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/testAPI.php on line 75
+[25-Mar-2018 21:29:11 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function find() on boolean in /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/testAPI.php:53
+Stack trace:
+#0 /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/dmzListener.php(30): getMenu('https://www.zom...')
+#1 /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc(58): requestProcessor(Array)
+#2 [internal function]: rabbitMQServer->process_message(Object(AMQPEnvelope), Object(AMQPQueue))
+#3 /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#4 /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/dmzListener.php(42): rabbitMQServer->process_requests('requestProcesso...')
+#5 {main}
+  thrown in /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/testAPI.php on line 53
+[25-Mar-2018 21:34:41 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/dmzListener.php(42): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/ajay/Downloads/DMZ/it490-zomato/dmz/rabbitmqphp_example/rabbitMQLib.inc on line 132
