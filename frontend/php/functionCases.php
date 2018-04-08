@@ -7,13 +7,6 @@
     ini_set('log_errors', 'On');
     ini_set('error_log', dirname(__FILE__). '/../logging/log.txt');
 
-    logAndSendErrors();
-
-
-    //  This function starts session
-    session_start();
-
-    //   Include required files needed to connect with RabbitMQ
     require_once('../rabbitmqphp_example/path.inc');
     require_once('../rabbitmqphp_example/get_host_info.inc');
     require_once('../rabbitmqphp_example/rabbitMQLib.inc');
@@ -21,6 +14,19 @@
 
     //  This function includes a file for functions
     include("functions.php");
+    
+    
+
+    //logAndSendErrors();
+
+
+    //  This function starts session
+    session_start();
+
+    //   Include required files needed to connect with RabbitMQ
+    
+
+    
 
     //  Variable for type
     $type = $_GET["type"];
