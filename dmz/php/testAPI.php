@@ -41,7 +41,7 @@
 
         //Returns the scrapped string of menu
 		//NOTE: Change the file path if running on your system
-        $result = curl_download('file:///home/ajay/Documents/it490-zomato/DMZ/php/menu.html');
+        $result = curl_download('file:///home/ajay/Downloads/DMZ/it490-zomato/dmz/php/menu.html');
 
         //echo gettype($result);
         $class_name = "tmi-name";

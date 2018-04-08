@@ -1,0 +1,445 @@
+[26-Mar-2018 18:44:22 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/ajay/Downloads/DMZ/it490-zomato/dmz/php/dmzFunctions.php on line 92
+[27-Mar-2018 20:23:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 18
+[27-Mar-2018 20:23:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 18
+[27-Mar-2018 20:23:59 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 18
+[27-Mar-2018 20:25:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:25:27 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:28:47 America/New_York] PHP Notice:  Undefined variable: data in /home/ajay/Downloads/test.php on line 10
+[27-Mar-2018 20:28:47 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:28:52 America/New_York] PHP Notice:  Undefined variable: data in /home/ajay/Downloads/test.php on line 10
+[27-Mar-2018 20:28:52 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:29:04 America/New_York] PHP Notice:  Undefined variable: data in /home/ajay/Downloads/test.php on line 10
+[27-Mar-2018 20:29:04 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:29:31 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:34:59 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:35:22 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:42:27 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:42:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:42:40 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 20:54:36 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 16
+[27-Mar-2018 20:56:52 America/New_York] PHP Notice:  Undefined variable: xmldata in /home/ajay/Downloads/test.php on line 14
+[27-Mar-2018 20:58:04 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 22
+[27-Mar-2018 20:58:12 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 22
+[27-Mar-2018 20:58:26 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 22
+[27-Mar-2018 20:58:32 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 22
+[27-Mar-2018 20:58:45 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 20:58:46 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 20:58:47 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 20:59:00 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 20:59:01 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 20:59:02 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 20:59:17 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 21:00:30 America/New_York] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ajay/Downloads/test.php on line 17
+[27-Mar-2018 21:02:09 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 21:02:18 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[27-Mar-2018 21:02:20 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[30-Mar-2018 18:47:10 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[30-Mar-2018 18:47:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[30-Mar-2018 18:47:39 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[30-Mar-2018 18:47:50 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[30-Mar-2018 18:49:35 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[30-Mar-2018 18:49:54 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[30-Mar-2018 18:49:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 14:29:26 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 14:30:18 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 14:39:31 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simpleXmlElement() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 14:40:03 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simpleXmlElement() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 15:11:33 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_file() in /home/ajay/Downloads/test1.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test1.php on line 5
+[31-Mar-2018 17:27:23 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simpleXmlElement() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 17:27:34 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simpleXmlElement() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 17:29:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 13
+[31-Mar-2018 17:33:49 America/New_York] PHP Notice:  Undefined variable: result in /home/ajay/Downloads/test.php on line 21
+[31-Mar-2018 18:05:50 America/New_York] PHP Parse error:  syntax error, unexpected ''id];' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/ajay/Downloads/test.php on line 22
+[31-Mar-2018 18:07:51 America/New_York] PHP Parse error:  syntax error, unexpected ''id];' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/ajay/Downloads/test.php on line 22
+[31-Mar-2018 20:51:26 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 28
+[31-Mar-2018 20:51:53 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 28
+[31-Mar-2018 20:51:55 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 28
+[31-Mar-2018 20:54:03 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 28
+[31-Mar-2018 20:55:27 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 20:55:28 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 20:56:10 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 20:56:13 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 21:09:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 21:09:25 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 21:10:46 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 21:11:31 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 30
+[31-Mar-2018 21:12:13 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 29
+[31-Mar-2018 21:13:33 America/New_York] PHP Notice:  Undefined variable: json_response in /home/ajay/Downloads/test.php on line 29
+[31-Mar-2018 21:13:33 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on null in /home/ajay/Downloads/test.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 29
+[31-Mar-2018 21:15:44 America/New_York] PHP Notice:  Undefined variable: json_response in /home/ajay/Downloads/test.php on line 33
+[31-Mar-2018 21:15:44 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on null in /home/ajay/Downloads/test.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 33
+[31-Mar-2018 21:16:50 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 33
+[31-Mar-2018 21:17:23 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:17:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:18:59 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:19:12 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:19:36 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:20:54 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:23:39 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:24:51 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:28:01 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 34
+[31-Mar-2018 21:28:51 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 34
+[31-Mar-2018 21:30:22 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 34
+[31-Mar-2018 21:35:34 America/New_York] PHP Notice:  Undefined variable: array in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 21:35:34 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 34
+[31-Mar-2018 21:35:55 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 34
+[31-Mar-2018 21:36:22 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 34
+[31-Mar-2018 21:44:46 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ']' in /home/ajay/Downloads/test.php on line 47
+[31-Mar-2018 21:45:07 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ']' in /home/ajay/Downloads/test.php on line 47
+[31-Mar-2018 21:45:23 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ']' in /home/ajay/Downloads/test.php on line 47
+[31-Mar-2018 21:45:39 America/New_York] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ']' in /home/ajay/Downloads/test.php on line 47
+[31-Mar-2018 22:30:38 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/ajay/Downloads/test.php on line 73
+[31-Mar-2018 22:30:38 America/New_York] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ajay/Downloads/test.php:13) in /home/ajay/Downloads/test.php on line 85
+[31-Mar-2018 22:31:24 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 73
+[31-Mar-2018 22:31:31 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 73
+[31-Mar-2018 22:31:44 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/ajay/Downloads/test.php on line 73
+[31-Mar-2018 22:31:44 America/New_York] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ajay/Downloads/test.php:13) in /home/ajay/Downloads/test.php on line 85
+[31-Mar-2018 22:33:57 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/ajay/Downloads/test.php on line 73
+[31-Mar-2018 22:33:57 America/New_York] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ajay/Downloads/test.php:13) in /home/ajay/Downloads/test.php on line 85
+[31-Mar-2018 22:35:12 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/ajay/Downloads/test.php on line 73
+[31-Mar-2018 22:35:12 America/New_York] PHP Notice:  Undefined variable: y in /home/ajay/Downloads/test.php on line 82
+[31-Mar-2018 22:35:12 America/New_York] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ajay/Downloads/test.php:13) in /home/ajay/Downloads/test.php on line 85
+[31-Mar-2018 22:39:14 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Zend_Json' not found in /home/ajay/Downloads/test.php:61
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 61
+[31-Mar-2018 22:39:41 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Zend_Json' not found in /home/ajay/Downloads/test.php:61
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 61
+[31-Mar-2018 22:40:14 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Zend_Json' not found in /home/ajay/Downloads/test.php:61
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 61
+[31-Mar-2018 22:48:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:49:10 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:51:33 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:51:53 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:52:37 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:53:11 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:53:51 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:54:11 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:54:22 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:54:41 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:63
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 63
+[31-Mar-2018 22:54:55 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 67
+[31-Mar-2018 22:55:48 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 67
+[31-Mar-2018 22:56:01 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 67
+[31-Mar-2018 22:58:52 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 67
+[31-Mar-2018 23:00:05 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 67
+[31-Mar-2018 23:01:10 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:01:13 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:01:21 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function children() on string in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:05:47 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_file() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:06:03 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_file() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:06:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_file() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:06:32 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_file() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:07:04 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_file() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:07:08 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_file() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:08:20 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:08:38 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:09:12 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:10:13 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 69
+[31-Mar-2018 23:11:37 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 23:11:48 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function simplexml_load_string() in /home/ajay/Downloads/test.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/ajay/Downloads/test.php on line 32
+[31-Mar-2018 23:31:57 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 382
+[31-Mar-2018 23:33:17 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 383
+[31-Mar-2018 23:33:22 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 383
+[31-Mar-2018 23:34:09 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 384
+[31-Mar-2018 23:34:21 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 384
+[31-Mar-2018 23:34:30 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 384
+[31-Mar-2018 23:36:50 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 384
+[31-Mar-2018 23:36:53 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 384
+[31-Mar-2018 23:37:00 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 384
+[31-Mar-2018 23:37:09 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/ajay/Downloads/etest.php on line 384
+[02-Apr-2018 22:15:04 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:15:04 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:16:27 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:16:27 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:16:57 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:16:57 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:18:28 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:19:41 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:19:41 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 5
+[02-Apr-2018 22:23:51 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:23:51 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:24:36 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:24:36 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:24:37 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:24:37 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:01 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:01 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:20 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:20 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:32 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:32 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:47 America/New_York] PHP Notice:  Undefined variable: q in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:25:47 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:26:24 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:26:41 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:26:53 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:27:10 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:27:29 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:27:47 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[02-Apr-2018 22:27:50 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
+[07-Apr-2018 15:52:47 America/New_York] PHP Notice:  Undefined variable: key in /home/ajay/Downloads/test.php on line 6
