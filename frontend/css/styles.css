@@ -3,6 +3,17 @@
 */
 
 
+.rowsMyProfile{
+    padding: 15px;
+    background-color: #F9F9F9;
+    margin-top: 15px;
+}
+
+.myProfileSuggestionCade{
+    padding: 20px;
+    
+}
+
 #row1Unique{
 /*    background-color: red;*/
     margin-top: 25px;

@@ -32,6 +32,8 @@
     $request['username'] = $_SESSION["username"];
 
     $data = createClientForDb($request);
+
+//    echo var_dump($data);
     
 
 ?>
@@ -80,41 +82,112 @@
       </div>
     </nav>
     
-        <h1><?php echo $_SESSION["username"]; ?></h1>
         
-        <h2>Suggestions by <?php echo $_SESSION["username"]; ?>:</h2>
-        <?php for($i = 0; $i < count($data["suggestions"]); $i++){ ?>
-            <b>Restaurant Name: </b> <?php echo $data["suggestions"][$i]["restaurant_name"]; ?>
-            <br>    
-            <b>Dish Name: </b> <?php echo  $data["suggestions"][$i]["dish_name"]; ?>
-            <br>    
-            <b>Suggestion: </b> <?php echo  $data["suggestions"][$i]["suggestion"]; ?>
-            <br><br>
-        <?php } ?>
         
-        <br>
+        <!-- Username -->
+        <div class = "row rowsMyProfile">
+            <div class = "col-lg-12">
+                <h2>Welcome, <?php echo $_SESSION["username"]; ?></h2>
+            </div>
+        </div>
         
-        <h2>Reviews <?php echo $_SESSION["username"]; ?>:</h2>
-        <?php for($i = 0; $i < count($data["reviews"]); $i++){ ?>
-            <b>Restaurant Name: </b> <?php echo $data["reviews"][$i]["restaurant_name"]; ?>
-            <br>    
-            <b>Rating: </b> <?php echo  $data["reviews"][$i]["review_rating"]; ?>
-            <br>    
-            <b>Review: </b> <?php echo  $data["reviews"][$i]["review_text"]; ?>
-            <br><br>
-        <?php } ?>
+        <!-- Suggestions -->
+        <div class = "row rowsMyProfile">
+            <div class = "col-lg-12">
+                <h2>Suggestions by <?php echo $_SESSION["username"]; ?></h2>
+            </div>
+            
+            <div class = "col-lg-12" >
+                <div class = "row">
+
+                    <?php if($data["suggestions"][0]["restaurant_name"] == "false"){ ?>
+                        <div class = "col-lg-12">
+                            <div class = "custom-card myProfileSuggestionCade" style = "text-align: center;">
+                                <h4>You have not suggested anything yet</h4>
+                            </div>
+                        </div>
+                    <?php }else { ?>
+                    <!-- Loop starts here -->
+                    <?php for($i = 0; $i < count($data["suggestions"]); $i++){ ?>
+                    <div class = "col-lg-3">
+                        <div class = "custom-card myProfileSuggestionCade">
+                            <h4><b><?php echo $data["suggestions"][$i]["restaurant_name"]; ?></b></h4>
+                            <h5><?php echo  $data["suggestions"][$i]["dish_name"]; ?></h5>
+                            <p><?php echo  $data["suggestions"][$i]["suggestion"]; ?></p>
+                        </div>
+                    </div>
+                    <?php } }?>
+                    <!-- Loop ends here -->
+                    
+                </div>
+            </div>
+        </div>
         
-        <br>
+        <!--  Reviews -->
+        <div class = "row rowsMyProfile">
+            <div class = "col-lg-12">
+                <h2>Reviews by <?php echo $_SESSION["username"]; ?>:</h2>
+            </div>
+            
+            <div class = "col-lg-12">
+                <div class = "row">
+
+                    <?php if($data["reviews"][0]["restaurant_name"] == "false"){ ?>
+                        <div class = "col-lg-12">
+                            <div class = "custom-card myProfileSuggestionCade" style = "text-align: center;">
+                                <h4>You have not given reviews to any restaurant yet</h4>
+                            </div>
+                        </div>
+                    <?php }else { ?>
+                    <!-- Loop starts here -->
+                    <?php for($i = 0; $i < count($data["reviews"]); $i++){ ?>
+                    <div class = "col-lg-3">
+                        <div class = "custom-card myProfileSuggestionCade">
+                            <h4><b><?php echo $data["reviews"][$i]["restaurant_name"]; ?></b></h4>
+                            <h5><?php echo  $data["reviews"][$i]["review_rating"]; ?></h5>
+                            <p><?php echo  $data["reviews"][$i]["review_text"]; ?></p>
+                        </div>
+                    </div>
+                    <?php } }?>
+                    <!-- Loop ends here -->
+                    
+                </div>
+            </div>
+        </div>
         
-        <h2><?php echo $_SESSION["username"]; ?>'s favorites:</h2>
-        <?php for($i = 0; $i < count($data["favorites"]); $i++){ ?>
-            <b>Restaurant Name: </b>
-            <a href = "restaurantHome.php?restId=" <?php echo $data["favorites"][$i]["restaurant_id"]; ?>>
-                <?php echo $data["favorites"][$i]["restaurant_name"]; ?>
-            </a>
-        <br>
-        <?php } ?>
-        
+        <!-- Favorites -->
+        <div class = "row rowsMyProfile">
+            <div class = "col-lg-12">
+                <h2>Favorites of <?php echo $_SESSION["username"]; ?>:</h2>
+            </div>
+            
+            <div class = "col-lg-12">
+                <div class = "row">
+                    
+                    <?php if($data["favorites"][0]["restaurant_id"] == "false"){ ?>
+                        <div class = "col-lg-12">
+                            <div class = "custom-card myProfileSuggestionCade" style = "text-align: center;">
+                                <h4>You don't have any favorites yet</h4>
+                            </div>
+                        </div>
+                    <?php }else { ?>
+                    <!-- Loop starts here -->
+                    <?php for($i = 0; $i < count($data["favorites"]); $i++){ ?>
+                    <div class = "col-lg-3">
+                        <?php $restIdLink = "restaurantHome.php?restId=" .  $data["favorites"][$i]["restaurant_id"]; ?>
+                        
+                        <div class = "custom-card myProfileSuggestionCade">
+                            <h4><a href = "<?php echo $restIdLink; ?>"  >              
+                                
+                            <?php echo $data["favorites"][$i]["restaurant_name"]; ?>
+                            </a></h4>
+                        </div>
+                    </div>
+                    <?php } }?>
+                    <!-- Loop ends here -->
+                </div>
+            </div>
+        </div>
         
     </body>
     
