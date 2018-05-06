@@ -33,11 +33,11 @@ pwd
 ls
 
 #send .tar file to deployment server
-sshpass -p "12345" scp fe_$version.tar jay@192.168.1.11:/home/jay/bundles
+sshpass -p "12345" rsync -v -e ssh fe_$version.tar jay@192.168.1.6:/home/jay/Documents/deployment/bundles
 rm -rf fe_$version.tar
 
 #runs php script with 4 arguments php /home/$USER/bin/deployFunctions.php "package" "$tardir" "$heckStatus" "latest"
-sshpass -p "12345" ssh jay@192.168.1.11 "php -f /home/jay/Documents/deployment/php/functions.php 'bundle' '$tardir' '$status' 'fe'"
+#sshpass -p "12345" ssh jay@192.168.1.6 "php -f /home/jay/Documents/deployment/php/functions.php 'bundle' '$tardir' '$status' 'fe'"
 
 
 ls
